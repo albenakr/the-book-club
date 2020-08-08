@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,23 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
+SOCIALACCOUNT_PROVIDERS = \
+    {'facebook':
+        {'METHOD': 'oauth2',
+            'SCOPE': ['email'],
+            'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+            'FIELDS': [
+                'email',
+                'first_name',
+                'last_name',
+                'locale', ],
+            'EXCHANGE_TOKEN': True,
+            'LOCALE_FUNC': lambda request: 'kr_KR',
+            'VERIFIED_EMAIL': False,
+            'VERSION': 'v2.4'}}
+
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -89,7 +106,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/success'
 
 WSGI_APPLICATION = 'book_club.wsgi.application'
 
