@@ -9,7 +9,20 @@ body {
     color: #555;
     font-family: 'Open Sans', sans-serif;}
 
+.navigation-bar {
+    padding: 0;
+}
+
 .header-container {
         margin-top: 164px;
     }
 
+
+/* -------------------------------- Media Queries */
+
+/* Icons in main navbar to align center on larger screens*/
+
+@media (min-width: 900px) {
+.icon {
+    text-align: center;
+}

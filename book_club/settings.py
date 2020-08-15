@@ -76,6 +76,10 @@ TEMPLATES = [
     },
 ]
 
+# facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '340493576966378'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'b602c3a728595e11b87810ae756a1e75'  # app key
+
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
