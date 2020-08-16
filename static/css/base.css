@@ -9,6 +9,7 @@ body {
     color: #555;
     font-family: 'Open Sans', sans-serif;}
 
+
 .navigation-bar {
     padding: 0;
 }
@@ -16,6 +17,10 @@ body {
 .header-container {
         margin-top: 164px;
     }
+
+.navbar-content-options {
+    background-color: #64bd96;
+}
 
 
 /* -------------------------------- Media Queries */
