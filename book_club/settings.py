@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'home'
+    'home',
+    'products',
 ]
 
 MIDDLEWARE = [
@@ -76,9 +76,6 @@ TEMPLATES = [
     },
 ]
 
-# facebook
-SOCIAL_AUTH_FACEBOOK_KEY = '340493576966378'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = 'b602c3a728595e11b87810ae756a1e75'  # app key
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -89,21 +86,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
-
-SOCIALACCOUNT_PROVIDERS = \
-    {'facebook':
-        {'METHOD': 'oauth2',
-            'SCOPE': ['email'],
-            'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-            'FIELDS': [
-                'email',
-                'first_name',
-                'last_name',
-                'locale', ],
-            'EXCHANGE_TOKEN': True,
-            'LOCALE_FUNC': lambda request: 'kr_KR',
-            'VERIFIED_EMAIL': False,
-            'VERSION': 'v2.4'}}
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
