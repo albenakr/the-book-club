@@ -1,0 +1,72 @@
+[
+  {
+    "pk": 1,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "Le Père Goriot",
+      "author": "Honoré de Balzac",
+      "publication_year": 1834,
+      "book_description": "Le Père Goriot is an 1835 novel by French novelist and playwright Honoré de Balzac, included in the Scènes de la vie privée section of his novel sequence La Comédie humaine.",
+      "price": 12.99,
+      "image": "peregoriot.jpg"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 2,
+      "title": "The Colour of Magic",
+      "author": "Terry Pratchett",
+      "publication_year": 1983,
+      "book_description": "The Colour of Magic is a 1983 fantasy comedy novel by Terry Pratchett, and is the first book of the Discworld series. The first printing of the British edition consisted of only 506 copies. Pratchett has described it as \"an attempt to do for the classical fantasy universe what Blazing Saddles did for Westerns.",
+      "price": 14.99,
+      "image": "thecolourofmagic.jpg"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.book",
+    "fields": {
+    "language": 1,
+    "genre": 2,
+    "title": "Mort",
+    "author": "Terry Pratchett",
+    "publication_year": 1987,
+    "book_description": "Mort is a fantasy novel by British writer Terry Pratchett. Published in 1987, it is the fourth Discworld novel and the first to focus on the character Death, who only appeared as a side character in the previous novels.",
+    "price": 12.99,
+    "image": "mort.jpg"
+  }
+  },
+  {
+    "pk": 4,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "The Shining",
+      "author": "Stephen King",
+      "publication_year": 1977,
+      "book_description": "The Shining is a horror novel by American author Stephen King. Published in 1977, it is King's third published novel and first hardback bestseller: the success of the book firmly established King as a preeminent author in the horror genre.",
+      "price": 13.99,
+      "image": "theshining.jpg"
+    }
+  },
+   {
+    "pk": 5,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 5,
+      "title": "The Picture of Dorian Gray",
+      "author": "Oscar Wilde",
+      "publication_year": 1890,
+      "book_description": "The Picture of Dorian Gray is a Gothic and philosophical novel by Oscar Wilde, first published complete in the July 1890 issue of Lippincott's Monthly Magazine. Fearing the story was indecent, prior to publication the magazine's editor deleted roughly five hundred words without Wilde's knowledge.",
+      "price": 13.99,
+      "image": "doriangray.jpg"
+    }
+  }
+]
