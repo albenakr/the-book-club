@@ -3,19 +3,27 @@ html {
 }
 
 body {
-    background: url('/media/stanislav-kondratiev-6pO3QFkk7hQ-unsplash.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: calc(100vh - 164px);
     color: #555;
     font-family: 'Open Sans', sans-serif;}
 
+.home-header-container {
+    background: url('/media/stanislav-kondratiev-6pO3QFkk7hQ-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin-top: 128px;
+    height: 100vh;
+}
+
+.shop-books-button {
+    margin-top: 10rem;
+    float: right;
+}
 
 .navigation-bar {
     padding: 0;
 }
 
 .header-container {
-        margin-top: 164px;
+        margin-top: 128px;
     }
 
 .books-container {    
