@@ -18,6 +18,26 @@ body {
         margin-top: 164px;
     }
 
+.books-container {    
+    margin-top: 164px;
+}
+/*  Book Cards */
+
+.book-card {
+    margin-bottom: 5rem;
+    width: 18rem;
+    height: 40rem;
+}
+
+.book-image-card {
+    width: 18rem;
+    height: 26rem;
+}
+
+.btn-book-card {
+    float: right;
+}
+
 .navbar-content-options {
     background-color: #64bd96;
 }

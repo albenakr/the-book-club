@@ -68,5 +68,201 @@
       "price": 13.99,
       "image": "doriangray.jpg"
     }
+  },
+  {
+    "pk": 6,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 1,
+      "title": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "publication_year": 2011,
+      "book_description": "Sapiens: A Brief History of Humankind is a book by Yuval Noah Harari, first published in Hebrew in Israel in 2011 based on a series of lectures Harari taught at The Hebrew University of Jerusalem, and in English in 2014. ",
+      "price": 16.99,
+      "image": "sapiens.png"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 1,
+      "title": "Homo Deus",
+      "author": "Yuval Noah Harari",
+      "publication_year": 2015,
+      "book_description": "Homo Deus: A Brief History of Tomorrow is a book written by Israeli author Yuval Noah Harari, professor at the Hebrew University in Jerusalem. ",
+      "price": 17.99,
+      "image": "homodeus.jpg"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 1,
+      "title": "21 Lessons for the 21st Century",
+      "author": "Yuval Noah Harari",
+      "publication_year": 2018,
+      "book_description": "21 Lessons for the 21st Century is a book written by bestseller Israeli author Yuval Noah Harari and published in August 2018 by Spiegel & Grau in the US and by Jonathan Cape in the UK.",
+      "price": 17.99,
+      "image": "21lessons.jpg"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 1,
+      "title": "Bad Blood: Secrets and Lies in a Silicon Valley Startup",
+      "author": "John Carreyrou",
+      "publication_year": 2018,
+      "book_description": "Bad Blood: Secrets and Lies in a Silicon Valley Startup is a nonfiction book by journalist John Carreyrou, released May 21, 2018. It covers the rise and fall of Theranos, the multibillion-dollar biotech startup headed by Elizabeth Holmes.",
+      "price": 14.99,
+      "image": "badblood.jpg"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 1,
+      "title": "The Man Who Solved the Market",
+      "author": "Gregory Zuckerman",
+      "publication_year": 2019,
+      "book_description": "Bestselling author and veteran Wall Street Journal reporter Zuckerman answers the question investors have been asking for decades: How did Jim Simons do it? Simons is the greatest money maker in modern financial history.",
+      "price": 17.99,
+      "image": "manmarket.jpg"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 1,
+      "title": "How Judges Think",
+      "author": "Richard Posner",
+      "publication_year": 2008,
+      "book_description": "A distinguished and experienced appellate court judge, Posner offers in this new book a unique and, to orthodox legal thinkers, a startling perspective on how judges and justices decide cases.",
+      "price": 17.99,
+      "image": "howjudgesthink.png"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 1,
+      "title": "Competing Against Luck: The Story of Innovation and Customer Choice",
+      "author": "Clayton M. Christensen, Taddy Hall, Karen Dillon, David S. Duncan",
+      "publication_year": 2016,
+      "book_description": "The foremost authority on innovation and growth presents a path-breaking book every company needs to transform innovation from a game of chance to one in which they develop products and services customers not only want to buy, but are willing to pay premium prices for.How do companies know how to grow?",
+      "price": 12.99,
+      "image": "luck.jpg"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 1,
+      "title": "Good Economics for Hard Times",
+      "author": "Abhijit Banerjee and Esther Duflo",
+      "publication_year": 2019,
+      "book_description": "Good Economics for Hard Times: Better Answers to Our Biggest Problems is a non-fiction book by Abhijit V. Banerjee and Esther Duflo, both professors of Economics at MIT. It was published on November 12, 2019 by PublicAffairs, Juggernaut Books and Allen Lane.",
+      "price": 12.99,
+      "image": "goodeconomics.jpg"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 4,
+      "title": " Le Petit Prince",
+      "author": "Antoine de Saint-Exupéry",
+      "publication_year": 1943,
+      "book_description": "The Little Prince is a novella by French aristocrat, writer, and aviator Antoine de Saint-Exupéry. It was first published in English and French in the US by Reynal & Hitchcock in April 1943, and posthumously in France following the liberation of France as Saint-Exupéry's works had been banned by the Vichy Regime.",
+      "price": 11.99,
+      "image": "petitprince.jpg"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "Eugénie Grandet",
+      "author": "Honoré de Balzac",
+      "publication_year": 1833,
+      "book_description": "Eugénie Grandet is a novel first published in 1833[1] by French author Honoré de Balzac. While he was writing it he conceived his ambitious project, The Human Comedy, and almost immediately prepared a second edition, revising the names of some of the characters so that Eugénie Grandet then fitted into the section: Scenes from provincial life (Scènes de la vie de province) in the Comédie.",
+      "price": 12.99,
+      "image": "eugeniegrandet.jpg"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "Du contrat social",
+      "author": "Jean-Jacques Rousseau",
+      "publication_year": 1762,
+      "book_description": "The Social Contract, originally published as On the Social Contract; or, Principles of Political Rights (French: Du contrat social; ou Principes du droit politique) by Jean-Jacques Rousseau, is a 1762 book in which Rousseau theorized about the best way to establish a political community in the face of the problems of commercial society, which he had already identified in his Discourse on Inequality (1755).",
+      "price": 10.99,
+      "image": "contractsocial.jpg"
+    }
+  },
+  {
+    "pk": 17,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "L'Assommoir",
+      "author": "Émile Zola",
+      "publication_year": 1877,
+      "book_description": "L'Assommoir [lasɔmwaʁ] (1877) is the seventh novel in Émile Zola's twenty-volume series Les Rougon-Macquart. Usually considered one of Zola's masterpieces, the novel—a study of alcoholism and poverty in the working-class districts of Paris—was a huge commercial success and helped establish Zola's fame and reputation throughout France and the world.",
+      "price": 10.99,
+      "image": "assommoir.jpg"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 3,
+      "title": "Camille",
+      "author": "Pierre Lemaitre",
+      "publication_year": 2012,
+      "book_description": "Camille is a crime novel written by French novelist Pierre Lemaitre. The novel, though originally published in French in 2012, came to be translated to English by Frank Wynne in 2015. It won the CWA International Dagger award 2015 amidst much international acclaim.",
+      "price": 13.99,
+      "image": "camille.jpg"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 3,
+      "title": "Tarantula",
+      "author": "Thierry Jonquet",
+      "publication_year": 1984,
+      "book_description": "Mygale (Tarantula) is a thriller crime novel by Thierry Jonquet first published in France by Editions Gallimard in 1984, and then published in the US in 2003 by City Lights.",
+      "price": 13.99,
+      "image": "tarantula.jpg"
+    }
   }
 ]
