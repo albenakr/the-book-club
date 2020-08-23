@@ -29,6 +29,10 @@ body {
 .books-container {    
     margin-top: 164px;
 }
+
+.image-container-detail-page {
+    text-align: center;
+}
 /*  Book Cards */
 
 .book-card {

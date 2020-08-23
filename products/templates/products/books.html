@@ -13,18 +13,22 @@
     <div class="col">
       <div class="card book-card">
         {% if book.image %}
+        <a href="{% url 'book_detail' book.id %}">
         <img
           src="{{ book.image.url }}"
           class="card-img-top book-image-card"
           alt="{{ book.name }}"
         />
+        <a>
         {% else %}
+                <a href="{% url 'book_detail' book.id %}">
+
         <img
           src="{{ MEDIA_URL }}jaredd-craig-unsplash.jpg"
           class="card-img-top"
           alt="{{ book.name }}"
         />
-
+<a>
         {% endif %}
 
         <div class="card-body">
@@ -33,7 +37,7 @@
             {{ book.author }}, {{ book.publication_year }}
           </p>
           <p class="card-text">€{{ book.price }}</p>
-          <a href="#" class="btn btn-primary btn-book-card">See Book</a>
+          <a href="{% url 'book_detail' book.id %}" class="btn btn-primary btn-book-card">See Book</a>
         </div>
       </div>
     </div>

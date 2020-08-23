@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="container-fluid books-container">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="image-container-detail-page">
+        {% if book.image %}
+        <a href="{{ book.image.url }}" target="_blank">
+          <img
+            src="{{ book.image.url }}"
+            class="card-img-top book-image-card"
+            alt="{{ book.name }}"
+          />
+        </a>
+        {% else %}
+        <a href="">
+          <img
+            src="{{ MEDIA_URL }}jaredd-craig-unsplash.jpg"
+            class="card-img-top"
+            alt="{{ book.name }}"
+          />
+        </a>
+        {% endif %}
+      </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <h5>{{ book.title }}</h5>
+        <p>{{ book.author }}</p>
+        <p>Published in: {{ book.publication_year }}</p>
+        <p>€{{ book.price }}</p>
+        <p>Product Rating: X</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6">Language: {{ book.language }}</div>
+    <div class="col-12 col-sm-6">Genre: {{ book.genre }}</div>
+    <div class="col-12">
+      <p>{{ book.book_description }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
