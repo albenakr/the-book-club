@@ -1,8 +1,9 @@
 {% extends "base.html" %} {% load static %} {% block content %}
-
+<!--  Filtering and Sort Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light header-container fixed-top">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#filterSupportedContent" aria-controls="filterSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <div class="row">
+    <i class="fas fa-filter"></i>
     <div class="col"><h5>Filters</h5></div>
     <div class="col"><span class="navbar-toggler-icon"></span></div> 
     </div>
@@ -18,16 +19,16 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">By Rating</a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=price&direction=desc">By Price (high to low)</a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=price&direction=desc">By Price <i class="fas fa-sort-amount-down"></i></a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=price&direction=asc">By Price (low to high)</a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=price&direction=asc">By Price <i class="fas fa-sort-amount-down-alt"></i></a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=author&direction=asc">Author's Name (A-Z)</a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=author&direction=asc">Author's Name <i class="fas fa-sort-alpha-down"></i></a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=author&direction=desc">Author's Name (Z-A)</a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=author&direction=desc">Author's Name <i class="fas fa-sort-alpha-down-alt"></i></a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=title&direction=asc">Book's Name (A-Z)</a>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=title&direction=desc">Book's Name (Z-A)</a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=title&direction=asc">Book's Name <i class="fas fa-sort-alpha-down"></i></a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=title&direction=desc">Book's Name <i class="fas fa-sort-alpha-down-alt"></i></a>
                     <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{% url 'books' %}">All Books</a>
 
@@ -68,7 +69,35 @@
   </div>
 </nav>
 
+<!-- Books -->
+
+
+
 <div class="container-fluid books-container">
+<div class="row">
+
+<div class="col-sm-4">
+                        <p class="text-muted mt-3 text-center text-md-left">
+                            {% if search_term or current_genres or current_languages != 'None_None' %}
+                                <span class="small"><a href="{% url 'books' %}">Books Home</a> | </span>
+                            {% endif %}
+                            Current search: {{ books|length }} Books{% if search_term %} found for <strong>"{{ search_term  }}"</strong>{% endif %}                    </p>
+</div>
+<div class="col-sm-8">
+{% for genre in current_genres %}
+                    <a class="category-badge text-decoration-none" href="{% url 'books' %}?genre={{ genre.name }}">
+                        <span class="p-2 mt-2 badge badge-white rounded-0 border">{{ genre.name }}</span>
+                    </a>
+                {% endfor %}
+
+                {% for language in current_languages %}
+                    <a class="category-badge text-decoration-none" href="{% url 'books' %}?genre={{ language.name }}">
+                        <span class="p-2 mt-2 badge badge-white rounded-0 border">{{ language.name }}</span>
+                    </a>
+                {% endfor %}
+</div>
+</div>
+
   <div class="row">
     {% for book in books %}
     <div class="col">
@@ -97,6 +126,21 @@
           <p class="card-text">
             {{ book.author }}, {{ book.publication_year }}
           </p>
+
+            {% if book.genre %}
+                                            <p class="small mt-1 mb-0">
+                                                <a class="text-muted" href="{% url 'books' %}?genre={{ book.genre.name }}">
+                                                    <i class="fas fa-tag mr-1"></i>{{ book.genre.name }}
+                                                </a>
+                                            </p>
+                                            {% endif %}
+                 {% if book.language %}
+                                            <p class="small mt-1 mb-0">
+                                                <a class="text-muted" href="{% url 'books' %}?language={{ book.language.name }}">
+                                                    <i class="fas fa-language"></i>{{ book.language.name }}
+                                                </a>
+                                            </p>
+                                            {% endif %}
           <p class="card-text">€{{ book.price }}</p>
           <a href="{% url 'book_detail' book.id %}" class="btn btn-primary btn-book-card">See Book</a>
         </div>
