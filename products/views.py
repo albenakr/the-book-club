@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Book
+from .models import Book, Genre, Language
 
 
 def all_books(request):
@@ -9,8 +9,20 @@ def all_books(request):
 
     books = Book.objects.all()
     query = None
+    genres = None
+    languages = None
 
     if request.GET:
+        if 'genre' in request.GET:
+            genres = request.GET['genre'].split(',')
+            books = books.filter(genre__name__in=genres)
+            genres = Genre.objects.filter(name__in=genres)
+
+        if 'language' in request.GET:
+            languages = request.GET['language'].split(',')
+            books = books.filter(language__name__in=languages)
+            languages = Language.objects.filter(name__in=languages)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -23,6 +35,8 @@ def all_books(request):
     context = {
         'books': books,
         'search_term': query,
+        'current_genres': genres,
+        'current_languages': languages
     }
 
     return render(request, 'products/books.html', context)

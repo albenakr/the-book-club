@@ -37,16 +37,17 @@
           Genre
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Non-Fiction</a>
+          <a class="dropdown-item" href="{% url 'books' %}?genre=Non-Fiction">Non-Fiction</a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Fantasy</a>
+          <a class="dropdown-item" href="{% url 'books' %}?genre=Fantasy">Fantasy</a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Crime</a>
+          <a class="dropdown-item" href="{% url 'books' %}?genre=Crime">Crime</a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Novel</a>
+          <a class="dropdown-item" href="{% url 'books' %}?genre=Novel">Novel</a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Classics</a>
-       
+          <a class="dropdown-item" href="{% url 'books' %}?genre=Classics">Classics</a>
+       <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'books' %}?genre=Non-Fiction,Fantasy,Crime,Novel,Classics">All Genres</a>
         </div>
       </li>
 
@@ -55,9 +56,11 @@
           Language
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">English</a>
-            <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">French</a>
+          <a class="dropdown-item" href="{% url 'books' %}?language=English">English</a>            
+          <a class="dropdown-item" href="{% url 'books' %}?language=French">French</a>
+          <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{% url 'books' %}?language=English,French">All Languages</a>
+
         </div>
       </li>
   </div>
