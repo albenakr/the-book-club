@@ -11,8 +11,20 @@ def all_books(request):
     query = None
     genres = None
     languages = None
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            
+            if 'direction' in request.GET:
+                 direction = request.GET['direction']
+                 if direction == 'desc':
+                     sortkey = f'-{sortkey}'
+            books = books.order_by(sortkey)
+
+
         if 'genre' in request.GET:
             genres = request.GET['genre'].split(',')
             books = books.filter(genre__name__in=genres)
@@ -32,11 +44,14 @@ def all_books(request):
             queries = Q(title__icontains=query) | Q(book_description__icontains=query) | Q(author__icontains=query)
             books = books.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'books': books,
         'search_term': query,
         'current_genres': genres,
-        'current_languages': languages
+        'current_languages': languages,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/books.html', context)

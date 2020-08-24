@@ -18,17 +18,19 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">By Rating</a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">By Price (high to low)</a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=price&direction=desc">By Price (high to low)</a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">By Price (low to high)</a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=price&direction=asc">By Price (low to high)</a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Author's Name (A-Z)</a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=author&direction=asc">Author's Name (A-Z)</a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Author's Name (Z-A)</a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=author&direction=desc">Author's Name (Z-A)</a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Book's Name (A-Z)</a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=title&direction=asc">Book's Name (A-Z)</a>
+          <a class="dropdown-item" href="{% url 'books' %}?sort=title&direction=desc">Book's Name (Z-A)</a>
                     <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Book's Name (Z-A)</a>
+          <a class="dropdown-item" href="{% url 'books' %}">All Books</a>
+
         </div>
       </li>
 
