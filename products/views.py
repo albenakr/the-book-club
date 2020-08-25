@@ -4,10 +4,36 @@ from django.db.models import Q
 from .models import Book, Genre, Language
 
 
+def is_valid_queryparam(param):
+    return param != '' and param is not None
+
+
 def all_books(request):
     """ A view for all books, searching and filtering"""
-
     books = Book.objects.all()
+    genres = Genre.objects.all()
+    languages = Language.objects.all()
+    genre = request.GET.get('genre')
+    language = request.GET.get('language')
+
+    if is_valid_queryparam(genre) and genre != 'Choose...':
+        books = books.filter(genre__name=genre)
+
+    if is_valid_queryparam(language) and language != 'Choose...':
+        books = books.filter(language__name=language)
+
+    context = {
+        'books': books,
+        'genres': genres,
+        'languages': languages,
+    }
+
+    return render(request, 'products/books.html', context)
+
+
+
+"""
+    books = Book.objects.all()  
     query = None
     genres = None
     languages = None
@@ -17,13 +43,12 @@ def all_books(request):
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
-            
-            if 'direction' in request.GET:
-                 direction = request.GET['direction']
-                 if direction == 'desc':
-                     sortkey = f'-{sortkey}'
-            books = books.order_by(sortkey)
 
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            books = books.order_by(sortkey)
 
         if 'genre' in request.GET:
             genres = request.GET['genre'].split(',')
@@ -55,7 +80,7 @@ def all_books(request):
     }
 
     return render(request, 'products/books.html', context)
-
+"""
 
 def book_detail(request, book_id):
     """ A view for individual book details"""
