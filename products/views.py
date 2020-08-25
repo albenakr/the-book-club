@@ -15,6 +15,14 @@ def all_books(request):
     languages = Language.objects.all()
     genre = request.GET.get('genre')
     language = request.GET.get('language')
+    search_query = request.GET['q']
+
+    if is_valid_queryparam(search_query):
+        books = books.filter(
+            Q(title__icontains=search_query)
+            | Q(book_description__icontains=search_query)
+            | Q(author__icontains=search_query)
+            ).distinct()
 
     if is_valid_queryparam(genre) and genre != 'Choose...':
         books = books.filter(genre__name=genre)
@@ -26,6 +34,7 @@ def all_books(request):
         'books': books,
         'genres': genres,
         'languages': languages,
+        'search_term': search_query,
     }
 
     return render(request, 'products/books.html', context)
