@@ -16,6 +16,7 @@ def all_books(request):
     genre = request.GET.get('genre')
     language = request.GET.get('language')
     search_query = request.GET.get('q')
+    price_filter = request.GET.get('price_filter')
 
 
     if is_valid_queryparam(search_query):
@@ -30,6 +31,12 @@ def all_books(request):
 
     if is_valid_queryparam(language) and language != 'Languages':
         books = books.filter(language__name=language)
+
+    if is_valid_queryparam(price_filter) and price_filter != 'Filter By Price':
+        if price_filter == 'asc':
+            books = books.order_by('price')
+        else:
+            books = books.order_by('-price')
 
     context = {
         'books': books,
