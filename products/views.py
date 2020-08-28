@@ -16,8 +16,7 @@ def all_books(request):
     genre = request.GET.get('genre')
     language = request.GET.get('language')
     search_query = request.GET.get('q')
-    price_filter = request.GET.get('price_filter')
-
+    filters = request.GET.get('filters')
 
     if is_valid_queryparam(search_query):
         books = books.filter(
@@ -32,11 +31,19 @@ def all_books(request):
     if is_valid_queryparam(language) and language != 'Languages':
         books = books.filter(language__name=language)
 
-    if is_valid_queryparam(price_filter) and price_filter != 'Filter By Price':
-        if price_filter == 'asc':
+    if is_valid_queryparam(filters) and filters != 'Filter':
+        if filters == 'price_asc':
             books = books.order_by('price')
-        else:
+        elif filters == 'price_desc':
             books = books.order_by('-price')
+        elif filters == 'title_asc':
+            books = books.order_by('title')
+        elif filters == 'title_desc':
+            books = books.order_by('-title')
+        elif filters == 'author_asc':
+            books = books.order_by('author')
+        elif filters == 'author_desc':
+            books = books.order_by('-author')
 
     context = {
         'books': books,
@@ -47,57 +54,6 @@ def all_books(request):
 
     return render(request, 'products/books.html', context)
 
-
-
-"""
-    books = Book.objects.all()  
-    query = None
-    genres = None
-    languages = None
-    sort = None
-    direction = None
-
-    if request.GET:
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            books = books.order_by(sortkey)
-
-        if 'genre' in request.GET:
-            genres = request.GET['genre'].split(',')
-            books = books.filter(genre__name__in=genres)
-            genres = Genre.objects.filter(name__in=genres)
-
-        if 'language' in request.GET:
-            languages = request.GET['language'].split(',')
-            books = books.filter(language__name__in=languages)
-            languages = Language.objects.filter(name__in=languages)
-
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(request, "You didn't enter any search keywords")
-                return redirect(reverse('books'))
-
-            queries = Q(title__icontains=query) | Q(book_description__icontains=query) | Q(author__icontains=query)
-            books = books.filter(queries)
-
-    current_sorting = f'{sort}_{direction}'
-
-    context = {
-        'books': books,
-        'search_term': query,
-        'current_genres': genres,
-        'current_languages': languages,
-        'current_sorting': current_sorting,
-    }
-
-    return render(request, 'products/books.html', context)
-"""
 
 def book_detail(request, book_id):
     """ A view for individual book details"""

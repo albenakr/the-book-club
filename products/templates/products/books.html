@@ -25,10 +25,15 @@
           </div>
 
           <div class="form-group col-md-3">
-            <select id="price_filter" class="form-control" name="price_filter">
-            <option selected>Filter By Price</option>
-              <option value="asc">Low to High</option>
-            <option value="desc">High to Low</option>
+            <select id="price_filter" class="form-control" name="filters">
+            <option selected>Filter</option>
+              <option value="price_asc">Price - Low to High</option>
+            <option value="price_desc">Price - High to Low</option>
+                  <option value="title_asc">Title A-Z</option>
+                    <option value="title_desc">Title Z-A</option>
+                    <option value="author_asc">Author A-Z</option>
+                    <option value="author_desc">Author Z-A</option>
+
 
             </select>
           </div>
@@ -40,82 +45,6 @@
 </form>
 
 </div>
-
-
-<!--  Filtering 
-<nav class="navbar navbar-expand-lg navbar-light bg-light header-container fixed-top">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#filterSupportedContent" aria-controls="filterSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <div class="row">
-    <i class="fas fa-filter"></i>
-    <div class="col"><h5>Filters</h5></div>
-    <div class="col"><span class="navbar-toggler-icon"></span></div> 
-    </div>
-    
-  </button>
-
-  <div class="collapse navbar-collapse justify-content-center" id="filterSupportedContent">
-    <ul class="navbar-nav justify-content-center">
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Filter
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">By Rating</a>
-                    <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=price&direction=desc">By Price <i class="fas fa-sort-amount-down"></i></a>
-                    <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=price&direction=asc">By Price <i class="fas fa-sort-amount-down-alt"></i></a>
-                    <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=author&direction=asc">Author's Name <i class="fas fa-sort-alpha-down"></i></a>
-                    <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=author&direction=desc">Author's Name <i class="fas fa-sort-alpha-down-alt"></i></a>
-                    <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=title&direction=asc">Book's Name <i class="fas fa-sort-alpha-down"></i></a>
-          <a class="dropdown-item" href="{% url 'books' %}?sort=title&direction=desc">Book's Name <i class="fas fa-sort-alpha-down-alt"></i></a>
-                    <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}">All Books</a>
-
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Genre
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'books' %}?genre=Non-Fiction">Non-Fiction</a>
-                    <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?genre=Fantasy">Fantasy</a>
-                    <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?genre=Crime">Crime</a>
-                    <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?genre=Novel">Novel</a>
-                    <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?genre=Classics">Classics</a>
-       <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{% url 'books' %}?genre=Non-Fiction,Fantasy,Crime,Novel,Classics">All Genres</a>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Language
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'books' %}?language=English">English</a>            
-          <a class="dropdown-item" href="{% url 'books' %}?language=French">French</a>
-          <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="{% url 'books' %}?language=English,French">All Languages</a>
-
-        </div>
-      </li>
-  </div>
-</nav>
-
-and Sort Navbar -->
-
-<!-- Books -->
-
 
 
 <div class="container-fluid books-container">
