@@ -1,27 +1,37 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 
-<form class="header-container">
-<div class="form-group col-md-4">
-            <label for="genre">Genre</label>
+<div class="container-fluid header-container">
+<form>
+<div class="row">
+<div class="form-group col-md-3">
+                   <input class="form-control border rounded-0" type="text" name="q" placeholder="Search Books...">                                                            
+                </div>
+           
+            <div class="form-group col-md-3">
              <select id="genre" class="form-control" name="genre">
-             <option selected>Choose...</option>
+             <option selected>Genres</option>
               {% for genre in genres %}
               <option value="{{ genre }}">{{ genre }}</option>
               {% endfor %}
             </select>
           </div>
-     <div class="form-group col-md-4">
-            <label for="language">language</label>
+     <div class="form-group col-md-3">
             <select id="language" class="form-control" name="language">
-            <option selected>Choose...</option>
+            <option selected>Languages</option>
               {% for language in languages %}
               <option value="{{ language }}">{{ language }}</option>
               {% endfor %}
             </select>
           </div>
-                  <button type="submit" class="btn btn-primary">Search</button>
-
+                 
+          <div class="col-md-1">
+                            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+</div>
 </form>
+
+</div>
+
 
 <!--  Filtering 
 <nav class="navbar navbar-expand-lg navbar-light bg-light header-container fixed-top">

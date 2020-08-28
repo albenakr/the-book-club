@@ -15,7 +15,8 @@ def all_books(request):
     languages = Language.objects.all()
     genre = request.GET.get('genre')
     language = request.GET.get('language')
-    search_query = request.GET['q']
+    search_query = request.GET.get('q')
+
 
     if is_valid_queryparam(search_query):
         books = books.filter(
@@ -24,10 +25,10 @@ def all_books(request):
             | Q(author__icontains=search_query)
             ).distinct()
 
-    if is_valid_queryparam(genre) and genre != 'Choose...':
+    if is_valid_queryparam(genre) and genre != 'Genres':
         books = books.filter(genre__name=genre)
 
-    if is_valid_queryparam(language) and language != 'Choose...':
+    if is_valid_queryparam(language) and language != 'Languages':
         books = books.filter(language__name=language)
 
     context = {
