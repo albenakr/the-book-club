@@ -1,7 +1,4 @@
-{% extends "base.html" %} {% load static %} 
-
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <div class="container header-container">
   <div class="row">
     <div class="col">
@@ -11,22 +8,81 @@
     </div>
   </div>
 
-  
   <div class="row">
     <div class="col">
       {% if bag_items %}
-                    <div class="table-responsive">
-                    {{ bag_items }}
-                    </div>
-                {% else %}
-                    <p>Your bag is empty.</p>
-                    <a href="{% url 'books' %}" class="btn btn-lg">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span>Keep Shopping</span>
-                    </a>
-                {% endif %}
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Book</th>
+              <th scope="col"></th>
+              <th scope="col">Price</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+
+          {% for item in bag_items %}
+
+          <tbody>
+            <tr>
+              <th scope="row">
+                <img
+                  class="img-fluid rounded"
+                  src="{{ item.book.image.url }}"
+                />
+              </th>
+              <td>
+              <p><strong>{{ item.book.title }}</strong></p>
+                <p>{{ item.book.author }}</p>
+              </td>
+              <td>
+                  <p>€{{ item.book.price }}</p>
+
+              </td>
+              <td>
+                     <p>{{ item.quantity }}</p>
+              </td>
+                 <td>
+                     <p>€{% widthratio item.book.price 1 item.quantity %}</p>
+              </td>
+            </tr>
+             {% endfor %}
+
+           <tr>
+                                <td colspan="5" class="pt-5 text-right">
+                                    <h6><strong>Bag Total: €{{ price_total|floatformat:2 }}</strong></h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <a href="{% url 'books' %}" class="btn btn-lg">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Keep Shopping</span>
+                                    </a>
+                                    <a href="" class="btn btn-black rounded-0 btn-lg">
+                                        <span class="text-uppercase">Secure Checkout</span>
+                                        <span class="icon">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <p>Your bag is empty.</p>
+      <a href="{% url 'books' %}" class="btn btn-lg">
+        <span class="icon">
+          <i class="fas fa-chevron-left"></i>
+        </span>
+        <span>Keep Shopping</span>
+      </a>
+      {% endif %}
     </div>
   </div>
 </div>
