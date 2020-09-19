@@ -18,6 +18,11 @@ body {
     float: right;
 }
 
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 .navigation-bar {
     padding: 0;
 }
