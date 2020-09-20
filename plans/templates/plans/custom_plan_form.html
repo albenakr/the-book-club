@@ -1,47 +1,51 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 
 <div class="container-fluid header-container">
-<p>Tell us what you enjoy to read and we'll make a plan for you.</p>
-<form>
-<div class="row">
-<div class="form-group col-md-3">               
-           
-            <div class="form-group ">
-             <select id="genre" class="form-control" name="genre">
-             <option selected>Genres</option>
-              {% for genre in genres %}
-              <option value="{{ genre }}">{{ genre }}</option>
-              {% endfor %}
-            </select>
-          </div>
-     <div class="form-group ">
-            <select id="language" class="form-control" name="language">
-            <option selected>Languages</option>
-              {% for language in languages %}
-              <option value="{{ language }}">{{ language }}</option>
-              {% endfor %}
-            </select>
-          </div>
-         
-          </div>
+  <p>Tell us what you enjoy to read and we'll make a plan for you.</p>
 
-          <div class="form-group">
-            <select id="plan_length" class="form-control" name="plan_length">
-            <option selected>plan length</option>
-              <option value="three_months">three_months</option>
-            <option value="six_months">six_months</option>
-                  <option value="twelve_months">twelve_months</option>
-            </select>
-          </div>
-                 
-          <div class="">
-                            <button type="submit" class="btn btn-primary">Create Plan</button>
-          </div>
-</div>
+<form action="{% url 'custom_plans' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
 </form>
 
+  <!-- 
+  <form>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <div class="form-group">
+          <select id="genre" class="form-control" name="genre">
+            <option selected>Genres</option>
+            {% for genre in genres %}
+            <option value="{{ genre }}">{{ genre }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="language" class="form-control" name="language">
+            <option selected>Languages</option>
+            {% for language in languages %}
+            <option value="{{ language }}">{{ language }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <select id="plan_length" class="form-control" name="plan_length">
+          <option selected>plan length</option>
+          <option value="three_months">three_months</option>
+          <option value="six_months">six_months</option>
+          <option value="twelve_months">twelve_months</option>
+        </select>
+      </div>
+
+      <div class="">
+        <button type="submit" class="btn btn-primary">Create Plan</button>
+      </div>
+    </div>
+  </form>
 </div>
-
-
+-->
 
 {% endblock %}

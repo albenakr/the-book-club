@@ -21,3 +21,8 @@ You would want a JavaScript function that takes in your entire list of products 
 
 Comment multiple Lines
 Shift + Alt + A
+
+
+add max value to Plans> Models> Plan Duration 
+
+if the default in Plan > plan_duration accurate
