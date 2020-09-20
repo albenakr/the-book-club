@@ -19,11 +19,14 @@ class Genre(models.Model):
 
 
 class Book(models.Model):
-    language = models.ForeignKey('Language', null=True, blank=True, on_delete=models.SET_NULL)
-    genre = models.ForeignKey('Genre', null=True, blank=True, on_delete=models.SET_NULL)
+    language = models.ForeignKey(
+        'Language', null=True, blank=True, on_delete=models.SET_NULL)
+    genre = models.ForeignKey(
+        'Genre', null=True, blank=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=454)
     author = models.CharField(max_length=454)
-    publication_year = models.IntegerField(validators=[MinValueValidator(1000), MaxValueValidator(2020)], null=True, blank=True)
+    publication_year = models.IntegerField(validators=[MinValueValidator(
+        1000), MaxValueValidator(2020)], null=True, blank=True)
     book_description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(null=True, blank=True)

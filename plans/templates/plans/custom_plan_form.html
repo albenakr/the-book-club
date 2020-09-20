@@ -3,9 +3,10 @@
 <div class="container-fluid header-container">
   <p>Tell us what you enjoy to read and we'll make a plan for you.</p>
 
-<form action="{% url 'custom_plans' %}" method="post">
+<form action="{% url 'custom_plans' %}" method="POST">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
+
     <input type="submit" value="Submit">
 </form>
 

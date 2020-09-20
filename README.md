@@ -26,3 +26,5 @@ Shift + Alt + A
 add max value to Plans> Models> Plan Duration 
 
 if the default in Plan > plan_duration accurate
+
+    plan_duration = models.ForeignKey('PlanDuration', default='3', on_delete=models.RESTRICT)
