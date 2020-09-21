@@ -40,6 +40,18 @@ def custom_plans(request):
                 language__name__in=languages)
             print(books)
 
+            if len(books) == 0:
+                messages.info(request, 'No results found for your search. Please try again')
+                form = CustomPlanForm()
+                context = {
+                    'form': form,
+                }
+                return render(request, 'plans/custom_plan_form.html', context)
+
+            if len(books) < plan_duration:
+                plan_duration = len(books)
+                messages.success(request, f'{plan_duration} books found for your search')
+
             # Shuffle Books and limit the result to the number of month in plan_duration
             # https://pynative.com/python-random-module/
             # plan duration acts as limit
@@ -52,7 +64,7 @@ def custom_plans(request):
             price = plan_duration * 10
             print(price)
 
-            # create a new instance of Plan, by assigning name, books, price        
+            # create a new instance of Plan, by assigning name, books, price
             custom_plan = Plan(
                 name=name, price=price)
             custom_plan.save()
@@ -60,8 +72,6 @@ def custom_plans(request):
 
             books_from_custom_plan = custom_plan.books.all()
             print(books_from_custom_plan)
-
-
 
             context = {
                 'custom_plan': custom_plan,

@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404
 from products.models import Book
+from plans.models import Plan
 
 
 def bag_contents(request):
@@ -8,14 +9,24 @@ def bag_contents(request):
     product_count = 0
     bag = request.session.get('bag', {})
 
-    for item_id, quantity in bag.items():
-        book = get_object_or_404(Book, pk=item_id)
-        price_total += quantity * book.price
-        product_count += quantity
+    for item_id, value in bag.items():
+        print(value)
+        plan = None
+        book = None
+
+        if value['type'] == 'book':
+            book = get_object_or_404(Book, pk=item_id)
+            price_total += value['quantity'] * book.price
+        else:
+            plan = get_object_or_404(Plan, pk=item_id)
+            price_total += value['quantity'] * plan.price
+
+        product_count += value['quantity']
         bag_items.append({
             'item_id': item_id,
-            'quantity': quantity,
+            'quantity': value['quantity'],
             'book': book,
+            'plan': plan,
         })
 
     context = {

@@ -81,7 +81,7 @@
 <!-- Action Buttons -->
 
 
-      <form class="form" action="{% url 'add_to_bag' custom_plan.id %}" method="POST">
+      <form class="form" action="{% url 'add_plan_to_bag' custom_plan.id %}" method="POST">
                         {% csrf_token %}
                         
                             <div class="col-12">
@@ -89,7 +89,6 @@
                                 <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        </div>
                     </form>
 
 
