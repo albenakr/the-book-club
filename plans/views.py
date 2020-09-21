@@ -26,36 +26,50 @@ def custom_plans(request):
         form = CustomPlanForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            name = form.cleaned_data['name']
-            genres = form.cleaned_data['genres']
+            name = str(form.cleaned_data['name'])
+            print(name)
+            genres = list(form.cleaned_data['genres'])
             print(genres)
-            languages = form.cleaned_data['languages']
+            languages = list(form.cleaned_data['languages'])
             print(languages)
             plan_duration = int(form.cleaned_data['plan_duration'])
             print(plan_duration)
-
 
             # Filter books by genre and language
             books = books.filter(genre__name__in=genres).filter(
                 language__name__in=languages)
             print(books)
 
-
             # Shuffle Books and limit the result to the number of month in plan_duration
             # https://pynative.com/python-random-module/
             # plan duration acts as limit
-            shuffled_books = random.sample(list(books), plan_duration)
+            shuffled_books = list(random.sample(list(books), plan_duration))
             print(shuffled_books)
+
+            # create a fallback in case there are not enough books in the categories they want
 
             # generate price by number of months in plan_duration multiplied by EUR 10
             price = plan_duration * 10
             print(price)
 
-            # create a new instance of Plan, by assigning name, books, price
-            custom_plan = Plan.create(name, shuffled_books, price)
+            # create a new instance of Plan, by assigning name, books, price        
+            custom_plan = Plan(
+                name=name, price=price)
+            custom_plan.save()
+            custom_plan.books.set(shuffled_books)
+
+            books_from_custom_plan = custom_plan.books.all()
+            print(books_from_custom_plan)
+
+
+
+            context = {
+                'custom_plan': custom_plan,
+                'books_from_custom_plan': books_from_custom_plan,
+            }
 
             # redirect to a new URL, giving customer an overview of the books in their plan and allowing them to either add it to their bag or restart the survey
-            return HttpResponseRedirect('/thanks/')
+            return render(request, 'plans/custom_plan_details.html', context)
 
     # if a GET (or any other method) we'll create a blank form
     else:
