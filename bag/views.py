@@ -92,6 +92,7 @@ def remove_plan_from_bag(request, item_id):
     try:
         bag = request.session.get('bag', {})
         bag.pop(item_id)
+        plan.delete()
         messages.success(request, f'{plan.name} was removed from your bag')
 
         request.session['bag'] = bag

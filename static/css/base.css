@@ -35,7 +35,8 @@ body {
 }
 
 .update-link,
-.remove-item {
+.remove-item-book,
+.remove-item-plan {
     cursor: pointer;
 }
 

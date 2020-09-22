@@ -1,5 +1,4 @@
-{% extends "base.html" %} {% load static %} {% load bag_tools %} 
-{% block content %}
+{% extends "base.html" %} {% load static %} {% load bag_tools %} {% block content %}
 <div class="container header-container">
   <div class="row">
     <div class="col">
@@ -21,6 +20,7 @@
               <th scope="col">Price</th>
               <th scope="col">Qty</th>
               <th scope="col">Subtotal</th>
+              <th scope="col">Remove</th>
             </tr>
           </thead>
 
@@ -29,14 +29,29 @@
 
             <tr>
               <th scope="row">
+
+                {% if item.book != None %}
                 <img
                   class="img-fluid rounded"
                   src="{{ item.book.image.url }}"
+                  alt="Book Cover"
                 />
+                {% else %}
+                <img
+                  class="img-fluid rounded"
+                  src="{{ MEDIA_URL }}media/plan_image.jpg"
+                  alt="Plan image"
+                />
+                {% endif %}
+                
               </th>
               <td class="w-25">
+                {% if item.book != None %}
                 <p><strong>{{ item.book.title }}</strong></p>
                 <p>{{ item.book.author }}</p>
+                {% else %}
+                <p><strong>{{ item.plan.name }}</strong></p>
+                {% endif %}
               </td>
 
               <td class="w-25">
@@ -44,10 +59,12 @@
                 <p>€{{ item.book.price }}</p>
                 {% else %}
                 <p>€{{ item.plan.price }}</p>
-
                 {% endif %}
               </td>
               <td class="w-25">
+
+              {% if item.book != None %}
+                  <!-- Update Quantity inside the bag form -->
                 <form
                   class="form update-form"
                   method="POST"
@@ -93,6 +110,30 @@
                 </form>
                 <a class="update-link text-info"><small>Update</small></a>
 
+
+
+         <!-- Plan Quantity is always 1 -->
+
+                {% else %}
+                <p><strong>1</strong></p>
+                {% endif %}
+              </td>
+
+         <!-- Subtotals -->
+
+              <td class="w-25">
+              {% if item.book != None %}
+                <p>€{{ item.book.price | calc_subtotal:item.quantity }}</p>
+                {% else %}
+                <p>€{{ item.plan.price }}</p>
+                {% endif %}
+              </td>
+
+
+         <!-- Remove buttons -->
+
+
+              <td class="w-25">
                 {% if item.book != None %}
                 <a
                   class="remove-item-book text-danger float-right"
@@ -100,16 +141,12 @@
                   ><small>Remove</small></a
                 >
                 {% else %}
-                 <a
+                <a
                   class="remove-item-plan text-danger float-right"
                   id="remove_plan_{{ item.item_id }}"
                   ><small>Remove</small></a
                 >
-
                 {% endif %}
-              </td>
-              <td class="w-25">
-                <p>€{{ item.book.price | calc_subtotal:item.quantity }}</p>
               </td>
             </tr>
             {% endfor %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 
 <div class="container-fluid header-container">
-  <p>Tell us what you enjoy to read and we'll make a plan for you.</p>
+  <p>Tell us what you enjoy to read and we'll make a plan for you. You will receive 1 book per month for the duration of the plan. E.g. If you pick a 6 months plan, you receive 6 books over that course of time.</p>
 
 <form action="{% url 'custom_plans' %}" method="POST">
     {% csrf_token %}
