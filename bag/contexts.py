@@ -10,7 +10,6 @@ def bag_contents(request):
     bag = request.session.get('bag', {})
 
     for item_id, value in bag.items():
-        print(value)
         plan = None
         book = None
 

@@ -21,9 +21,9 @@ def add_to_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     if item_id in list(bag.keys()):
-        #updated_quantity += quantity 
         bag[item_id] = {'quantity': quantity + 1, 'type': 'book'}
-        messages.success(request, f'Updated {book.title} quantity to {bag[item_id]["quantity"]}')
+        messages.success(
+            request, f'Updated {book.title} quantity to {bag[item_id]["quantity"]}')
     else:
         bag[item_id] = {'quantity': quantity, 'type': 'book'}
         messages.success(request, f'{book.title} was added to your bag')
@@ -57,7 +57,8 @@ def adjust_bag(request, item_id):
 
     if quantity > 0:
         bag[item_id]['quantity'] = quantity
-        messages.success(request, f'Updated {book.title} quantity to {bag[item_id]["quantity"]}')
+        messages.success(
+            request, f'Updated {book.title} quantity to {bag[item_id]["quantity"]}')
     else:
         bag.pop[item_id]
         messages.success(request, f'{book.title} was removed from your bag')

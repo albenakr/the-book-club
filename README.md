@@ -31,4 +31,4 @@ Plan image:
 <span>Photo by <a href="https://unsplash.com/@sincerelymedia?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Sincerely Media</a> on <a href="https://unsplash.com/s/photos/books?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 Photo by Sincerely Media on Unsplash
 
-When plans are removed from the bag, they should also be deleted
+Shop Books Button is moving in weird ways
