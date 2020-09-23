@@ -31,11 +31,13 @@
               <th scope="row">
 
                 {% if item.book != None %}
-                <img
-                  class="img-fluid rounded"
-                  src="{{ item.book.image.url }}"
-                  alt="Book Cover"
-                />
+                
+                 {% if item.book.image %}
+                     <img class="w-100" src="{{ item.book.image.url }}" alt="{{ book.title }}">
+                {% else %}
+                    <img class="w-100" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ book.title }}">
+                {% endif %}
+               
                 {% else %}
                 <img
                   class="img-fluid rounded"
@@ -166,7 +168,7 @@
                   </span>
                   <span class="text-uppercase">Keep Shopping</span>
                 </a>
-                <a href="" class="btn btn-black rounded-0 btn-lg">
+                <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
                   <span class="text-uppercase">Secure Checkout</span>
                   <span class="icon">
                     <i class="fas fa-lock"></i>
