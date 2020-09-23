@@ -32,3 +32,5 @@ Plan image:
 Photo by Sincerely Media on Unsplash
 
 Shop Books Button is moving in weird ways
+
+update styling in stripe_elements.js

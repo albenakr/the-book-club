@@ -3,17 +3,18 @@ html {
 }
 
 body {
-    color: #555;
+    color: #302f2f;
     font-family: 'Open Sans', sans-serif;}
 
 /* Buttons */
 
 .btn {
-    background-color: #e27d60;
+    background-color: #235789;
+    color: white;
 }
 
 .btn:hover {
-    background-color:#f2521d;
+    background-color:#EA526F;
 }
 
 .action-btn{
@@ -73,7 +74,7 @@ body {
 }
 
 .navbar-content-options {
-    background-color: #41B3A3;
+    background-color: #235789;
 }
 
 .plans-container {
