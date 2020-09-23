@@ -34,3 +34,9 @@ Photo by Sincerely Media on Unsplash
 Shop Books Button is moving in weird ways
 
 update styling in stripe_elements.js
+
+4242 4242 4242 4242
+
+fix hyperlink on checkout_success.html
+
+fix admin for order
