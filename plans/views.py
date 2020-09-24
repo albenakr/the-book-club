@@ -50,7 +50,7 @@ def custom_plans(request):
 
             if len(books) < plan_duration:
                 plan_duration = len(books)
-                messages.success(request, f'{plan_duration} books found for your search')
+                messages.info(request, f'{plan_duration} books found for your search. Your plan has been adjusted to {plan_duration} months')
 
             # Shuffle Books and limit the result to the number of month in plan_duration
             # https://pynative.com/python-random-module/
