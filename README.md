@@ -23,6 +23,8 @@ Comment multiple Lines
 Shift + Alt + A
 
 
+https://github.com/ckz8780/boutique_ado_v1
+
 
 
 fix toasts success - currently it shows the entire bag even when it finds books for a plan
@@ -40,3 +42,5 @@ update styling in stripe_elements.js
 fix hyperlink on checkout_success.html
 
 fix admin for order
+
+OrderLiteItem model - currently both book and plan are not compulsory, so someone could submit an order without either
