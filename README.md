@@ -39,9 +39,9 @@ update styling in stripe_elements.js
 
 4242 4242 4242 4242
 
-fix hyperlink on checkout_success.html
-
 fix admin for order
+
+fix admin for plans
 
 OrderLiteItem model - currently both book and plan are not compulsory, so someone could submit an order without either
 
