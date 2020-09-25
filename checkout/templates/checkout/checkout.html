@@ -81,7 +81,7 @@
                         <p class="my-0">Order Total:</p>
                     </div>
                     <div class="col-3">
-                        <p class="my-0">${{ total | floatformat:2 }}</p>
+                        <p class="my-0">€{{ order_total | floatformat:2 }}</p>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>
-							<span>Your card will be charged <strong>${{ order_total|floatformat:2 }}</strong></span>
+							<span>Your card will be charged <strong>${{ total|floatformat:2 }}</strong></span>
 						</p>
 					</div>
                 </form>

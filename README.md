@@ -44,3 +44,8 @@ fix hyperlink on checkout_success.html
 fix admin for order
 
 OrderLiteItem model - currently both book and plan are not compulsory, so someone could submit an order without either
+
+
+to review allauth formatting from Code Institute in base.css(the main one)
+
+order total on chechout page is not showing
