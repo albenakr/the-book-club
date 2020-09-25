@@ -49,3 +49,5 @@ OrderLiteItem model - currently both book and plan are not compulsory, so someon
 to review allauth formatting from Code Institute in base.css(the main one)
 
 order total on chechout page is not showing
+
+put max length on book description model
