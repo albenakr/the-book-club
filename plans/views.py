@@ -27,18 +27,13 @@ def custom_plans(request):
         # check whether it's valid:
         if form.is_valid():
             name = str(form.cleaned_data['name'])
-            print(name)
             genres = list(form.cleaned_data['genres'])
-            print(genres)
             languages = list(form.cleaned_data['languages'])
-            print(languages)
             plan_duration = int(form.cleaned_data['plan_duration'])
-            print(plan_duration)
 
             # Filter books by genre and language
             books = books.filter(genre__name__in=genres).filter(
                 language__name__in=languages)
-            print(books)
 
             # create a fallback in case there are not enough books in the categories they want
 
@@ -58,11 +53,9 @@ def custom_plans(request):
             # https://pynative.com/python-random-module/
             # plan duration acts as limit
             shuffled_books = list(random.sample(list(books), plan_duration))
-            print(shuffled_books)
 
             price_per_book = 10
             price = plan_duration * price_per_book
-            print(price)
 
             # create a new instance of Plan, by assigning name, books, price
             custom_plan = Plan(
@@ -71,7 +64,6 @@ def custom_plans(request):
             custom_plan.books.set(shuffled_books)
 
             books_from_custom_plan = custom_plan.books.all()
-            print(books_from_custom_plan)
 
             context = {
                 'custom_plan': custom_plan,
@@ -102,7 +94,6 @@ def view_custom_plan_details(request, plan_id):
                 'books_from_custom_plan': books_from_custom_plan,
             }
 
-            # redirect to a new URL, giving customer an overview of the books in their plan and allowing them to either add it to their bag or restart the survey
     return render(request, 'plans/custom_plan_details.html', context)
 
 
