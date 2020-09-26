@@ -26,6 +26,8 @@
       <div class="col-12 col-md-6">
         <h5>{{ book.title }}</h5>
         <p>{{ book.author }}</p>
+
+        
         <p>Published in: {{ book.publication_year }}</p>
         <p>€{{ book.price }}</p>
         <p>Product Rating: X</p>
@@ -87,6 +89,48 @@
     </div>
   </div>
 </div>
+
+{% if reviews %}
+<div class="row">
+<div class="col">
+<h3>Reviews</h3>
+</div>
+</div>
+<div class="row">
+<div class="col">
+{% for review in reviews %}
+
+<div class="card">
+<div class="card-title">
+<h5>{{ review.title }}</h5>
+<h5>{{ review.rating }} / 5 </h5>
+</div>
+<div class="card-body">
+<p>{{ review.date }}</p>
+<p>{{ review.review_text }}</p>
+{% if review.user_profile %}
+<p>{{ review.user_profile }}</p>
+{% else %}
+<p>Anonymous User</p>
+{% endif %}
+</div>
+</div>
+{% endfor %}
+
+</div>
+</div>
+
+{% else %}
+<div class="row">
+<div class="col">
+<h3>Reviews</h3>
+<p>There are no reviews for this book yet.</p>
+</div>
+</div>
+<div class="row">
+<div class="col">
+
+{% endif %}
 {% endblock %}
 
 {% block postloadjs %}

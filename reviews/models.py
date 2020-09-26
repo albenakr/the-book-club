@@ -10,7 +10,7 @@ class Review(models.Model):
                              on_delete=models.CASCADE, related_name='reviews')
     user_profile = models.ForeignKey(
         UserProfile, on_delete=models.SET_NULL,
-        null=True, blank=True, related_name='reviews')
+        null=True, blank=True)
     rating = models.IntegerField(validators=[MinValueValidator(
         1), MaxValueValidator(5)], null=False, blank=False)
     date = models.DateField(auto_now_add=True)

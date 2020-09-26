@@ -63,3 +63,5 @@ def write_review(request, book_id):
         template = 'reviews/write_review.html'
 
         return render(request, template, context)
+
+
