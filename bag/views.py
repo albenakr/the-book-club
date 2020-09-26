@@ -47,6 +47,9 @@ def add_plan_to_bag(request, item_id):
     request.session['bag'] = bag
     return redirect(redirect_url)
 
+    
+   #return redirect("view_custom_plan_details/")
+
 
 def adjust_bag(request, item_id):
     """ Adjust the quantity of a specified product in the shopping bag"""

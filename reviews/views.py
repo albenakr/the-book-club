@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.contrib import messages
 from .models import Review
 from products.models import Book
@@ -16,6 +16,7 @@ def reviews(request):
 
     context = {
         'reviews': reviews,
+        'on_reviews_page': True,
     }
 
     return render(request, template, context)
@@ -50,6 +51,13 @@ def write_review(request, book_id):
             messages.success(request, 'Your review was successfully posted on the Community page')
 
             return redirect(reverse('reviews'))
+        else:
+            messages.error(request, 'There was an error while submitting your review. \
+                Please double check your information.')
+            return HttpResponse(status=500)
+
+
+
 
     else:
         form = ReviewForm()
@@ -58,6 +66,7 @@ def write_review(request, book_id):
             'form': form,
             'book': book,
             'user': user,
+            'on_write_review_page': True,
         }
 
         template = 'reviews/write_review.html'

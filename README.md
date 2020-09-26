@@ -25,29 +25,55 @@ Shift + Alt + A
 
 https://github.com/ckz8780/boutique_ado_v1
 
+lsof -t -i tcp:8000 | xargs kill -9
 
+4242 4242 4242 4242
 
-fix toasts success - currently it shows the entire bag even when it finds books for a plan
 
 Plan image:
 <span>Photo by <a href="https://unsplash.com/@sincerelymedia?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Sincerely Media</a> on <a href="https://unsplash.com/s/photos/books?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 Photo by Sincerely Media on Unsplash
 
+
+****************************to fix**************
+
+***********styling**************
+
+to review allauth formatting from Code Institute in base.css(the main one)
+
 Shop Books Button is moving in weird ways
 
 update styling in stripe_elements.js
 
-4242 4242 4242 4242
+********functionality************
 
-fix admin for order
+>> fix admin for order
 
-fix admin for plans
+>> fix admin for plans
+
+
+>> put max length on book description model
+
+>> when people are clicking on 'See book' or the photo for 'book email' from custom plan - add button on book_detail page to point to custom_plan instead of 'Keep shopping'
+
+>> Back to Top Button for Community/Reviews page
+
 
 OrderLiteItem model - currently both book and plan are not compulsory, so someone could submit an order without either
 
+>> fix redirect on add_plan_to_bag
 
-to review allauth formatting from Code Institute in base.css(the main one)
 
-order total on chechout page is not showing
+SERIOUS ONES
 
-put max length on book description model
+>>Reviews Section - it's not throwing error messages properly
+
+>>iterate through plan books on profile.html page
+
+>> Reviews - function to calculate average rating
+
+
+
+
+
+Add max dimensions to reviews cards, so they're not too big if the comment is long
