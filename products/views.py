@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.db.models import Avg
 from django.db.models import Q
 from .models import Book, Genre, Language
 from reviews.models import Review
@@ -62,11 +63,13 @@ def book_detail(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     all_reviews = Review.objects.all()
     reviews = all_reviews.filter(book=book)
-    print(reviews)
+    average_rating = reviews.aggregate(Avg('rating'))
+
 
     context = {
         'book': book,
         'reviews': reviews,
+        'average_rating': average_rating['rating__avg'],
     }
 
     return render(request, 'products/book_detail.html', context)

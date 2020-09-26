@@ -55,6 +55,10 @@
 										<a href="{% url 'write_review' item.book.id %}">Review Book</a>
 										{% else %}
 										{{ item.plan.name }} x {{ item.quantity }}
+                                       {% for book in item.plan.books.all %} 
+                                     <p>   {{ book.title }} <a href="{% url 'write_review' book.id %}">Review Book</a>
+ </p>
+                                        {% endfor %}
 
 										<!--  Collapsable to display the books in each plan-->
 

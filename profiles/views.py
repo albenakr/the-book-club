@@ -6,8 +6,6 @@ from .forms import UserProfileForm
 
 from checkout.models import Order
 
-
-
 # Create your views here.
 def profile(request):
     """ Display the user's profile. """

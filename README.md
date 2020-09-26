@@ -51,7 +51,6 @@ update styling in stripe_elements.js
 
 >> fix admin for plans
 
-
 >> put max length on book description model
 
 >> when people are clicking on 'See book' or the photo for 'book email' from custom plan - add button on book_detail page to point to custom_plan instead of 'Keep shopping'
@@ -59,18 +58,10 @@ update styling in stripe_elements.js
 >> Back to Top Button for Community/Reviews page
 
 
-OrderLiteItem model - currently both book and plan are not compulsory, so someone could submit an order without either
-
->> fix redirect on add_plan_to_bag
-
 
 SERIOUS ONES
 
->>Reviews Section - it's not throwing error messages properly
 
->>iterate through plan books on profile.html page
-
->> Reviews - function to calculate average rating
 
 
 

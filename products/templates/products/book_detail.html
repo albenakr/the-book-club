@@ -27,6 +27,14 @@
         <h5>{{ book.title }}</h5>
         <p>{{ book.author }}</p>
 
+{% if average_rating %}
+      <p>  {{ average_rating }} </p>
+      {% else %}
+      <p>  No ratings yet </p>
+
+{% endif %}
+
+
         
         <p>Published in: {{ book.publication_year }}</p>
         <p>€{{ book.price }}</p>

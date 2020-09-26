@@ -48,16 +48,25 @@ def write_review(request, book_id):
             review = Review(book=book, user_profile=user, rating=rating, title=title,
                             review_text=review_text)
             review.save()
-            messages.success(request, 'Your review was successfully posted on the Community page')
+            messages.success(
+                request, 'Your review was successfully posted on the Community page')
 
             return redirect(reverse('reviews'))
         else:
             messages.error(request, 'There was an error while submitting your review. \
-                Please double check your information.')
-            return HttpResponse(status=500)
+                Your title or review might be too long.')
 
+            context = {
+                'form': form,
+                'book': book,
+                'user': user,
+                'on_write_review_page': True,
+            }
 
+            template = 'reviews/write_review.html'
 
+            return render(request, template, context)
+            # return HttpResponse(status=500)
 
     else:
         form = ReviewForm()
@@ -72,5 +81,3 @@ def write_review(request, book_id):
         template = 'reviews/write_review.html'
 
         return render(request, template, context)
-
-
