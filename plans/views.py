@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from django.contrib import messages
 from .forms import CustomPlanForm
 from products.models import Book, Genre, Language
@@ -40,6 +40,8 @@ def custom_plans(request):
                 language__name__in=languages)
             print(books)
 
+            # create a fallback in case there are not enough books in the categories they want
+
             if len(books) == 0:
                 messages.info(request, 'No results found for your search. Please try again')
                 form = CustomPlanForm()
@@ -58,10 +60,8 @@ def custom_plans(request):
             shuffled_books = list(random.sample(list(books), plan_duration))
             print(shuffled_books)
 
-            # create a fallback in case there are not enough books in the categories they want
-
-            # generate price by number of months in plan_duration multiplied by EUR 10
-            price = plan_duration * 10
+            price_per_book = 10
+            price = plan_duration * price_per_book
             print(price)
 
             # create a new instance of Plan, by assigning name, books, price
@@ -90,5 +90,20 @@ def custom_plans(request):
     }
 
     return render(request, 'plans/custom_plan_form.html', context)
+
+
+
+def view_custom_plan_details(request, plan_id):
+    custom_plan = get_object_or_404(Plan, pk=plan_id)
+    books_from_custom_plan = custom_plan.books.all()
+
+    context = {
+                'custom_plan': custom_plan,
+                'books_from_custom_plan': books_from_custom_plan,
+            }
+
+            # redirect to a new URL, giving customer an overview of the books in their plan and allowing them to either add it to their bag or restart the survey
+    return render(request, 'plans/custom_plan_details.html', context)
+
 
 
