@@ -13,7 +13,7 @@
 	<div class="row">
 
 		<div class="col">
-			<form action="{% url 'write_review' review.book.id %}" method="POST" id="review-form">
+			<form action="{% url 'write_review' book.id %}" method="POST" id="review-form">
 				{% csrf_token %}
 				{{ form | crispy }}
 				<input type="submit" value="Submit">

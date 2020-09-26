@@ -47,17 +47,16 @@ def write_review(request, book_id):
             context = {
                 'review': review,
             }
-            return render(request, 'reviews/write_review.html', context)
+            return render(request, 'reviews/reviews.html')
 
     else:
         form = ReviewForm()
 
-
         context = {
             'form': form,
+            'book': book
         }
 
         template = 'reviews/write_review.html'
-
 
         return render(request, template, context)
