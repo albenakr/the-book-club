@@ -92,7 +92,3 @@ def custom_plans(request):
     return render(request, 'plans/custom_plan_form.html', context)
 
 
-def surprise_plans(request):
-    """A view to return the surprise plans page"""
-
-    return render(request, 'plans/surprise_plan.html')
