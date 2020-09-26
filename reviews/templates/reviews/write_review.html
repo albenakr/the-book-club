@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container header-container">
+	<div class="row">
+		<div class="col">
+			<h3>Your review for book X</h3>
+		</div>
+	</div>
+	<div class="row">
+
+		<div class="col">
+			<form action="{% url 'write_review' review.book.id %}" method="POST" id="review-form">
+				{% csrf_token %}
+				{{ form | crispy }}
+				<input type="submit" value="Submit">
+		</form>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+{% endblock %}

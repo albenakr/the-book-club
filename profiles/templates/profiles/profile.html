@@ -61,6 +61,7 @@
                                                 <li class="small">
                                                 {% if item.book != None %}
                                                    {{ item.book.title }} x {{ item.quantity }}
+                                                   <a href="{% url 'write_review' item.book.id %}">Review Book</a>
                                                    {% else %}
                                                   {{ item.plan.name }} x {{ item.quantity }}
                                                    {% endif %}
