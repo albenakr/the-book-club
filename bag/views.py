@@ -37,7 +37,6 @@ def add_plan_to_bag(request, item_id):
 
     plan = get_object_or_404(Plan, pk=item_id)
     quantity = 1
-    redirect_url = request.POST.get('redirect_url')
 
     bag = request.session.get('bag', {})
 
@@ -45,10 +44,9 @@ def add_plan_to_bag(request, item_id):
     messages.success(request, f'{plan.name} was added to your bag')
 
     request.session['bag'] = bag
-    return redirect(redirect_url)
 
-    
-   #return redirect("view_custom_plan_details/")
+    return redirect('view_custom_plan_details', plan_id=plan.id)
+
 
 
 def adjust_bag(request, item_id):
