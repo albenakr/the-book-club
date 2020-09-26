@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
 from .models import Review
 from products.models import Book
 from profiles.models import UserProfile
@@ -8,7 +9,7 @@ from .forms import ReviewForm
 
 # Create your views here.
 def reviews(request):
-    """A view to return the index page"""
+    """A view to return the reviews Community page"""
     reviews = Review.objects.all()
 
     template = 'reviews/reviews.html'
@@ -21,10 +22,11 @@ def reviews(request):
 
 
 def write_review(request, book_id):
+    """A view to allow a user to create a review"""
 
     book = get_object_or_404(Book, pk=book_id)
     print(book)
-    user = get_object_or_404(UserProfile, user=request.user.id)
+    user = get_object_or_404(UserProfile, user=request.user)
     print(user)
 
     if request.method == 'POST':
@@ -40,21 +42,22 @@ def write_review(request, book_id):
             review_text = form.cleaned_data['review_text']
             print(review_text)
 
-            review = Review(book=book, user=user, rating=rating, title=title,
+            print(user)
+
+            review = Review(book=book, user_profile=user, rating=rating, title=title,
                             review_text=review_text)
             review.save()
+            messages.success(request, 'Your review was successfully posted on the Community page')
 
-            context = {
-                'review': review,
-            }
-            return render(request, 'reviews/reviews.html')
+            return redirect(reverse('reviews'))
 
     else:
         form = ReviewForm()
 
         context = {
             'form': form,
-            'book': book
+            'book': book,
+            'user': user,
         }
 
         template = 'reviews/write_review.html'

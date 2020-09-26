@@ -7,11 +7,10 @@
 <div class="container header-container">
 	<div class="row">
 		<div class="col">
-			<h3>Your review for book X</h3>
+			<h3>Your review for the book <strong>"{{ book.title }}"</strong>{{ user.username }}</h3>
 		</div>
 	</div>
 	<div class="row">
-
 		<div class="col">
 			<form action="{% url 'write_review' book.id %}" method="POST" id="review-form">
 				{% csrf_token %}
