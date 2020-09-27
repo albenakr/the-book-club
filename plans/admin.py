@@ -3,4 +3,12 @@ from .models import Plan
 
 
 # Register your models here.
-admin.site.register(Plan)
+class PlanAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'plan_duration',
+        'price',
+    )
+
+
+admin.site.register(Plan, PlanAdmin)

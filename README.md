@@ -49,8 +49,6 @@ update styling in stripe_elements.js
 
 >> fix admin for order
 
->> fix admin for plans
-
 >> when people are clicking on 'See book' or the photo for 'book email' from custom plan - add button on book_detail page to point to custom_plan instead of 'Keep shopping'
 
 >> Back to Top Button for Community/Reviews page
