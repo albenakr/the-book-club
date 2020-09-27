@@ -14,6 +14,12 @@ https://github.com/justdjango/djfilter/blob/master/core/views.py
 https://www.youtube.com/watch?v=G-Rct7Na0UQ
 
 
+Back to Top Button
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
+
+
+
+
 Another way of doing the filtering to explore:
 That's correct. You could store the original queryset though each time you filter so that you have the last queryset from before the filter was applied. However in order to do this without refreshing the page every time you would need Ajax or some sort of JavaScript
 My advice would be to return the entire queryset to the template, and filter everything with JavaScript.
@@ -54,6 +60,14 @@ update styling in stripe_elements.js
 >> Back to Top Button for Community/Reviews page
 
 >> Add books at less than 10 EUR to test the savings rendering in the template
+
+>> Add reviews tomorrow to make sure the ordering is working
+
+>> Decide on whether to put 'review book' in the book detail page or keep it as an option in the bag only
+
+>> implement pagination or back to top on books
+
+>> implement filter for sorting by reviews
 
 
 SERIOUS ONES

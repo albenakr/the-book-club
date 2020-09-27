@@ -1,128 +1,117 @@
 {% extends "base.html" %} {% load static %} {% block content %}
-
 <div class="container-fluid header-container">
-<form>
-<div class="row">
-<div class="form-group col-md-3">
-                   <input class="form-control border rounded-0" type="text" name="q" placeholder="Search Books...">                                                            
-                </div>
-           
-            <div class="form-group col-md-3">
-             <select id="genre" class="form-control" name="genre">
-             <option selected>Genres</option>
-              {% for genre in genres %}
-              <option value="{{ genre }}">{{ genre }}</option>
-              {% endfor %}
+   <button onclick="topFunction()" id="backToTopBtn" title="Back to top">Top</button>
+   <form>
+      <div class="row">
+         <div class="form-group col-md-3">
+            <input class="form-control border rounded-0" type="text" name="q" placeholder="Search Books...">                                                            
+         </div>
+         <div class="form-group col-md-3">
+            <select id="genre" class="form-control" name="genre">
+               <option selected>Genres</option>
+               {% for genre in genres %}
+               <option value="{{ genre }}">{{ genre }}</option>
+               {% endfor %}
             </select>
-          </div>
-     <div class="form-group col-md-3">
+         </div>
+         <div class="form-group col-md-3">
             <select id="language" class="form-control" name="language">
-            <option selected>Languages</option>
-              {% for language in languages %}
-              <option value="{{ language }}">{{ language }}</option>
-              {% endfor %}
+               <option selected>Languages</option>
+               {% for language in languages %}
+               <option value="{{ language }}">{{ language }}</option>
+               {% endfor %}
             </select>
-          </div>
-
-          <div class="form-group col-md-3">
+         </div>
+         <div class="form-group col-md-3">
             <select id="price_filter" class="form-control" name="filters">
-            <option selected>Filter</option>
-              <option value="price_asc">Price - Low to High</option>
-            <option value="price_desc">Price - High to Low</option>
-                  <option value="title_asc">Title A-Z</option>
-                    <option value="title_desc">Title Z-A</option>
-                    <option value="author_asc">Author A-Z</option>
-                    <option value="author_desc">Author Z-A</option>
-
-
+               <option selected>Filter</option>
+               <option value="price_asc">Price - Low to High</option>
+               <option value="price_desc">Price - High to Low</option>
+               <option value="title_asc">Title A-Z</option>
+               <option value="title_desc">Title Z-A</option>
+               <option value="author_asc">Author A-Z</option>
+               <option value="author_desc">Author Z-A</option>
             </select>
-          </div>
-                 
-          <div class="col-md-1">
-                            <button type="submit" class="btn btn-primary">Search</button>
-          </div>
-</div>
-</form>
-
-</div>
-
-
-<div class="container-fluid books-container">
-<div class="row">
-
-<div class="col-sm-4">
-                        <p class="text-muted mt-3 text-center text-md-left">
-                            {% if search_term or current_genres or current_languages != 'None_None' %}
-                                <span class="small"><a href="{% url 'books' %}">Books Home</a> | </span>
-                            {% endif %}
-                            Current search: {{ books|length }} Books{% if search_term %} found for <strong>"{{ search_term  }}"</strong>{% endif %}                    </p>
-</div>
-<div class="col-sm-8">
-{% for genre in current_genres %}
-                    <a class="category-badge text-decoration-none" href="{% url 'books' %}?genre={{ genre.name }}">
-                        <span class="p-2 mt-2 badge badge-white rounded-0 border">{{ genre.name }}</span>
-                    </a>
-                {% endfor %}
-
-                {% for language in current_languages %}
-                    <a class="category-badge text-decoration-none" href="{% url 'books' %}?genre={{ language.name }}">
-                        <span class="p-2 mt-2 badge badge-white rounded-0 border">{{ language.name }}</span>
-                    </a>
-                {% endfor %}
-</div>
-</div>
-
-  <div class="row">
-    {% for book in books %}
-    <div class="col">
-      <div class="card book-card">
-        {% if book.image %}
-        <a href="{% url 'book_detail' book.id %}">
-        <img
-          src="{{ book.image.url }}"
-          class="card-img-top book-image-card"
-          alt="{{ book.title }}"
-        />
-        <a>
-        {% else %}
-                <a href="{% url 'book_detail' book.id %}">
-
-        <img
-          src="{{ MEDIA_URL }}jaredd-craig-unsplash.jpg"
-          class="card-img-top"
-          alt="{{ book.name }}"
-        />
-<a>
-        {% endif %}
-
-        <div class="card-body">
-          <h5 class="card-title">{{ book.title }}</h5>
-          <p class="card-text">
-            {{ book.author }}, {{ book.publication_year }}
-          </p>
-
-            {% if book.genre %}
-                                            <p class="small mt-1 mb-0">
-                                                <a class="text-muted" href="{% url 'books' %}?genre={{ book.genre.name }}">
-                                                    <i class="fas fa-tag mr-1"></i>{{ book.genre.name }}
-                                                </a>
-                                            </p>
-                                            {% endif %}
-                 {% if book.language %}
-                                            <p class="small mt-1 mb-0">
-                                                <a class="text-muted" href="{% url 'books' %}?language={{ book.language.name }}">
-                                                    <i class="fas fa-language"></i>{{ book.language.name }}
-                                                </a>
-                                            </p>
-                                            {% endif %}
-          <p class="card-text">€{{ book.price }}</p>
-          <a href="{% url 'book_detail' book.id %}" class="btn btn-primary btn-book-card">See Book</a>
-        </div>
+         </div>
+         <div class="col-md-1">
+            <button type="submit" class="btn btn-primary">Search</button>
+         </div>
       </div>
-    </div>
-            {% endfor %}
-
-  </div>
-
+   </form>
 </div>
+<div class="container-fluid books-container">
+   <div class="row">
+      <div class="col-sm-4">
+         <p class="text-muted mt-3 text-center text-md-left">
+            {% if search_term or current_genres or current_languages != 'None_None' %}
+            <span class="small"><a href="{% url 'books' %}">Books Home</a> | </span>
+            {% endif %}
+            Current search: {{ books|length }} Books{% if search_term %} found for <strong>"{{ search_term  }}"</strong>{% endif %}                    
+         </p>
+      </div>
+      <div class="col-sm-8">
+         {% for genre in current_genres %}
+         <a class="category-badge text-decoration-none" href="{% url 'books' %}?genre={{ genre.name }}">
+         <span class="p-2 mt-2 badge badge-white rounded-0 border">{{ genre.name }}</span>
+         </a>
+         {% endfor %}
+         {% for language in current_languages %}
+         <a class="category-badge text-decoration-none" href="{% url 'books' %}?genre={{ language.name }}">
+         <span class="p-2 mt-2 badge badge-white rounded-0 border">{{ language.name }}</span>
+         </a>
+         {% endfor %}
+      </div>
+   </div>
+   <div class="row">
+      {% for book in books %}
+      <div class="col">
+         <div class="card book-card">
+            {% if book.image %}
+            <a href="{% url 'book_detail' book.id %}">
+            <img
+               src="{{ book.image.url }}"
+               class="card-img-top book-image-card"
+               alt="{{ book.title }}"
+               />
+            <a>
+            {% else %}
+            <a href="{% url 'book_detail' book.id %}">
+            <img
+               src="{{ MEDIA_URL }}jaredd-craig-unsplash.jpg"
+               class="card-img-top"
+               alt="{{ book.name }}"
+               />
+            <a>
+               {% endif %}
+               <div class="card-body">
+                  <h5 class="card-title">{{ book.title }}</h5>
+                  <p class="card-text">
+                     {{ book.author }}, {{ book.publication_year }}
+                  </p>
+                  {% if book.genre %}
+                  <p class="small mt-1 mb-0">
+            <a class="text-muted" href="{% url 'books' %}?genre={{ book.genre.name }}">
+            <i class="fas fa-tag mr-1"></i>{{ book.genre.name }}
+            </a>
+            </p>
+            {% endif %}
+            {% if book.language %}
+            <p class="small mt-1 mb-0">
+            <a class="text-muted" href="{% url 'books' %}?language={{ book.language.name }}">
+            <i class="fas fa-language"></i>{{ book.language.name }} {{ average_rating_per_book }}
+            </a>
+            </p>
+            {% endif %}
+            <p class="card-text">€{{ book.price }}</p>
+            <a href="{% url 'book_detail' book.id %}" class="btn btn-primary btn-book-card">See Book</a>
+            </div>
+         </div>
+      </div>
+      {% endfor %}
+   </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+<script src="{% static 'products/js/back_to_top_btn.js' %}"></script>
 {% endblock %}

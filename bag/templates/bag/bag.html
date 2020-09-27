@@ -1,4 +1,7 @@
-{% extends "base.html" %} {% load static %} {% load bag_tools %} {% block content %}
+{% extends "base.html" %} {% load static %} {% load bag_tools %} 
+
+
+{% block content %}
 <div class="container header-container">
   <div class="row">
     <div class="col">
@@ -197,9 +200,11 @@
   </div>
 </div>
 
-{% endblock %} {% block postloadjs %} {{ block.super }} {% include 'products/includes/quantity_input_script.html' %}
+{% endblock %} {% block postloadjs %}
 
-<script type="text/javascript">
+ {{ block.super }} {% include 'products/includes/quantity_input_script.html' %}
+
+ <script type="text/javascript">
   // Update quantity on click
   $(".update-link").click(function (e) {
     var form = $(this).prev(".update-form");
@@ -229,6 +234,6 @@
       location.reload();
     });
   });
-</script>
+</script> 
 
 {% endblock %}
