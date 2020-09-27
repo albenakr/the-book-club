@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.db.models import Avg
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Review
@@ -82,3 +83,14 @@ def write_review(request, book_id):
         template = 'reviews/write_review.html'
 
         return render(request, template, context)
+
+
+def calculate_average_rating(book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    all_reviews = Review.objects.all()
+    reviews = all_reviews.filter(book=book)
+    average_rating = reviews.aggregate(Avg('rating'))
+    return average_rating
+
+ 
+

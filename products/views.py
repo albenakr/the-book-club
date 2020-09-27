@@ -4,6 +4,7 @@ from django.db.models import Avg
 from django.db.models import Q
 from .models import Book, Genre, Language
 from reviews.models import Review
+from reviews.views import calculate_average_rating
 
 
 def is_valid_queryparam(param):
@@ -19,7 +20,7 @@ def all_books(request):
     language = request.GET.get('language')
     search_query = request.GET.get('q')
     filters = request.GET.get('filters')
-
+ 
     if is_valid_queryparam(search_query):
         books = books.filter(
             Q(title__icontains=search_query)
@@ -63,8 +64,7 @@ def book_detail(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     all_reviews = Review.objects.all()
     reviews = all_reviews.filter(book=book).order_by('-date')
-    average_rating = reviews.aggregate(Avg('rating'))
-
+    average_rating = calculate_average_rating(book_id=book.id)
 
     context = {
         'book': book,
