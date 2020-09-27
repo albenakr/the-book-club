@@ -28,7 +28,7 @@
 		<div class="col">
 			<h3>Order History</h3>
 
-            {% if orders %}
+			{% if orders %}
 			<div class="order-history table-responsive">
 				<table class="table table-sm table-borderless">
 					<thead>
@@ -53,28 +53,33 @@
 									{% for item in order.lineitems.all %}
 									<li class="small">
 										{% if item.book != None %}
-										{{ item.book.title }} x {{ item.quantity }}
-										<a href="{% url 'write_review' item.book.id %}">Review Book</a>
+										<p><strong>{{ item.book.title }}</strong> x {{ item.quantity }}  
+										<a href="{% url 'write_review' item.book.id %}">Review Book</a></p>
 										{% else %}
-										{{ item.plan.name }} x {{ item.quantity }}
-                                       {% for book in item.plan.books.all %} 
-                                     <p>   {{ book.title }} <a href="{% url 'write_review' book.id %}">Review Book</a>
- </p>
-                                        {% endfor %}
-
-										<!--  Collapsable to display the books in each plan-->
-
-										<p>
-											<a data-toggle="collapse" href="#collapsePlanBooks"
-												role="button" aria-expanded="false" aria-controls="collapsePlanBooks">
+										<p><strong>Your plan: {{ item.plan.name }}</strong> x {{ item.quantity }}
+											<a data-toggle="collapse" href="#collapsePlanBooks" role="button"
+												aria-expanded="false" aria-controls="collapsePlanBooks">
 												Plan Books
 											</a>
 										</p>
+
+										<!--  Collapsable to display the books in each plan-->
 										<div class="collapse" id="collapsePlanBooks">
 											<div class="card card-body">
+												<ul class="list-unstyled">
+                                                	{% for book in item.plan.books.all %}
+													<li>
+														<p><strong>{{ book.title }}</strong>  <a
+															href="{% url 'write_review' book.id %}">Review Book</a></p>
+
+													</li>
+                                                    	{% endfor %}
+
+												</ul>
 
 											</div>
 										</div>
+
 										{% endif %}
 									</li>
 									{% endfor %}
@@ -88,14 +93,14 @@
 			</div>
 		</div>
 	</div>
-            {% else %}
-<div class="row">
-<div class="col">
-<p>You don't have any orders.</p>
-</div>
-</div>
+	{% else %}
+	<div class="row">
+		<div class="col">
+			<p>You don't have any orders.</p>
+		</div>
+	</div>
 
-            {% endif %}
+	{% endif %}
 
 	<div class="row">
 
