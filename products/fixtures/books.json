@@ -31,15 +31,15 @@
     "pk": 3,
     "model": "products.book",
     "fields": {
-    "language": 1,
-    "genre": 2,
-    "title": "Mort",
-    "author": "Terry Pratchett",
-    "publication_year": 1987,
-    "book_description": "Mort is a fantasy novel by British writer Terry Pratchett. Published in 1987, it is the fourth Discworld novel and the first to focus on the character Death, who only appeared as a side character in the previous novels.",
-    "price": 12.99,
-    "image": "mort.jpg"
-  }
+      "language": 1,
+      "genre": 2,
+      "title": "Mort",
+      "author": "Terry Pratchett",
+      "publication_year": 1987,
+      "book_description": "Mort is a fantasy novel by British writer Terry Pratchett. Published in 1987, it is the fourth Discworld novel and the first to focus on the character Death, who only appeared as a side character in the previous novels.",
+      "price": 12.99,
+      "image": "mort.jpg"
+    }
   },
   {
     "pk": 4,
@@ -55,7 +55,7 @@
       "image": "theshining.jpg"
     }
   },
-   {
+  {
     "pk": 5,
     "model": "products.book",
     "fields": {
@@ -164,7 +164,7 @@
       "publication_year": 2016,
       "book_description": "The foremost authority on innovation and growth presents a path-breaking book every company needs to transform innovation from a game of chance to one in which they develop products and services customers not only want to buy, but are willing to pay premium prices for.How do companies know how to grow?",
       "price": 12.99,
-      "image": "luck.jpg"
+      "image": "againstluck.jpg"
     }
   },
   {
@@ -187,7 +187,7 @@
     "fields": {
       "language": 2,
       "genre": 4,
-      "title": "Le Petit Prince",
+      "title": " Le Petit Prince",
       "author": "Antoine de Saint-Exupéry",
       "publication_year": 1943,
       "book_description": "The Little Prince is a novella by French aristocrat, writer, and aviator Antoine de Saint-Exupéry. It was first published in English and French in the US by Reynal & Hitchcock in April 1943, and posthumously in France following the liberation of France as Saint-Exupéry's works had been banned by the Vichy Regime.",
@@ -263,6 +263,565 @@
       "book_description": "Mygale (Tarantula) is a thriller crime novel by Thierry Jonquet first published in France by Editions Gallimard in 1984, and then published in the US in 2003 by City Lights.",
       "price": 13.99,
       "image": "tarantula.jpg"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "Les Misérables",
+      "author": "Victor Hugo",
+      "publication_year": 1984,
+      "book_description": "Les Misérables is a French historical novel by Victor Hugo, first published in 1862, that is considered one of the greatest novels of the 19th century. In the English-speaking world, the novel is usually referred to by its original French title.",
+      "price": 11.99,
+      "image": "lesmiserables.jpg"
+    }
+  },
+  {
+    "pk": 21,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 4,
+      "title": "L'Étranger",
+      "author": " Albert Camus",
+      "publication_year": 1942,
+      "book_description": "L'Étranger is a 1942 novel by French author Albert Camus. Its theme and outlook are often cited as examples of Camus's philosophy, absurdism coupled with that of existentialism, though Camus personally rejected the latter label.",
+      "price": 13.99,
+      "image": "Létranger.jpg"
+    }
+  }, {
+    "pk": 22,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 4,
+      "title": "If Only It Were True",
+      "author": "Marc Levy",
+      "publication_year": 1999,
+      "book_description": "If Only It Were True is the first novel by the French author Marc Levy. It was released in 1999 by Éditions Robert Laffont, and was translated into English the following year. The novel has been adapted into an array of motion pictures, including the 2005 American film Just Like Heaven.",
+      "price": 12.99,
+      "image": "ifonly.jpg"
+    }
+  },
+  {
+    "pk": 24,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 4,
+      "title": "Journey to the End of the Night",
+      "author": " Louis-Ferdinand Céline",
+      "publication_year": 1932,
+      "book_description": "Journey to the End of the Night is the first novel by Louis-Ferdinand Céline. This semi-autobiographical work follows the life of Ferdinand Bardamu. Journey to the End of the Night is a semi-autobiographical novel.",
+      "price": 8.99,
+      "image": "journeytotheendofthenight.jpg"
+    }
+  },
+  {
+    "pk": 25,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 4,
+      "title": "Zazie in the Metro",
+      "author": " Raymond Queneau",
+      "publication_year": 1959,
+      "book_description": "Zazie in the Metro or Zazie is a French novel written in 1959 by Raymond Queneau, and his first major success.",
+      "price": 11.99,
+      "image": "zazie.jpg"
+    }
+  },
+  {
+    "pk": 26,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "The Three Musketeers",
+      "author": "Alexandre Dumas",
+      "publication_year": 1844,
+      "book_description": "The Three Musketeers is a historical adventure novel written in 1844 by French author Alexandre Dumas. It is in the swashbuckler genre, which has heroic, chivalrous swordsmen who fight for justice.",
+      "price": 11.99,
+      "image": "musketeers.jpg"
+    }
+  },
+  {
+    "pk": 27,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "The Horla",
+      "author": "Guy de Maupassant",
+      "publication_year": 1887,
+      "book_description": "The Horla is an 1887 short horror story written in the style of a journal by the French writer Guy de Maupassant, after an initial, much shorter version published in the newspaper Gil Blas, October 26, 1886. American horror writer H. P.",
+      "price": 12.99,
+      "image": "horla.jpg"
+    }
+  },
+  {
+    "pk": 28,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "Bel Ami",
+      "author": "Guy de Maupassant",
+      "publication_year": 1885,
+      "book_description": "Bel-Ami is the second novel by French author Guy de Maupassant, published in 1885; an English translation titled Bel Ami, or, The History of a Scoundrel: A Novel first appeared in 1903.",
+      "price": 14.99,
+      "image": "belami.jpg"
+    }
+  },
+   {
+    "pk": 29,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "Les Malheurs de Sophie",
+      "author": "Countess of Ségur",
+      "publication_year": 1858,
+      "book_description": "Sophie's Misfortunes is a children's book written by the Countess of Ségur. The book was published in 1858 by the publisher Hachette. The illustrations were by Horace Castelli, a French artist. This is the first book of a trilogy; its sequels are Good Little Girls and The Holidays. ",
+      "price": 12.99,
+      "image": "Les_Malheurs_de_Sophie.jpg"
+    }
+  },
+  {
+    "pk": 30,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 3,
+      "title": "The Mystery of the Yellow Room",
+      "author": "Gaston Leroux",
+      "publication_year": 1907,
+      "book_description": "The Mystery of the Yellow Room is a mystery novel written by French author Gaston Leroux. One of the first locked-room mystery novels, it was first published serially in France in the periodical L'Illustration from September 1907 to November 1907, then in its own right in 1908. ",
+      "price": 10.99,
+      "image": "yellowroom.jpg"
+    }
+  },
+  {
+    "pk": 31,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "Le Livre des Baltimore",
+      "author": "Joel Dicker",
+      "publication_year": 2015,
+      "book_description": "NOVEMBER 24, 2004The day of the tragedy. The end of a brotherhood.The Baltimore Boys. The Goldman Gang. That was what they called Marcus Goldman and his cousins Woody and Hillel. ",
+      "price": 11.99,
+      "image": "baltimore.jpg"
+    }
+  },
+  {
+    "pk": 32,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 4,
+      "title": "The Truth About the Harry Quebert Affair",
+      "author": "Joel Dicker",
+      "publication_year": 2012,
+      "book_description": "The Truth About the Harry Quebert Affair is a novel by Swiss author Joël Dicker. It was published in the United States on 27 May 2014, by Penguin Books. ",
+      "price": 15.99,
+      "image": "harryquebert.jpg"
+    }
+  },
+  {
+    "pk": 34,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "Zadig",
+      "author": "Voltaire",
+      "publication_year": 1747,
+      "book_description": "Zadig; or, The Book of Fate is a novella and work of philosophical fiction by the Enlightenment writer Voltaire. It tells the story of Zadig, a philosopher in ancient Babylonia.",
+      "price": 10.99,
+      "image": "zadig.jpg"
+    }
+  },
+  {
+    "pk": 35,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "The Last Day of a Condemned Man",
+      "author": "Victor Hugo",
+      "publication_year": 1829,
+      "book_description": "The Last Day of a Condemned Man is a short novel by Victor Hugo first published in 1829. The novel recounts the thoughts of a man condemned to die. Victor Hugo wrote this novel to express his feelings that the death penalty should be abolished.",
+      "price": 11.99,
+      "image": "ledernierjour.jpg"
+    }
+  },
+  {
+    "pk": 36,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "The Hunchback of Notre-Dame",
+      "author": "Victor Hugo",
+      "publication_year": 1831,
+      "book_description": "The Hunchback of Notre-Dame is a French Gothic novel by Victor Hugo, published in 1831. The novel has been described as a key text in French literature and has been adapted for film over a dozen times.",
+      "price": 10.99,
+      "image": "notredame.jpg"
+    }
+  },
+  {
+    "pk": 37,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 5,
+      "title": "Froth on the Daydream",
+      "author": "Boris Vian",
+      "publication_year": 1947,
+      "book_description": "Froth on the Daydream is a 1947 novel by French author Boris Vian. Though told as a linear narrative, the novel employs surrealism and contains multiple plot lines, including the love stories of two couples, talking mice, and a man who ages years in a week.",
+      "price": 11.99,
+      "image": "ecumedesjours.jpg"
+    }
+  },
+  {
+    "pk": 38,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 4,
+      "title": "Le Grand Meaulnes",
+      "author": "Alain-Fournier",
+      "publication_year": 1913,
+      "book_description": "Le Grand Meaulnes is the only novel by French author Alain-Fournier, who was killed in the first month of World War I. The novel, published in 1913, a year before the author's death, is somewhat biographical – especially the name of the heroine Yvonne, for whom he had a doomed infatuation in Paris.",
+      "price": 11.99,
+      "image": "legrandmeaulnes.jpg"
+    }
+  },
+  {
+    "pk": 39,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 1,
+      "title": "Capital in the Twenty-First Century",
+      "author": "Alain-Fournier",
+      "publication_year": 2013,
+      "book_description": "Capital in the Twenty-First Century is a 2013 book by French economist Thomas Piketty. It focuses on wealth and income inequality in Europe and the United States since the 18th century. It was initially published in French in August 2013; an English translation by Arthur Goldhammer followed in April",
+      "price": 11.99,
+      "image": "capital.jpg"
+    }
+  },
+  {
+    "pk": 40,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 1,
+      "title": "The Order of Things: An Archaeology of the Human Sciences",
+      "author": "Michel Foucault",
+      "publication_year": 1966,
+      "book_description": "The Order of Things: An Archaeology of the Human Sciences by Michel Foucault deals with the origins of the sciences of biology, economics, and linguistics, which have their root in “life, labour, and language.”",
+      "price": 11.99,
+      "image": "theorderofthings.png"
+    }
+  },
+  {
+    "pk": 41,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 1,
+      "title": "The Adversary: A True Story of Monstrous Deception",
+      "author": "Emmanuel Carrère",
+      "publication_year": 2000,
+      "book_description": "The Adversary is a French non-fiction book by Emmanuel Carrère first published in France as L'Adversaire in 2000 by Folio. The book was published in English in 2001 under the title The Adversary: A True Story of Monstrous Deception.",
+      "price": 13.99,
+      "image": "adversary.jpg"
+    }
+  },
+  {
+    "pk": 42,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 1,
+      "title": "The Second Sex",
+      "author": "Simone de Beauvoir",
+      "publication_year": 1949,
+      "book_description": "The Second Sex is a 1949 book by the French existentialist Simone de Beauvoir, in which the author discusses the treatment of women throughout history. Beauvoir researched and wrote the book in about 14 months between 1946 and 1949. She published it in two volumes, Facts and Myths and Lived Experience.",
+      "price": 13.99,
+      "image": "thesecondsex.jpg"
+    }
+  },
+  {
+    "pk": 43,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 1,
+      "title": "Existentialism Is a Humanism",
+      "author": "Jean-Paul Sartre",
+      "publication_year": 1946,
+      "book_description": "Existentialism Is a Humanism is a 1946 work by the philosopher Jean-Paul Sartre, based on a lecture by the same name he gave at Club Maintenant in Paris, on 29 October 1945.",
+      "price": 12.99,
+      "image": "existentialism.jpg"
+    }
+  },
+  {
+    "pk": 45,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 2,
+      "title": "A Winter's Promise",
+      "author": "Christelle Dabos",
+      "publication_year": 2013,
+      "book_description": "The first instalment and English-language debut of the bestselling French fantasy series The Mirror Visitor. The novels have earned a huge following in France: book three debuted at #1 and spent 13 weeks on the French bestseller list. ong ago, following a cataclysm called ‘the Rupture’, the world was shattered into many floating celestial islands, named the Arks. The inhabitants of these arks each possess a unique power",
+      "price": 12.99,
+      "image": "winterspromise.jpg"
+    }
+  },
+  {
+    "pk": 46,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 2,
+      "title": "La Zone du dehors",
+      "author": "Alain Damasio",
+      "publication_year": 1999,
+      "book_description": "La Zone du Dehors est un roman de science-fiction écrit par l'écrivain français Alain Damasio, publié en deux tomes.",
+      "price": 13.99,
+      "image": "damasio.jpg"
+    }
+  },
+  {
+    "pk": 47,
+    "model": "products.book",
+    "fields": {
+      "language": 2,
+      "genre": 2,
+      "title": "Le Dernier Homme",
+      "author": "Jean-Baptiste Cousin de Grainville",
+      "publication_year": 1805,
+      "book_description": "Le Dernier Homme is a French science fantasy novel in the form of a prose poem. Written by Jean-Baptiste Cousin de Grainville and published in 1805, it was the first story of modern speculative fiction to depict the end of the world.",
+      "price": 12.99,
+      "image": "ledernierhomme.jpg"
+    }
+  },
+  {
+    "pk": 48,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "Murder on the Orient Express",
+      "author": "Agatha Christie",
+      "publication_year": 1934,
+      "book_description": "Murder on the Orient Express is a detective novel by English writer Agatha Christie featuring the Belgian detective Hercule Poirot. It was first published in the United Kingdom by the Collins Crime Club on 1 January 1934.",
+      "price": 10.99,
+      "image": "murderorientexpress.jpg"
+    }
+  },
+  {
+    "pk": 49,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "Death on the Nile",
+      "author": "Agatha Christie",
+      "publication_year": 1937,
+      "book_description": "Detective Hercule Poirot investigates the murder of a young heiress aboard a cruise ship on the Nile River.",
+      "price": 10.99,
+      "image": "deathonnile.jpg"
+    }
+  },
+  {
+    "pk": 50,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "The Secret Adversary",
+      "author": "Agatha Christie",
+      "publication_year": 1922,
+      "book_description": "The Secret Adversary is the second published detective fiction novel by British writer Agatha Christie, first published in January 1922 in the United Kingdom by The Bodley Head and in the United States by Dodd, Mead and Company later in that same year.",
+      "price": 10.99,
+      "image": "secretadversary.jpg"
+    }
+  },
+  {
+    "pk": 51,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "The Hound of the Baskervilles",
+      "author": "Arthur Conan Doyle",
+      "publication_year": 1902,
+      "book_description": "The Hound of the Baskervilles is the third of the four crime novels written by Sir Arthur Conan Doyle featuring the detective Sherlock Holmes. ",
+      "price": 14.99,
+      "image": "hound.jpg"
+    }
+  },
+  {
+    "pk": 52,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "The Adventures of Sherlock Holmes",
+      "author": "Arthur Conan Doyle",
+      "publication_year": 1892,
+      "book_description": "The Adventures of Sherlock Holmes is a collection of twelve short stories by Arthur Conan Doyle, first published on 14 October 1892. ",
+      "price": 10.99,
+      "image": "sherlock.jpg"
+    }
+  },
+  {
+    "pk": 53,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "It",
+      "author": "Stephen King",
+      "publication_year": 1986,
+      "book_description": "It is a 1986 horror novel by American author Stephen King. It was his 22nd book, and his 17th novel written under his own name. The story follows the experiences of seven children as they are terrorized by an evil entity that exploits the fears of its victims to disguise itself while hunting its prey. ",
+      "price": 10.99,
+      "image": "it.jpg"
+    }
+  },
+  {
+    "pk": 54,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "It",
+      "author": "Stephen King",
+      "publication_year": 1986,
+      "book_description": "It is a 1986 horror novel by American author Stephen King. It was his 22nd book, and his 17th novel written under his own name. The story follows the experiences of seven children as they are terrorized by an evil entity that exploits the fears of its victims to disguise itself while hunting its prey. ",
+      "price": 10.99,
+      "image": "it.jpg"
+    }
+  },
+  {
+    "pk": 55,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "Down Under",
+      "author": "Bill Bryson",
+      "publication_year": 2000,
+      "book_description": "Down Under is the British title of a 2000 travelogue book about Australia written by best-selling travel writer Bill Bryson. In the United States and Canada it was published titled In a Sunburned Country, a title taken from the famous Australian poem ",
+      "price": 10.99,
+      "image": "downunder.jpg"
+    }
+  },
+  {
+    "pk": 56,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "Neither Here nor There: Travels in Europe",
+      "author": "Bill Bryson",
+      "publication_year": 1991,
+      "book_description": "Neither Here nor There: Travels in Europe is a 1991 humorous travelogue by American writer Bill Bryson. It documents the author's tour of Europe in 1990, with many flashbacks to two summer tours he made in 1972 and 1973 in his college days.",
+      "price": 10.99,
+      "image": "neitherhere.jpg"
+    }
+  },
+  {
+    "pk": 57,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "At Home: A Short History of Private Life",
+      "author": "Bill Bryson",
+      "publication_year": 2010,
+      "book_description": "At Home: A Short History of Private Life is a history of domestic life written by Bill Bryson. It was published in May 2010.",
+      "price": 12.99,
+      "image": "athome.jpg"
+    }
+  },
+  {
+    "pk": 58,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "I Know Why the Caged Bird Sings",
+      "author": "Maya Angelou",
+      "publication_year": 1969,
+      "book_description": "I Know Why the Caged Bird Sings is a 1969 autobiography describing the early years of American writer and poet Maya Angelou. The first in a seven-volume series, it is a coming-of-age story that illustrates how strength of character and a love of literature can help overcome racism and trauma.",
+      "price": 16.99,
+      "image": "cagedbirds.jpg"
+    }
+  },
+  {
+    "pk": 59,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "Into the Wild",
+      "author": "Jon Krakauer",
+      "publication_year": 1996,
+      "book_description": "Into the Wild is a 1996 non-fiction book written by Jon Krakauer. It is an expansion of a 9,000-word article by Krakauer on Chris McCandless titled 'Death of an Innocent', which appeared in the January 1993 issue of Outside.",
+      "price": 16.99,
+      "image": "intothewild.jpg"
+    }
+  },
+  {
+    "pk": 60,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 3,
+      "title": "How to Win Friends and Influence People",
+      "author": "Dale Carnegie",
+      "publication_year": 1936,
+      "book_description": "How to Win Friends and Influence People is a self-help book written by Dale Carnegie, published in 1936. Over 30 million copies have been sold worldwide, making it one of the best-selling books of all time. In 2011, it was number 19 on Time Magazine's list of the 100 most influential books.",
+      "price": 16.99,
+      "image": "winfriends.jpg"
+    }
+  },
+  {
+    "pk": 61,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 2,
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J. K. Rowling",
+      "publication_year": 1997,
+      "book_description": "Harry Potter and the Philosopher's Stone is a fantasy novel written by British author J. K. Rowling.",
+      "price": 16.99,
+      "image": "harrypotter.jpg"
+    }
+  },
+  {
+    "pk": 62,
+    "model": "products.book",
+    "fields": {
+      "language": 1,
+      "genre": 2,
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "author": "J. R. R. Tolkien",
+      "publication_year": 1937,
+      "book_description": "The Lord of the Rings is an epic high fantasy novel by the English author and scholar J. R. R. Tolkien. Set in Middle-earth, the world at some distant time in the past, the story began as a sequel to Tolkien's 1937 children's book The Hobbit, but eventually developed into a much larger work. ",
+      "price": 16.99,
+      "image": "lordoftherings.jpg"
     }
   }
 ]
