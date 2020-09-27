@@ -52,7 +52,7 @@ def write_review(request, book_id):
             messages.success(
                 request, 'Your review was successfully posted on the Community page')
 
-            return redirect(reverse('reviews'))
+            return redirect('book_detail', book_id=book.id)
         else:
             messages.error(request, 'There was an error while submitting your review. \
                 Your title or review might be too long.')
