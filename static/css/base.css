@@ -16,6 +16,10 @@ text-decoration: none;
 
 }
 
+.cyan-background {
+    background-color: #A8DADC;
+}
+
 
 
 .icon-white{
@@ -121,6 +125,10 @@ text-decoration: none;
     font-size: 1.2rem;
 }
 
+.navbar{
+    background-color: #A8DADC;
+}
+
 .plans-container {
     text-align: center;
     justify-content: center;
@@ -224,9 +232,40 @@ https://github.com/ckz8780/boutique_ado_v1/blob/149abda4318106704ac8d3118b8e5a63
 
 /* -------------------------------- Media Queries */
 
-/* Icons in main navbar to align center on larger screens*/
+/* mobile view */
+@media (max-width: 991px) {
+    .header-container {
+        margin-top: 4.5rem;
+    }
 
-@media (min-width: 900px) {
-.icon {
-    text-align: center;
+    .home-header-container {
+        margin-top: 4.5rem;
+    }
+
+    .navbar {
+    padding: .25rem .1rem .3rem .15rem;
+    height: 4.5rem;
+    }
+
+   
+
+}
+
+@media (max-width: 410px) {
+ .nav-link {
+        padding: 0.15rem;
+    }
+
+    .nav-link i.fa-lg {
+        font-size: 1rem;
+    }
+
+    .nav-link p {
+        font-size: 1rem;
+    }
+
+  /*   .navbar-toggler {
+        padding: .6rem .6rem;
+        font-size: 1rem;
+    } */
 }
