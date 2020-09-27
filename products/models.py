@@ -27,7 +27,7 @@ class Book(models.Model):
     author = models.CharField(max_length=454)
     publication_year = models.IntegerField(validators=[MinValueValidator(
         1000), MaxValueValidator(2020)], null=True, blank=True)
-    book_description = models.TextField()
+    book_description = models.TextField(max_length=3000)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(null=True, blank=True)
 
