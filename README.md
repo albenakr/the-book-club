@@ -51,12 +51,11 @@ update styling in stripe_elements.js
 
 >> fix admin for plans
 
->> put max length on book description model
-
 >> when people are clicking on 'See book' or the photo for 'book email' from custom plan - add button on book_detail page to point to custom_plan instead of 'Keep shopping'
 
 >> Back to Top Button for Community/Reviews page
 
+>> Add books at less than 10 EUR to test the savings rendering in the template
 
 
 SERIOUS ONES
