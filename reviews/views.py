@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Review
 from products.models import Book
@@ -21,7 +22,7 @@ def reviews(request):
 
     return render(request, template, context)
 
-
+@login_required
 def write_review(request, book_id):
     """A view to allow a user to create a review"""
 
