@@ -62,7 +62,7 @@ def book_detail(request, book_id):
 
     book = get_object_or_404(Book, pk=book_id)
     all_reviews = Review.objects.all()
-    reviews = all_reviews.filter(book=book)
+    reviews = all_reviews.filter(book=book).order_by('-date')
     average_rating = reviews.aggregate(Avg('rating'))
 
 

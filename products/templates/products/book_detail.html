@@ -28,17 +28,14 @@
         <p>{{ book.author }}</p>
 
 {% if average_rating %}
-      <p>  {{ average_rating }} </p>
+      <p> Product Rating: {{ average_rating }} <a href="#reviews">Reviews</a></p>
       {% else %}
-      <p>  No ratings yet </p>
+      <p>  No ratings yet <a href="{% url 'write_review' book.id %}">Review Book</a></p>
 
 {% endif %}
-
-
-        
+       
         <p>Published in: {{ book.publication_year }}</p>
         <p>€{{ book.price }}</p>
-        <p>Product Rating: X</p>
 
       <form class="form" action="{% url 'add_to_bag' book.id %}" method="POST">
                         {% csrf_token %}
@@ -83,8 +80,7 @@
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
-                    </form>
-                            
+                    </form>                            
                 </div>
 
     </div>
@@ -99,13 +95,15 @@
 </div>
 
 {% if reviews %}
+<div class="container-fluid" id="reviews">
+
+<div class="row">
+<div class="col"><h3>Reviews</h3></div>
+</div>
+
 <div class="row">
 <div class="col">
-<h3>Reviews</h3>
-</div>
-</div>
-<div class="row">
-<div class="col">
+
 {% for review in reviews %}
 
 <div class="card">
@@ -133,12 +131,12 @@
 <div class="col">
 <h3>Reviews</h3>
 <p>There are no reviews for this book yet.</p>
+<p><a class="btn" href="{% url 'write_review' book.id %}">Review Book</a></p>
 </div>
 </div>
-<div class="row">
-<div class="col">
 
 {% endif %}
+</div>
 {% endblock %}
 
 {% block postloadjs %}
