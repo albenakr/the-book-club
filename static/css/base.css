@@ -4,7 +4,7 @@ html {
 
 body {
     color: #302f2f;
-    font-family: 'Open Sans', sans-serif;}
+    font-family: 'Lora', serif;}
 
 /* Buttons */
 
@@ -23,8 +23,9 @@ body {
 
 
 .home-header-container {
-    background: url('/media/stanislav-kondratiev-6pO3QFkk7hQ-unsplash.jpg') no-repeat center center fixed;
+    background: url('/media/kimberly-farmer-unsplash.jpg') no-repeat center center fixed;
     background-size: cover;
+    position: fixed;
     margin-top: 128px;
     height: 100vh;
 }
@@ -82,6 +83,24 @@ body {
     justify-content: center;
     display: flex;
 }
+
+/* Footer */
+        
+        footer {
+            height: 75px;
+            width: 100%;
+            background-color: #f66767;
+            bottom: 0px;
+            text-align: center;
+            justify-content: center;
+            padding-top: 18px;
+        }
+        
+        footer p {
+            font-weight: 400;
+            color: #3c3d47;
+            opacity: 0.8;
+        }
 
 /* ------------------------------- bootstrap toasts */
 
