@@ -30,7 +30,7 @@
 {% if average_rating %}
       <p> Product Rating: {{ average_rating }} <a href="#reviews">Reviews</a></p>
       {% else %}
-      <p>  No ratings yet <a href="{% url 'write_review' book.id %}">Review Book</a></p>
+      <p>  No ratings yet <a class="btn btn-small" href="{% url 'write_review' book.id %}">Review Book</a></p>
 
 {% endif %}
        
@@ -99,6 +99,8 @@
 
 <div class="row">
 <div class="col"><h3>Reviews</h3></div>
+<div class="col"><p><a class="btn" href="{% url 'write_review' book.id %}">Review Book</a></p>
+</div>
 </div>
 
 <div class="row">
