@@ -104,6 +104,8 @@
 </div>
 </div>
 
+<hr>
+
 {% if reviews %}
 <div class="container-fluid book-details-container" id="reviews">
    <div class="row">
@@ -136,13 +138,15 @@
       </div>
    </div>
    {% else %}
+   <div class="container-fluid book-details-container">
    <div class="row">
       <div class="col">
          <h3>Reviews</h3>
          <p>There are no reviews for this book yet.</p>
-         <p><a class="btn" href="{% url 'write_review' book.id %}">Review Book</a></p>
+         <p><a class="btn btn-small" href="{% url 'write_review' book.id %}">Review Book</a></p>
       </div>
    </div>
+</div>
 </div>
 {% endif %}
 
