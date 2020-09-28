@@ -3,16 +3,15 @@
 
 {% block content %}
 <div class="container-fluid home-header-container">
-  <div class="row">
-    <div class="col">
-      <h4>
-        <a
-          href="{% url 'books' %}"
-          class="shop-books-button btn btn-primary btn-lg"
-          >Shop Books</a
-        >
-      </h4>
+  <div class="row home-header-row">
+  <div class="card home-page-plans-card">
+      <div class="card-body">
+        <h5 class="card-title">Custom Reading Plan</h5>
+        <p class="card-text">Tell us what you enjoy reading and we'll build a plan for you.</p>
+        <a href="{% url 'custom_plans' %}" class="btn">Build Your Plan</a>
+      </div>
     </div>
+
   </div>
 </div>
 {% endblock %}

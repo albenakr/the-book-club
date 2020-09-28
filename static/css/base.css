@@ -1,3 +1,5 @@
+/* Overall app styling */
+
 html {
     height: 100%;
 }
@@ -21,9 +23,36 @@ text-decoration: none;
 }
 
 
-
 .icon-white{
     color: #ffffff !important;
+}
+
+.update-link,
+.remove-item-book,
+.remove-item-plan {
+    cursor: pointer;
+}
+
+.header-container {
+        margin-top: 128px;
+    }
+
+
+/* Buttons */
+
+.btn {
+    background-color: #235789;
+    border-color: #235789;
+    color: white;
+}
+
+.btn:hover {
+    background-color:#ED6E78;
+    border-color: #ED6E78
+}
+
+.action-btn{
+    text-align: center;
 }
 
 /* Back to Top Button - from W3 School*/
@@ -37,8 +66,8 @@ text-decoration: none;
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: red;
-  color: white;
+  background-color: #ED6E78;
+  color:#ffffff;
   cursor: pointer;
   padding: 15px;
   border-radius: 4px;
@@ -48,52 +77,62 @@ text-decoration: none;
   background-color: #555;
 }
 
-/* Buttons */
+/* Navigation */
 
-.btn {
-    background-color: #235789;
-    border-color: #235789
-    color: white;
-}
-
-.btn:hover {
-    background-color:#ED6E78;
-    border-color: #ED6E78
-}
-
-.action-btn{
-    text-align: center;
-}
-
-
-
-.home-header-container {
-    background: url('/media/kimberly-farmer-unsplash.jpg') no-repeat center center fixed;
-    background-size: cover;
-    position: fixed;
-    margin-top: 128px;
-    height: 100vh;
-}
-
-
-.shop-books-button {
-    margin-top: 10rem;
-    float: right;
-}
-
-.update-link,
-.remove-item-book,
-.remove-item-plan {
-    cursor: pointer;
-}
 
 .navigation-bar {
     padding: 0;
 }
 
-.header-container {
-        margin-top: 128px;
-    }
+.navbar-content-options {
+    background-color: #A8DADC;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.navbar{
+    background-color: #A8DADC;
+}
+
+.navbar-collapse {
+    background-color: #A8DADC;
+    padding: 0;
+    margin: 0;
+
+}
+
+.plans-container {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+/* Home */
+
+
+.home-header-container {
+    background: url('/media/kimberly-farmer-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    margin-top: 128px;
+    height: 100vh;
+}
+
+.home-header-row {
+    justify-content: flex-end;
+    padding: inherit;
+}
+
+
+.home-page-plans-card {
+    margin-top: 13rem;
+    position: relative;
+    float: right;
+    background-color: #A8DADC;
+}
+
+
+/* Products Page */
 
 .books-container {    
     margin-top: 164px;
@@ -117,22 +156,6 @@ text-decoration: none;
 
 .btn-book-card {
     float: right;
-}
-/* Navigation Bar*/
-.navbar-content-options {
-    background-color: #A8DADC;
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.navbar{
-    background-color: #A8DADC;
-}
-
-.plans-container {
-    text-align: center;
-    justify-content: center;
-    display: flex;
 }
 
 
@@ -264,8 +287,6 @@ https://github.com/ckz8780/boutique_ado_v1/blob/149abda4318106704ac8d3118b8e5a63
         font-size: 1rem;
     }
 
-  /*   .navbar-toggler {
-        padding: .6rem .6rem;
-        font-size: 1rem;
-    } */
+    .home-page-plans-card {
+    margin-top: 9rem;
 }
