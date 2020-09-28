@@ -1,149 +1,153 @@
-{% extends "base.html" %} {% load static %} {% block content %}
-<div class="container-fluid books-container">
-  <div class="row">
-    <div class="col-12 col-md-6">
-      <div class="image-container-detail-page">
-        {% if book.image %}
-        <a href="{{ book.image.url }}" target="_blank">
-          <img
-            src="{{ book.image.url }}"
-            class="card-img-top book-image-card"
-            alt="{{ book.name }}"
-          />
-        </a>
-        {% else %}
-        <a href="">
-          <img
-            src="{{ MEDIA_URL }}jaredd-craig-unsplash.jpg"
-            class="card-img-top"
-            alt="{{ book.name }}"
-          />
-        </a>
-        {% endif %}
-      </div>
-      </div>
+{% extends "base.html" %} {% load static %} 
 
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid header-container">
+   <div class="row">
       <div class="col-12 col-md-6">
-        <h5>{{ book.title }}</h5>
-        <p>{{ book.author }}</p>
-
-{% if average_rating %}
-      <p> Product Rating: {{ average_rating }} <a href="#reviews">Reviews</a></p>
-      {% else %}
-      <p>  No ratings yet <a class="btn btn-small" href="{% url 'write_review' book.id %}">Review Book</a></p>
-
-{% endif %}
-       
-        <p>Published in: {{ book.publication_year }}</p>
-        <p>€{{ book.price }}</p>
-
-      <form class="form" action="{% url 'add_to_bag' book.id %}" method="POST">
-                        {% csrf_token %}
-                        <div class="form-row">
-                            <div class="col-12">
-                                <p class="mt-3"><strong>Quantity:</strong></p>
-                                <div class="form-group w-50">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn rounded-0" 
-                                                data-item_id="{{ book.id }}" id="decrement-qty_{{ book.id }}">
-                                                <span class="icon">
-                                                    <i class="fas fa-minus"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <input class="form-control qty_input" type="number"
-                                            name="quantity" value="1" min="1" max="99"
-                                            data-item_id="{{ book.id }}"
-                                            id="id_qty_{{ book.id }}">
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn"
-                                                data-item_id="{{ book.id }}" id="increment-qty_{{ book.id }}">
-                                                <span class="icon">
-                                                    <i class="fas fa-plus"></i>
-                                                </span>
-                                            </button>
-                                        </div>                                    </div>
-                                </div>
-                            </div>
-
-                            
-
-                            <div class="col-12">
-                                <a href="{% url 'books' %}" class="btn rounded-0 mt-5">
-                                    <span class="icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="text-uppercase">Keep Shopping</span>
-                                </a>
-                                <input type="submit" class="btn rounded-0 text-uppercase mt-5" value="Add to Bag">
-                            </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+         <div class="image-container-detail-page">
+            {% if book.image %}
+            <a href="{{ book.image.url }}" target="_blank">
+            <img
+               src="{{ book.image.url }}"
+               class="card-img-top book-image-card"
+               alt="{{ book.name }}"
+               />
+            </a>
+            {% else %}
+            <a href="">
+            <img
+               src="{{ MEDIA_URL }}jaredd-craig-unsplash.jpg"
+               class="card-img-top"
+               alt="{{ book.name }}"
+               />
+            </a>
+            {% endif %}
+         </div>
+      </div>
+      <div class="col-12 col-md-6">
+         <h4><strong>{{ book.title }}</strong></h4>
+         <p>By {{ book.author }}</p>
+         {% if average_rating %}
+         <p><a href="#reviews">Product Rating:<strong>  {{ average_rating }} / 5</strong></a></p>
+         {% else %}
+         <p>  No ratings yet <a class="btn btn-small" href="{% url 'write_review' book.id %}">Review Book</a></p>
+         {% endif %}
+         <p>Price: €{{ book.price }}</p>
+         <form class="form" action="{% url 'add_to_bag' book.id %}" method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+               <div class="col-12">
+                  <p class="mt-3"><strong>Quantity:</strong></p>
+                  <div class="form-group w-50">
+                     <div class="input-group">
+                        <div class="input-group-prepend">
+                           <button class="decrement-qty btn" 
+                              data-item_id="{{ book.id }}" id="decrement-qty_{{ book.id }}">
+                           <span class="icon">
+                           <i class="fas fa-minus"></i>
+                           </span>
+                           </button>
                         </div>
-                    </form>                            
-                </div>
+                        <input class="form-control qty_input" type="number"
+                           name="quantity" value="1" min="1" max="99"
+                           data-item_id="{{ book.id }}"
+                           id="id_qty_{{ book.id }}">
+                        <div class="input-group-append">
+                           <button class="increment-qty btn"
+                              data-item_id="{{ book.id }}" id="increment-qty_{{ book.id }}">
+                           <span class="icon">
+                           <i class="fas fa-plus"></i>
+                           </span>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-12">
+                  <a href="{% url 'books' %}" class="btn mt-5">
+                  <span class="icon">
+                  <i class="fas fa-chevron-left"></i>
+                  </span>
+                  <span class="text-uppercase">Keep Shopping</span>
+                  </a>
+                  <input type="submit" class="btn text-uppercase mt-5" value="Add to Bag">
+               </div>
+               <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </div>
+         </form>
+      </div>
+   </div>
+</div>
 
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-sm-6">Language: {{ book.language }}</div>
-    <div class="col-12 col-sm-6">Genre: {{ book.genre }}</div>
-    <div class="col-12">
+<div class="container-fluid book-details-container">
+<div class="row">
+<div class="col">
+<h3>Book Details</h3>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+   <p><strong> Language: </strong>{{ book.language }}</p>
+   <p><strong> Genre: </strong>{{ book.genre }}</p>
+   <p><strong>Published in: </strong>{{ book.publication_year }}</p>
+   </div>
+   <div class="col-12">
+   <p><strong>Overview: </strong></p>
       <p>{{ book.book_description }}</p>
-    </div>
-  </div>
+   </div>
+</div>
+</div>
 </div>
 
 {% if reviews %}
-<div class="container-fluid" id="reviews">
-
-<div class="row">
-<div class="col"><h3>Reviews</h3></div>
-<div class="col"><p><a class="btn" href="{% url 'write_review' book.id %}">Review Book</a></p>
+<div class="container-fluid book-details-container" id="reviews">
+   <div class="row">
+      <div class="col">
+         <h3>Reviews</h3>
+      </div>
+      <div class="col">
+         <p><a class="btn btn-small" href="{% url 'write_review' book.id %}">Review Book</a></p>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col">
+         {% for review in reviews %}
+         <div class="card reviews-card">
+            <div class="card-title card-title-reviews">
+               <h5><strong>"{{ review.title }}"</strong></h5>
+               <h5><strong>{{ review.rating }} / 5 </strong></h5>
+            </div>
+            <div class="card-body">
+               <p><muted>{{ review.date }}</muted></p>
+               <p>{{ review.review_text }}</p>
+               {% if review.user_profile %}
+               <p>{{ review.user_profile }}</p>
+               {% else %}
+               <p>Anonymous User</p>
+               {% endif %}
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+   {% else %}
+   <div class="row">
+      <div class="col">
+         <h3>Reviews</h3>
+         <p>There are no reviews for this book yet.</p>
+         <p><a class="btn" href="{% url 'write_review' book.id %}">Review Book</a></p>
+      </div>
+   </div>
 </div>
-</div>
-
-<div class="row">
-<div class="col">
-
-{% for review in reviews %}
-
-<div class="card">
-<div class="card-title">
-<h5>{{ review.title }}</h5>
-<h5>{{ review.rating }} / 5 </h5>
-</div>
-<div class="card-body">
-<p>{{ review.date }}</p>
-<p>{{ review.review_text }}</p>
-{% if review.user_profile %}
-<p>{{ review.user_profile }}</p>
-{% else %}
-<p>Anonymous User</p>
 {% endif %}
-</div>
-</div>
-{% endfor %}
 
-</div>
-</div>
-
-{% else %}
-<div class="row">
-<div class="col">
-<h3>Reviews</h3>
-<p>There are no reviews for this book yet.</p>
-<p><a class="btn" href="{% url 'write_review' book.id %}">Review Book</a></p>
-</div>
-</div>
-
-{% endif %}
-</div>
 {% endblock %}
-
 {% block postloadjs %}
-
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-
 {% endblock %}

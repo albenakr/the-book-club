@@ -14,8 +14,6 @@ body {
 
 a {
 color: #302f2f;
-text-decoration: none;
-
 }
 
 .cyan-background {
@@ -34,8 +32,12 @@ text-decoration: none;
 }
 
 .header-container {
-        margin-top: 128px;
+        margin-top: 11rem;
     }
+
+.align-right {
+    text-align: right;
+}
 
 
 /* Buttons */
@@ -43,16 +45,17 @@ text-decoration: none;
 .btn {
     background-color: #235789;
     border-color: #235789;
-    color: white;
+    color: #fff;
 }
 
 .btn:hover {
     background-color:#ED6E78;
-    border-color: #ED6E78
+    border-color: #ED6E78;
+    color: #fff;
 }
 
-.action-btn{
-    text-align: center;
+.btn-small {
+    padding: 0.10rem;
 }
 
 /* Back to Top Button - from W3 School*/
@@ -132,47 +135,7 @@ text-decoration: none;
 }
 
 
-/* Products Page */
 
-.books-container {    
-    margin-top: 164px;
-}
-
-.image-container-detail-page {
-    text-align: center;
-}
-/*  Book Cards */
-
-.book-card {
-    margin-bottom: 5rem;
-    width: 18rem;
-    height: 40rem;
-}
-
-.book-image-card {
-    width: 18rem;
-    height: 26rem;
-}
-
-.btn-book-card {
-    float: right;
-}
-
-
-/* Footer */
-        
-        footer {
-            height: 4rem;
-            width: 100%;
-            background-color: #457B9D;
-            bottom: 0px;
-            text-align: center;
-            padding-top: 1.25rem;
-            position: inherit;
-            color: #ffffff;
-
-        }
-  
 
 /* ------------------------------- bootstrap toasts */
 
@@ -258,7 +221,7 @@ https://github.com/ckz8780/boutique_ado_v1/blob/149abda4318106704ac8d3118b8e5a63
 /* mobile view */
 @media (max-width: 991px) {
     .header-container {
-        margin-top: 4.5rem;
+        margin-top: 7rem;
     }
 
     .home-header-container {

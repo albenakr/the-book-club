@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.contrib import messages
-from django.db.models import Avg
+from django.shortcuts import (
+    render, get_object_or_404)
 from django.db.models import Q
 from .models import Book, Genre, Language
 from reviews.models import Review
@@ -8,25 +7,27 @@ from reviews.views import calculate_average_rating
 
 
 def is_valid_queryparam(param):
+    """ Validates data coming from filter options """
     return param != '' and param is not None
 
 
 def all_books(request):
-    """ A view for all books, searching and filtering"""
-    books = Book.objects.all()
+    """ A view to display all books, as well as searching and filtering"""
+    """ Code inspired by JustDjango - details in README """
+    books = Book.objects.all().order_by('-pk')
     genres = Genre.objects.all()
     languages = Language.objects.all()
     genre = request.GET.get('genre')
     language = request.GET.get('language')
     search_query = request.GET.get('q')
     filters = request.GET.get('filters')
- 
+
     if is_valid_queryparam(search_query):
         books = books.filter(
             Q(title__icontains=search_query)
             | Q(book_description__icontains=search_query)
             | Q(author__icontains=search_query)
-            ).distinct()
+        ).distinct()
 
     if is_valid_queryparam(genre) and genre != 'Genres':
         books = books.filter(genre__name=genre)
@@ -59,7 +60,7 @@ def all_books(request):
 
 
 def book_detail(request, book_id):
-    """ A view for individual book details"""
+    """ A view for overview of book details"""
 
     book = get_object_or_404(Book, pk=book_id)
     all_reviews = Review.objects.all()
