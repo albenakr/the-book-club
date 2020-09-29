@@ -5,7 +5,7 @@
 .book-card {
     margin-bottom: 5rem;
     width: 18rem;
-    height: 40rem;
+    height: 41rem;
 }
 
 .book-image-card {
@@ -17,6 +17,16 @@
     float: right;
 }
 
+.truncate-text {
+    text-overflow: ellipsis; 
+    overflow: hidden;
+    white-space: nowrap;
+    max-height: 3rem;
+}
+
+.price-paragraph {
+    margin-top: revert;
+}
 
   
 

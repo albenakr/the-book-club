@@ -69,56 +69,53 @@
          {% endfor %}
       </div>
    </div>
+
+
    <div class="row">
       {% for book in books %}
       <div class="col">
          <div class="card book-card">
-            {% if book.image %}
             <a href="{% url 'book_detail' book.id %}">
+            {% if book.image %}
             <img
                src="{{ book.image.url }}"
                class="card-img-top book-image-card"
                alt="{{ book.title }}"
                />
-            <a>
             {% else %}
-            <a href="{% url 'book_detail' book.id %}">
             <img
                src="{{ MEDIA_URL }}jaredd-craig-unsplash.jpg"
                class="card-img-top"
                alt="{{ book.name }}"
                />
-            <a>
                {% endif %}
                <div class="card-body">
-                  <h5 class="card-title">{{ book.title }}</h5>
-                  <p class="card-text">
+                  <h5 class="card-title"><strong>{{ book.title }}</strong></h5>
+                  <p class="card-text truncate-text" >
                      {{ book.author }}, {{ book.publication_year }}
                   </p>
                   {% if book.genre %}
-                  <p class="small mt-1 mb-0">
+                  <p class="card-text small mt-1 mb-0">
             <a class="text-muted" href="{% url 'books' %}?genre={{ book.genre.name }}">
             <i class="fas fa-tag mr-1"></i>{{ book.genre.name }}
             </a>
             </p>
             {% endif %}
             {% if book.language %}
-            <p class="small mt-1 mb-0">
+            <p class="card-text small mt-1 mb-0">
             <a class="text-muted" href="{% url 'books' %}?language={{ book.language.name }}">
             <i class="fas fa-language"></i>{{ book.language.name }} {{ average_rating_per_book }}
             </a>
             </p>
             {% endif %}
-            <p class="card-text">€{{ book.price }}</p>
-            <a href="{% url 'book_detail' book.id %}" class="btn btn-primary btn-book-card">See Book</a>
+            <p class="card-text price-paragraph">Price: €{{ book.price }}</p>
             </div>
+          </a>
          </div>
       </div>
+
       {% endfor %}
    </div>
 </div>
 {% endblock %}
 
-{% block postloadjs %}
-<!-- <script src="{% static 'products/js/back_to_top_btn.js' %}"></script>
- -->{% endblock %}

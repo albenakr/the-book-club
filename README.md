@@ -73,6 +73,7 @@ FIX links on top of profile page
 
 >> implement filter for sorting by reviews
 
+zadig is twice in books
 
 SERIOUS ONES
 
