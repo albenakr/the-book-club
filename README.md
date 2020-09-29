@@ -53,6 +53,8 @@ update styling in stripe_elements.js
 
 update KEEP SHOPPING BUTTON TO BE A DIFFERENT COLOR
 
+FIX links on top of profile page
+
 ********functionality************
 
 >> fix admin for order

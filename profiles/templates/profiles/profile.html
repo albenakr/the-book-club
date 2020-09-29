@@ -2,175 +2,174 @@
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}" />
 {% endblock %} {% block content %}
 <button onclick="topFunction()" id="backToTopBtn" title="Back to top">
-  Top
+Top
 </button>
 <div class="overlay"></div>
 <div class="container header-container">
-  <div class="row">
-    <div class="col">
-      <a href="#order_history">Order History</a>
-      <a href="#delivery_details">Delivery Details</a>
-      <a href="#reviews">Reviews</a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
+   <div class="row">
+      <div class="col">
+         <a href="#order_history">Order History</a>
+         <a href="#details">Delivery Details</a>
+         <a href="#reviews">Reviews</a>
+      </div>
+   </div>
+</div>
+<div class="container-fluid" id="order_history"></div>
+<div class="row">
+   <div class="col">
       <h2 class="mb-4">Profile</h2>
-    </div>
-  </div>
-  <div class="row" id="order_history">
-    <div class="col">
+   </div>
+</div>
+<div class="row">
+   <div class="col">
       <h3>Order History</h3>
       {% if orders %}
       <div class="order-history table-responsive">
-        <table class="table table-sm table-borderless">
-          <thead>
-            <tr>
-              <th>Order Number</th>
-              <th>Date</th>
-              <th>Items</th>
-              <th>Order Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for order in orders %}
-            <tr>
-              <td>
-                <a
-                  href="{% url 'order_history' order.order_number %}"
-                  title="{{ order.order_number }}"
-                >
-                  {{ order.order_number|truncatechars:6 }}
-                </a>
-              </td>
-              <td>{{ order.date }}</td>
-              <td>
-                <ul class="list-unstyled">
-                  {% for item in order.lineitems.all %}
-                  <li class="small">
-                    {% if item.book != None %}
-                    <p>
-                      <strong>{{ item.book.title }}</strong> x {{ item.quantity
-                      }}
-                      <a href="{% url 'write_review' item.book.id %}"
-                        >Review Book</a
-                      >
-                      {% else %}
-                    </p>
-                    <p>
-                      Your plan: <strong> {{ item.plan.name }}</strong> x {{
-                      item.quantity }}
-                      <a
-                        data-toggle="collapse"
-                        href="#collapsePlanBooks{{item.plan.id}}"
-                        role="button"
-                        aria-expanded="false"
-                        aria-controls="collapsePlanBooks{{item.plan.id}}"
-                      >
-                        Plan Books
-                      </a>
-                    </p>
-                    <!--  Collapsable to display the books in each plan-->
-                    <div
-                      class="collapse"
-                      id="collapsePlanBooks{{item.plan.id}}"
-                    >
-                      <div class="card card-body">
-                        <ul class="list-unstyled">
-                          {% for book in item.plan.books.all %}
-                          <li>
-                            <p>
-                              <strong>{{ book.title }}</strong>
-                              <a href="{% url 'write_review' book.id %}"
-                                >Review Book</a
+         <table class="table table-sm table-borderless">
+            <thead>
+               <tr>
+                  <th>Order Number</th>
+                  <th>Date</th>
+                  <th>Items</th>
+                  <th>Order Total</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for order in orders %}
+               <tr>
+                  <td>
+                     <a
+                        href="{% url 'order_history' order.order_number %}"
+                        title="{{ order.order_number }}"
+                        >
+                     {{ order.order_number|truncatechars:6 }}
+                     </a>
+                  </td>
+                  <td>{{ order.date }}</td>
+                  <td>
+                     <ul class="list-unstyled">
+                        {% for item in order.lineitems.all %}
+                        <li class="small">
+                           {% if item.book != None %}
+                           <p>
+                              <strong>{{ item.book.title }}</strong> x {{ item.quantity
+                              }}
+                              <a href="{% url 'write_review' item.book.id %}"
+                                 >Review Book</a
+                                 >
+                              {% else %}
+                           </p>
+                           <p>
+                              Your plan: <strong> {{ item.plan.name }}</strong> x {{
+                              item.quantity }}
+                              <a
+                                 data-toggle="collapse"
+                                 href="#collapsePlanBooks{{item.plan.id}}"
+                                 role="button"
+                                 aria-expanded="false"
+                                 aria-controls="collapsePlanBooks{{item.plan.id}}"
+                                 >
+                              Plan Books
+                              </a>
+                           </p>
+                           <!--  Collapsable to display the books in each plan-->
+                           <div
+                              class="collapse"
+                              id="collapsePlanBooks{{item.plan.id}}"
                               >
-                            </p>
-                          </li>
-                          {% endfor %}
-                        </ul>
-                      </div>
-                    </div>
-                    {% endif %}
-                  </li>
-                  {% endfor %}
-                </ul>
-              </td>
-              <td>${{ order.order_total }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+                              <div class="card card-body">
+                                 <ul class="list-unstyled">
+                                    {% for book in item.plan.books.all %}
+                                    <li>
+                                       <p>
+                                          <strong>{{ book.title }}</strong>
+                                          <a href="{% url 'write_review' book.id %}"
+                                             >Review Book</a
+                                             >
+                                       </p>
+                                    </li>
+                                    {% endfor %}
+                                 </ul>
+                              </div>
+                           </div>
+                           {% endif %}
+                        </li>
+                        {% endfor %}
+                     </ul>
+                  </td>
+                  <td>${{ order.order_total }}</td>
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
       </div>
-    </div>
-  </div>
-  {% else %}
-  <div class="row">
-    <div class="col">
+   </div>
+</div>
+{% else %}
+<div class="row">
+   <div class="col">
       <p>You don't have any orders.</p>
-    </div>
-  </div>
-  {% endif %}
-  <div class="container-fluid" id="#delivery_details">
-  <div class="row">
-    <div class="col">
-      <h3>Default Delivery Information</h3>
-      <form
-        class="mt-3"
-        action="{% url 'profile' %}"
-        method="POST"
-        id="profile-update-form"
-      >
-        {% csrf_token %} {{ form|crispy }}
-        <button class="btn text-uppercase float-right">
-          Update Information
-        </button>
-      </form>
-    </div>
-  </div>
+   </div>
 </div>
-  {% if reviews %}
-  <div class="container-fluid" id="reviews">
-    <div class="row">
+{% endif %}
+<div class="container-fluid" id="#details">
+   <div class="row">
       <div class="col">
-        <h3>Your Reviews</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        {% for review in reviews %}
-        <div class="card reviews-card">
-          <div class="card-title card-title-reviews">
-            <h5>The book you reviewed:<strong>"{{ review.book }}"</strong></h5>
-            <h5><strong>"{{ review.title }}"</strong></h5>
-            <h5><strong>{{ review.rating }} / 5 </strong></h5>
-          </div>
-          <div class="card-body">
-            <p class="font-italic">{{ review.date }}</p>
-            <p>{{ review.review_text }}</p>
-            <a
-              class="btn btn-small delete-review-btn"
-              href="{% url 'delete_review' review.id %}"
-              >Delete Review</a
+         <h3>Default Delivery Information</h3>
+         <form
+            class="mt-3"
+            action="{% url 'profile' %}"
+            method="POST"
+            id="profile-update-form"
             >
-          </div>
-        </div>
-        {% endfor %}
+            {% csrf_token %} {{ form|crispy }}
+            <button class="btn text-uppercase float-right">
+            Update Information
+            </button>
+         </form>
       </div>
-    </div>
-    {% else %}
-    <div class="container-fluid book-details-container">
-      <div class="row">
-        <div class="col">
-          <h3>Reviews</h3>
-          <p>You haven't reviewed any books yet.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  {% endif %} {% endblock %} {% block postloadjs %} {{ block.super }}
-  <script
-    type="text/javascript"
-    src="{% static 'profiles/js/countryfield.js' %}"
-  ></script>
-  {% endblock %}
+   </div>
 </div>
+<div class="container-fluid" id="reviews">
+   <div class="row">
+      <div class="col">
+         <h3>Your Reviews</h3>
+      </div>
+   </div>
+   {% if reviews %}
+   <div class="row">
+      <div class="col">
+         {% for review in reviews %}
+         <div class="card reviews-card">
+            <div class="card-title card-title-reviews">
+               <h5>The book you reviewed:<strong>"{{ review.book }}"</strong></h5>
+               <h5><strong>"{{ review.title }}"</strong></h5>
+               <h5><strong>{{ review.rating }} / 5 </strong></h5>
+            </div>
+            <div class="card-body">
+               <p class="font-italic">{{ review.date }}</p>
+               <p>{{ review.review_text }}</p>
+               <a
+                  class="btn btn-small delete-review-btn"
+                  href="{% url 'delete_review' review.id %}"
+                  >Delete Review</a
+                  >
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+   {% else %}
+      <div class="row">
+         <div class="col">
+            <h3>Reviews</h3>
+            <p>You haven't reviewed any books yet.</p>
+         </div>
+      </div>
+</div>
+{% endif %} {% endblock %} {% block postloadjs %} {{ block.super }}
+<script
+   type="text/javascript"
+   src="{% static 'profiles/js/countryfield.js' %}"
+   ></script>
+{% endblock %}
