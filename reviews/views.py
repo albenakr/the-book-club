@@ -51,7 +51,7 @@ def write_review(request, book_id):
                             review_text=review_text)
             review.save()
             messages.success(
-                request, 'Your review was successfully posted on the Community page')
+                request, 'Your review was successfully posted.')
 
             return redirect('book_detail', book_id=book.id)
         else:
@@ -92,5 +92,12 @@ def calculate_average_rating(book_id):
     average_rating = reviews.aggregate(Avg('rating'))
     return average_rating
 
- 
+
+def delete_review(request, review_id):
+    """ Delete a review, only available on profile page for the user who created the reviw """
+    review = get_object_or_404(Review, pk=review_id)
+    review.delete()
+    messages.success(request, 'Your review was deleted!')
+    return redirect(reverse("profile"))
+
 
