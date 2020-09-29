@@ -125,10 +125,10 @@
                <h5><strong>{{ review.rating }} / 5 </strong></h5>
             </div>
             <div class="card-body">
-               <p><muted>{{ review.date }}</muted></p>
+               <p class="font-italic">{{ review.date }}</p>
                <p>{{ review.review_text }}</p>
                {% if review.user_profile %}
-               <p>{{ review.user_profile }}</p>
+               <p class="align-right font-italic">{{ review.user_profile }}</p>
                {% else %}
                <p>Anonymous User</p>
                {% endif %}

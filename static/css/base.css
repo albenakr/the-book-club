@@ -29,6 +29,10 @@ hr {
     color: #ffffff !important;
 }
 
+.font-italic {
+    font-style: italic;
+}
+
 .update-link,
 .remove-item-book,
 .remove-item-plan {

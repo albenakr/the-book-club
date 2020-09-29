@@ -51,6 +51,8 @@ Shop Books Button is moving in weird ways
 
 update styling in stripe_elements.js
 
+update KEEP SHOPPING BUTTON TO BE A DIFFERENT COLOR
+
 ********functionality************
 
 >> fix admin for order

@@ -1,3 +1,22 @@
+.reviews-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-color: #1D3557;
+    border-width: medium;
+    height: 20rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.card-title-reviews {
+    text-align: center;
+} 
+
+.delete-review-btn{
+    background-color: #E42535;
+    float: right;
+}
+
 
 /* From Code Institute Styling*/
 .order-history {
