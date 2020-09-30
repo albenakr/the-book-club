@@ -11,7 +11,7 @@ from plans.models import Plan
 from profiles.models import UserProfile
 
 
-# Code primarily taken from CodeInstitute Course
+""" Logic behind this functionality is from the CodeInstitute Course, adjusted to account for ordering two types of items - books and plans """
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(
