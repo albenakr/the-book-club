@@ -6,10 +6,11 @@
     margin-bottom: 5rem;
     width: 18rem;
     height: 41rem;
+    border: solid 0.25rem;
+    border-color: #457B9D;
 }
 
 .book-image-card {
-    width: 18rem;
     height: 26rem;
 }
 
@@ -53,4 +54,9 @@
 .card-title-reviews {
     text-align: center;
 } 
+
+
+.filters-form {
+    margin-bottom: 4rem;
+}
 

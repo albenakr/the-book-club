@@ -47,6 +47,15 @@ hr {
     text-align: right;
 }
 
+.align-center {
+    text-align: center;
+}
+
+.border-blue {
+    border: solid 0.20rem;
+    border-color: #457B9D;
+}
+
 
 /* Buttons */
 
