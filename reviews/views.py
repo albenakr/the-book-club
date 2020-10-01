@@ -10,19 +10,6 @@ from .forms import ReviewForm
 
 
 # Create your views here.
-def reviews(request):
-    """A view to return the reviews Community page"""
-    reviews = Review.objects.all()
-
-    template = 'reviews/reviews.html'
-
-    context = {
-        'reviews': reviews,
-        'on_reviews_page': True,
-    }
-
-    return render(request, template, context)
-
 @login_required
 def write_review(request, book_id):
     """A view to allow a user to create a review"""
