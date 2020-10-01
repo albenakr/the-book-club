@@ -56,6 +56,16 @@ hr {
     border-color: #457B9D;
 }
 
+.form-control {
+    height: auto;
+}
+
+
+.padding-top {
+    padding-top: 3rem;
+}
+
+
 
 /* Buttons */
 

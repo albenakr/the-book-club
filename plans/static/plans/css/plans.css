@@ -1,5 +1,18 @@
-.plans-photo {
-    background: url(/media/elnaz-asadi-unsplash.jpg) no-repeat center center fixed;
-    background-color: red;
 
+.container-plans-page{
+    padding-top: 11rem;
+    height: 100vh;
+    background-color: #F1FAEE;
+}
+
+.custom-plan-btn {
+    height: 4rem;
+    width: 15rem;
+    padding-top: 1.1rem;
+}
+
+@media (max-width: 991px) {
+    .container-plans-page {
+        padding-top: 7rem;
+    }
 }

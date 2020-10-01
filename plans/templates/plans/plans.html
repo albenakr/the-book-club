@@ -5,20 +5,24 @@
 {% endblock %}
 
 {% block content %}
-<div class="header-container">
+<div class="container-fluid container-plans-page">
 	<div class="row">
 		<div class="col-12 col-md-6">
-			<h2> Reading Plans</h2>
-			<p>Out of book ideas? We have a solution for you.</p>
-			<p>Tell us what you like and we'll design a reading plan specifically for you.</p>
-			<a class=" btn category-badge text-decoration-none" href="{% url 'custom_plans' %}">Custom Plan
-			</a>
-			<p>Looking for a specific Books? <span class="small"><a href="{% url 'books' %}">Books Home</a> </span></p>
-
+			<h2 class="align-center"> Reading Plans</h2>
+			<p class="align-center padding-top">Out of book ideas? We have a solution for you.</p>
+			<p class="align-center">Tell us what you like and we'll design a reading plan specifically for you.</p>
+			
 		</div>
-		<div class="col-12 col-md-6 plans-photo">
-		</div>
+        		<div class="col-12 col-md-6 align-center padding-top">
+                <a class="btn custom-plan-btn " href="{% url 'custom_plans' %}">Create a Custom Plan </a>
+        		</div>
 	</div>
+        <hr>
+
+    <div class="row padding-top books-">
+    <div class="col">
+    			<p>Looking for a specific Books? <a class="btn btn-small" href="{% url 'books' %}">Books Home</a></p>
+</div></div>
 
 </div>
 
