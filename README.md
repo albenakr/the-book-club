@@ -18,7 +18,8 @@ Back to Top Button
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
 
 
-
+Colours:
+https://coolors.co/e63946-f1faee-a8dadc-457b9d-1d3557
 
 Another way of doing the filtering to explore:
 That's correct. You could store the original queryset though each time you filter so that you have the last queryset from before the filter was applied. However in order to do this without refreshing the page every time you would need Ajax or some sort of JavaScript
