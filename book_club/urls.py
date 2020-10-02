@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from django.conf.urls import url
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
@@ -30,5 +31,5 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
     path('reviews/', include('reviews.urls')),
-    url(r'^.*/$', include('home.urls')),
+    url(r'^.*/', include('home.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
