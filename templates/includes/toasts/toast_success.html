@@ -33,7 +33,23 @@
       {% for item in bag_items %}
       <div class="row">
         <div class="col-3 my-1">
-          <img class="w-100" src="{{ item.book.image.url }}" />
+           {% if item.book != None %}                
+                 {% if item.book.image %}
+                  <a href="{% url 'book_detail' item.book.id %}">   <img class="w-100" src="{{ item.book.image.url }}" alt="{{ book.title }}"> </a>
+                {% else %}
+                  <a href="{% url 'book_detail' item.book.id %}">   <img class="w-100" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ book.title }}"> </a>
+                {% endif %}
+               
+         {% else %}
+             
+             <a href="{% url 'view_custom_plan_details' item.plan.id %}">
+               <img
+                  class="img-fluid rounded"
+                  src="{{ MEDIA_URL }}media/plan_image.jpg"
+                  alt="Plan image"
+                />
+             </a>
+                {% endif %}
         </div>
         <div class="col-9">
           <p class="my-0"><strong>{{ item.book.title }}</strong></p>

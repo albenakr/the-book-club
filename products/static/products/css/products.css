@@ -1,21 +1,16 @@
 /* All Books Page Styling */
-
 /*  Book Cards */
 
 .book-card {
     margin-bottom: 5rem;
     width: 18rem;
     height: 41rem;
-    border: solid 0.25rem;
+    border: solid 0.15rem;
     border-color: #457B9D;
 }
 
 .book-image-card {
     height: 26rem;
-}
-
-.btn-book-card {
-    float: right;
 }
 
 .truncate-text {

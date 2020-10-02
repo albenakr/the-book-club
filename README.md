@@ -48,15 +48,13 @@ Photo by Sincerely Media on Unsplash
 
 to review allauth formatting from Code Institute in base.css(the main one)
 
-Shop Books Button is moving in weird ways
-
 update styling in stripe_elements.js
 
 update KEEP SHOPPING BUTTON TO BE A DIFFERENT COLOR
 
 FIX links on top of profile page
 
-********functionality************
+********functionality to fix************
 
 >> fix admin for order
 
@@ -66,17 +64,8 @@ FIX links on top of profile page
 
 >> Add books at less than 10 EUR to test the savings rendering in the template
 
->> Add reviews tomorrow to make sure the ordering is working
-
->> Decide on whether to put 'review book' in the book detail page or keep it as an option in the bag only
-
->> implement pagination or back to top on books
-
->> implement filter for sorting by reviews
-
-zadig is twice in books
-
-Photo by elnaz asadi on Unsplash
+>> zadig is twice in books
+>> plan image in success toast appears when you add a book, but not when you add a plan!?
 
 SERIOUS ONES
 
