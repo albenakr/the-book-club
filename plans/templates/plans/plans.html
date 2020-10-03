@@ -1,6 +1,10 @@
-{% extends "base.html" %} {% load static %} {% block extra_css %}
+{% extends "base.html" %} {% load static %} 
+
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'plans/css/plans.css' %}" />
-{% endblock %} {% block content %}
+{% endblock %} 
+
+{% block content %}
 <div class="container-fluid container-plans-page">
   <div class="row">
     <div class="col transbox align-center">
@@ -17,13 +21,13 @@
         instead of each book individually.
       </p>
       <a class="btn custom-plan-btn" href="{% url 'custom_plans' %}"
-        >Create a Custom Plan
+        >Create Your Plan
       </a>
 
       <p class="py-2">
         <small>
           Looking for a specific Books?
-          <a class="btn btn-small" href="{% url 'books' %}"
+          <a class="p-2 mt-2 border" href="{% url 'books' %}"
             >Books Home</a
           ></small
         >

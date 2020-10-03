@@ -78,3 +78,6 @@ SERIOUS ONES
 
 
 Add max dimensions to reviews cards, so they're not too big if the comment is long
+
+
+update small buttons with this throughout the app: p-2 mt-2 border

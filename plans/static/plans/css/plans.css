@@ -10,6 +10,7 @@
 .custom-plan-btn {
     height: 4rem;
     width: 10rem;
+    padding: 1rem;
 }
 
 div.transbox {
@@ -23,8 +24,58 @@ div.transbox p {
   color:#302f2f;
 }
 
+/*  Book Cards */
+
+.book-card {
+    margin-bottom: 5rem;
+    width: 18rem;
+    height: 41rem;
+    border: solid 0.15rem;
+    border-color: #457B9D;
+}
+
+.book-image-card {
+    height: 26rem;
+}
+
+.truncate-text {
+    text-overflow: ellipsis; 
+    overflow: hidden;
+    white-space: nowrap;
+    max-height: 3rem;
+}
+
+.price-paragraph {
+    margin-top: revert;
+}
+
+.row-action-buttons{
+    justify-content: space-evenly;
+}
+
+
 @media (max-width: 991px) {
     .container-plans-page {
         padding-top: 7rem;
     }
 }
+
+@media (max-width: 450px) {
+
+.btn.text-uppercase{
+    padding: 0.3rem;
+    font-size: 0.7rem;
+}
+}
+
+@media (max-width: 319px) {
+
+.btn.text-uppercase{
+     padding: 0.25rem;
+    font-size: 0.6rem;
+}
+}
+
+
+
+   
