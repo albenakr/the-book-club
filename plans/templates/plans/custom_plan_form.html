@@ -1,15 +1,20 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 
 <div class="container-fluid header-container">
-<h2> Your Custom Plan </h2>
-  <p>Tell us what you enjoy to read and we'll make a plan for you. <br> You will receive 1 book per month for the duration of the plan. <br> E.g. If you pick a 6 months plan, you receive 6 books.</p>
+  <div class="row">
+    <div class="col align-center">
+      <h2>Your Custom Plan</h2>
+    </div>
+  </div>
 
-<form action="{% url 'custom_plans' %}" method="POST">
-    {% csrf_token %}
-    {{ form | crispy }}
+  <div class="row">
+    <div class="col">
+      <form action="{% url 'custom_plans' %}" method="POST">
+        {% csrf_token %} {{ form | crispy }}
 
-    <input class="btn" type="submit" value="Submit">
-</form>
-
- 
-{% endblock %}
+        <input class="btn float-right" type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+</div>
+  {% endblock %}

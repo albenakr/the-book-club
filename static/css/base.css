@@ -66,6 +66,11 @@ hr {
 }
 
 
+.form-control {
+    border: solid 0.20rem;
+    border-color: #457B9D;
+}
+
 
 /* Buttons */
 
@@ -83,6 +88,10 @@ hr {
 
 .btn-small {
     padding: 0.10rem;
+}
+
+.float-right {
+    float: right;
 }
 
 /* Back to Top Button - from W3 School*/
