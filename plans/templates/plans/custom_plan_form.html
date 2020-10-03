@@ -1,12 +1,15 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 
-<div class="container-fluid header-container">
+<div class="container header-container w-75">
   <div class="row">
     <div class="col align-center">
       <h2>Your Custom Plan</h2>
+      <p> Tell us what you like and we'll design a plan specifically for you. <br>
+      You get 1 book per month for the duration of the plan you choose. <br>
+      For example, if you pick a 6-month plan, you get 6 books.
+      </p>
     </div>
   </div>
-
   <div class="row">
     <div class="col">
       <form action="{% url 'custom_plans' %}" method="POST">

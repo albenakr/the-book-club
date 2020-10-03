@@ -1,30 +1,35 @@
-{% extends "base.html" %} {% load static %}
-
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'plans/css/plans.css' %}">
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'plans/css/plans.css' %}" />
+{% endblock %} {% block content %}
 <div class="container-fluid container-plans-page">
-	<div class="row">
-		<div class="col-12 col-md-6">
-			<h2 class="align-center"> Reading Plans</h2>
-			<p class="align-center padding-top">Out of book ideas? We have a solution for you.</p>
-			<p class="align-center">Tell us what you like and we'll design a reading plan specifically for you.</p>
-			
-		</div>
-        		<div class="col-12 col-md-6 align-center padding-top">
-                <a class="btn custom-plan-btn " href="{% url 'custom_plans' %}">Create a Custom Plan </a>
-        		</div>
-	</div>
-        <hr>
+  <div class="row">
+    <div class="col transbox align-center">
+      <h2 class="align-center">Reading Plans</h2>
+      <p>
+        Out of book ideas? We have a solution for you.
+      </p>
+      <p>
+        Tell us what you like and we'll design a reading plan specifically for
+        you.
+      </p>
+      <p>
+        What's even better? Save money by buying the plan
+        instead of each book individually.
+      </p>
+      <a class="btn custom-plan-btn" href="{% url 'custom_plans' %}"
+        >Create a Custom Plan
+      </a>
 
-    <div class="row padding-top books-">
-    <div class="col">
-    			<p>Looking for a specific Books? <a class="btn btn-small" href="{% url 'books' %}">Books Home</a></p>
-</div></div>
-
+      <p class="py-2">
+        <small>
+          Looking for a specific Books?
+          <a class="btn btn-small" href="{% url 'books' %}"
+            >Books Home</a
+          ></small
+        >
+      </p>
+    </div>
+  </div>
 </div>
 
-</div>
 {% endblock %}
