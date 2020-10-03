@@ -72,6 +72,20 @@ hr {
 }
 
 
+.float-right {
+    float: right;
+}
+
+.border-solid-blue {
+    border: solid !important;
+    border-color: #235789 !important;
+}
+
+.margin-top-3 {
+    margin-top: 3rem;
+
+}
+
 /* Buttons */
 
 .btn {
@@ -90,8 +104,16 @@ hr {
     padding: 0.10rem;
 }
 
-.float-right {
-    float: right;
+.btn-light {
+    background-color: #F1FAEE;
+    color: #1D3557;
+    border: solid;
+}
+
+.btn-light:hover {
+    background-color: #ED6E78;
+    color: #1D3557;
+    border: solid;
 }
 
 /* Back to Top Button - from W3 School*/
@@ -287,4 +309,20 @@ https://github.com/ckz8780/boutique_ado_v1/blob/149abda4318106704ac8d3118b8e5a63
 
     .home-page-plans-card {
     margin-top: 9rem;
+
+}
+    .btn.mt-5.btn-light,
+    .btn.text-uppercase.mt-5 {
+        padding: 0.4rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 319px) {
+    .btn.mt-5.btn-light,
+    .btn.text-uppercase.mt-5 {
+        padding: 0.25rem;
+        font-size: 0.9rem;
+    }
+
 }

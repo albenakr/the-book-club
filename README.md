@@ -67,6 +67,8 @@ FIX links on top of profile page
 >> zadig is twice in books
 >> plan image in success toast appears when you add a book, but not when you add a plan!?
 
+> Depending on navbar check reviews section on book_datail
+
 SERIOUS ONES
 
 
