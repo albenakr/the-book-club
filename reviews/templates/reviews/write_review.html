@@ -4,14 +4,16 @@
 {% block content %}
 
 
-<div class="container header-container">
-	<div class="row">
-		<div class="col">
-			<h3>Your review for the book <strong>"{{ book.title }}"</strong>{{ user.username }}</h3>
+<div class="container header-container ">
+	<div class="row align-center">
+		<div class="col-12">
+			<h3>Your review for the book: <strong>"{{ book.title }}"</strong></h3>
 		</div>
+        <div class="col-12 mt-3">
+        <p>Tell us what you liked or didn't like about the book. Your feedback will help future readers, who are yet to dive into the book.</p></div>
 	</div>
-	<div class="row">
-		<div class="col">
+	<div class="row justify-content-center mb-5 mt-3">
+		<div class="col-12 col-sm-6">
 			<form action="{% url 'write_review' book.id %}" method="POST" id="review-form">
 				{% csrf_token %}
 				{{ form | crispy }}
