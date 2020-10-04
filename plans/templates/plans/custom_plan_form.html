@@ -1,17 +1,17 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 
 <div class="container header-container w-75">
-  <div class="row">
+  <div class="row mb-5">
     <div class="col align-center">
-      <h2>Your Custom Plan</h2>
+      <h2 class="mb-3">Your Custom Plan</h2>
       <p> Tell us what you like and we'll design a plan specifically for you. <br>
       You get 1 book per month for the duration of the plan you choose. <br>
       For example, if you pick a 6-month plan, you get 6 books.
       </p>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
+  <div class="row mb-5 justify-content-center">
+    <div class="col-12 col-sm-6">
       <form action="{% url 'custom_plans' %}" method="POST">
         {% csrf_token %} {{ form | crispy }}
 
