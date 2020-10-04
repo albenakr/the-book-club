@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -14,6 +15,9 @@ from bag.contexts import bag_contents
 
 import stripe
 import json
+
+""" Functionality implemented following Boutique Ado example,
+adapted to account for type of item in the bag - plans or books """
 
 
 @require_POST
@@ -95,7 +99,8 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse(
+                'checkout_success', args=[order.order_number]))
 
         else:
             messages.error(request, 'There was an error with your form. \
@@ -117,7 +122,8 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-    # Attempt to prefill the form with any info the user maintains in their profile
+        """ Attempt to prefill the form with any info
+        the user maintains in their profile """
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)

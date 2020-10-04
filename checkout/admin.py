@@ -1,8 +1,9 @@
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
+""" Admin functionality implemented following Code Institute's Boutique Ado example """
 
-# Register your models here.
+
 class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)

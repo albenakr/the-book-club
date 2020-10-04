@@ -1,3 +1,12 @@
+.wrap {
+    overflow-wrap: break-word;
+}
+
+.form-group label {
+    margin-bottom: 0rem !important;
+    font-size: 0.8rem;
+}
+
 .StripeElement,
 .stripe-style-input {
   height: 40px;
@@ -5,7 +14,6 @@
 
   color: #32325d;
   background-color: white;
-  border: 1px solid transparent;
   border-radius: 4px;
 
   box-shadow: 0 1px 3px 0 #e6ebf1;
@@ -29,7 +37,7 @@ input:focus,
 }
 
 .stripe-style-input::placeholder {
-    color: #aab7c4;
+    color: black;
 }
 
 select,
@@ -59,4 +67,20 @@ select option[value=""] {
     justify-content: center;
     margin: 0;
     height: 100%;
+}
+
+/* Action Buttons on Mobile */
+
+@media (max-width: 410px) {
+    .mobile-button {
+        padding: 0.3rem;
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 319px) {
+    .mobile-button {
+        padding: 0.2rem;
+        font-size: 0.7rem;
+    }
+
 }

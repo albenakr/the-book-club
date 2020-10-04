@@ -12,6 +12,9 @@ from profiles.models import UserProfile
 import json
 import time
 
+""" Functionality implemented following the Code Institure
+ Boutique Ado example """
+
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""

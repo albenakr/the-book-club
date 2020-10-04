@@ -11,7 +11,10 @@ from plans.models import Plan
 from profiles.models import UserProfile
 
 
-""" Logic behind this functionality is from the CodeInstitute Course, adjusted to account for ordering two types of items - books and plans """
+""" Logic behind this functionality is from the CodeInstitute Course,
+adjusted to account for ordering two types of items - books and plans """
+
+
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(
@@ -61,14 +64,17 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    order = models.ForeignKey(Order, null=False, blank=False,
+                              on_delete=models.CASCADE, 
+                              related_name='lineitems')
     book = models.ForeignKey(
         Book, null=True, blank=True, on_delete=models.CASCADE)
     plan = models.ForeignKey(
         Plan, null=True, blank=True, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+        max_digits=6, decimal_places=2,
+        null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """
