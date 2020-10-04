@@ -1,0 +1,16 @@
+
+/* Action Buttons on Mobile */
+@media (max-width: 319px) {
+    .mobile-button {
+        padding: 0.2rem;
+        font-size: 0.7rem;
+    }
+
+}
+
+@media (max-width: 410px) {
+    .mobile-button {
+        padding: 0.4rem;
+        font-size: 1rem;
+    }
+}

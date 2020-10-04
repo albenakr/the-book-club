@@ -1,5 +1,9 @@
 {% extends "base.html" %} {% load static %} {% load bag_tools %} 
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'bag/css/bag.css' %}" />
+{% endblock %} 
+
 
 {% block content %}
 <div class="container header-container">
@@ -46,7 +50,7 @@
              <a href="{% url 'view_custom_plan_details' item.plan.id %}">
                <img
                   class="img-fluid rounded"
-                  src="{{ MEDIA_URL }}media/plan_image.jpg"
+                  src="{{ MEDIA_URL }}plan_image.jpg"
                   alt="Plan image"
                 />
              </a>
@@ -59,8 +63,9 @@
                 <p>{{ item.book.author }}</p>
                 {% else %}
                  <a href="{% url 'view_custom_plan_details' item.plan.id %}">
-                <p><strong>{{ item.plan.name }}</strong></p>
-                 </a>
+                <p><strong>{{ item.plan.name }}</strong></p></a>
+                <p>Plan duration: {{ item.plan.plan_duration }} months</p>
+                 
                 {% endif %}
               </td>
 
@@ -170,14 +175,14 @@
             </tr>
             <tr>
               <td colspan="5" class="text-right">
-                <a href="{% url 'books' %}" class="btn btn-lg btn-light">
+                <a href="{% url 'books' %}" class="btn btn-light mobile-button">
                   <span class="icon">
                     <i class="fas fa-chevron-left"></i>
                   </span>
                   <span class="text-uppercase">Keep Shopping</span>
                 </a>
-                <a href="{% url 'checkout' %}" class="btn rounded-0 btn-lg">
-                  <span class="text-uppercase">Secure Checkout</span>
+                <a href="{% url 'checkout' %}" class="btn mobile-button">
+                  <span class="text-uppercase">Checkout</span>
                   <span class="icon">
                     <i class="fas fa-lock"></i>
                   </span>
@@ -188,12 +193,13 @@
         </table>
       </div>
       {% else %}
+      
       <p>Your bag is empty.</p>
-      <a href="{% url 'books' %}" class="btn btn-lg">
+      <a href="{% url 'books' %}" class="btn btn-lg btn-light">
         <span class="icon">
           <i class="fas fa-chevron-left"></i>
         </span>
-        <span>Keep Shopping</span>
+        <span class="text-uppercase">Keep Shopping</span>
       </a>
       {% endif %}
     </div>
@@ -203,37 +209,9 @@
 {% endblock %} {% block postloadjs %}
 
  {{ block.super }} {% include 'products/includes/quantity_input_script.html' %}
-
- <script type="text/javascript">
-  // Update quantity on click
-  $(".update-link").click(function (e) {
-    var form = $(this).prev(".update-form");
-    form.submit();
-  });
-
-  // Remove item and reload on click - books
-  $(".remove-item-book").click(function (e) {
-    var csrfToken = "{{ csrf_token }}";
-    var itemId = $(this).attr("id").split("remove_")[1];
-    var url = `/bag/remove/${itemId}/`;
-    var data = { csrfmiddlewaretoken: csrfToken };
-
-    $.post(url, data).done(function () {
-      location.reload();
-    });
-  });
-
-  // Remove item and reload on click - plans
-  $(".remove-item-plan").click(function (e) {
-    var csrfToken = "{{ csrf_token }}";
-    var itemId = $(this).attr("id").split("remove_plan_")[1];
-    var url = `/bag/remove_plan/${itemId}/`;
-    var data = { csrfmiddlewaretoken: csrfToken };
-
-    $.post(url, data).done(function () {
-      location.reload();
-    });
-  });
-</script> 
+ <script
+   type="text/javascript"
+   src="{% static 'bag/js/update_quantity.js' %}"
+   ></script>
 
 {% endblock %}
