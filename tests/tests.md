@@ -1,3 +1,5 @@
+#Tests
+
 1. Home Page and Navigation
     1. Clicked through all buttons on the navigation menu - both large screen and mobile versions to make sure all buttons lead where they're supposed to.
     2. Clicked on the 'Build Your Plan Button' on the Home page to make sure it works.

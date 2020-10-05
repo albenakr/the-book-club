@@ -1,141 +1,120 @@
-/* Overall app styling */
+/* --------------------------------Overall app styling */
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    color: #302f2f;
-    font-family: 'Lora', serif;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
+  color: #302f2f;
+  font-family: "Lora", serif;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-color: #302f2f;
+  color: #302f2f;
 }
 
 hr {
-    background-color: #A8DADC;
-}
-
-.cyan-background {
-    background-color: #A8DADC;
-}
-
-.orange-background {
-    background-color: #ED6E78;
+  background-color: #a8dadc;
 }
 
 
-.icon-white{
-    color: #ffffff !important;
+.icon-white {
+  color: #ffffff !important;
 }
 
 .font-italic {
-    font-style: italic;
+  font-style: italic;
 }
 
 .update-link,
 .remove-item-book,
 .remove-item-plan {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .header-container {
-        margin-top: 11rem;
-    }
+  margin-top: 11rem;
+}
 
 .align-right {
-    text-align: right;
+  text-align: right;
 }
 
 .align-center {
-    text-align: center;
+  text-align: center;
 }
 
 .border-blue {
-    border: solid 0.20rem;
-    border-color: #457B9D;
+  border: solid 0.2rem;
+  border-color: #457b9d;
 }
 
-
 .float-right {
-    float: right;
+  float: right;
 }
 
 .border-solid-blue {
-    border: solid !important;
-    border-color: #235789 !important;
-}
-
-.margin-top-3 {
-    margin-top: 3rem;
-}
-
-.margin-botton-5 {
-    margin-bottom: 5rem;
+  border: solid !important;
+  border-color: #235789 !important;
 }
 
 .wrap {
-    overflow-wrap: break-word;
+  overflow-wrap: break-word;
 }
-
 
 .dropdown-menu {
-    background-color: #F1FAEE;
+  background-color: #f1faee;
 }
 
-/* Input elements */
+/* --------------------------------Input elements */
 
 .form-control {
-    height: auto;
+  height: auto;
 }
 
-
 .form-control {
-    border: solid 0.20rem;
-    border-color: #457B9D;
+  border: solid 0.2rem;
+  border-color: #457b9d;
 }
 
 .form-control:focus {
-    border: solid 0.20rem;
-    border-color:  #A8DADC;
-    box-shadow: 0 0 0 0.15rem #A8DADC;
+  border: solid 0.2rem;
+  border-color: #a8dadc;
+  box-shadow: 0 0 0 0.15rem #a8dadc;
 }
 
-/* Buttons */
+/* --------------------------------Buttons */
 
 .btn {
-    background-color: #235789;
-    border-color: #235789;
-    color: #fff;
+  background-color: #235789;
+  color: #fff;
 }
 
 .btn:hover {
-    background-color:#ED6E78;
-    border-color: #ED6E78;
-    color: #fff;
+  background-color: #ed6e78;
+  color: #fff;
 }
 
 .btn-small {
-    padding: 0.10rem;
+  padding: 0.1rem;
 }
 
 .btn-light {
-    background-color: #F1FAEE;
-    color: #1D3557;
-    border: solid;
+  background-color: #f1faee;
+  color: #1d3557;
+  border: solid;
 }
 
 .btn-light:hover {
-    background-color: #ED6E78;
-    color: #1D3557;
-    border: solid;
+  background-color: #ed6e78;
+  color: #1d3557;
+  border: solid;
 }
 
-/* Back to Top Button - from W3 School*/
+/* --------------------------------Back to Top Button - from W3 School*/
 
 #backToTopBtn {
   display: none;
@@ -146,165 +125,154 @@ hr {
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: #ED6E78;
-  color:#ffffff;
+  background-color: #ed6e78;
+  color: #ffffff;
   cursor: pointer;
   padding: 15px;
   border-radius: 4px;
 }
 
 #backToTopBtn:hover {
-  background-color: #A8DADC;
+  background-color: #a8dadc;
 }
 
-/* Navigation */
-
+/* --------------------------------Navigation */
 
 .navigation-bar {
-    padding: 0;
+  padding: 0;
 }
 
 .navbar-content-options {
-    background-color: #A8DADC;
-    font-weight: 700;
-    font-size: 1.2rem;
+  background-color: #a8dadc;
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
-.navbar{
-    background-color: #A8DADC;
+.navbar {
+  background-color: #a8dadc;
 }
 
 .navbar-collapse {
-    background-color: #A8DADC;
-    padding: 0;
-    margin: 0;
-
+  background-color: #a8dadc;
+  padding: 0;
+  margin: 0;
 }
 
 .plans-container {
-    text-align: center;
-    justify-content: center;
-    display: flex;
+  text-align: center;
+  justify-content: center;
+  display: flex;
 }
 
-/* Home */
-
+/* --------------------------------Home */
 
 .home-header-container {
-    background: url('/media/kimberly-farmer-unsplash.jpg') no-repeat center center fixed;
-    background-size: cover;
-    position: relative;
-    margin-top: 128px;
-    height: 100vh;
+  background: url("/media/kimberly-farmer-unsplash.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  position: relative;
+  margin-top: 128px;
+  height: 100vh;
 }
 
 .home-header-row {
-    justify-content: flex-end;
-    padding: inherit;
+  justify-content: flex-end;
+  padding: inherit;
 }
-
 
 .home-page-plans-card {
-    margin-top: 13rem;
-    position: relative;
-    float: right;
-    background-color: #A8DADC;
+  margin-top: 13rem;
+  position: relative;
+  float: right;
+  background-color: #a8dadc;
 }
 
-
-
-/* ------------------------------- bootstrap toasts */
+/* --------------------------------Bootstrap toasts - from Code Institue Boutique Ado */
 
 .message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
+  position: fixed;
+  top: 72px;
+  right: 15px;
+  z-index: 99999999999;
 }
 
 .custom-toast {
-    overflow: visible;
+  overflow: visible;
 }
 
 .toast-capper {
-    height: 2px;
+  height: 2px;
 }
 
 .bag-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-/* Allauth form formatting  */
+/* -------------------------------- Allauth form formatting  */
 
 .allauth-form-inner-content {
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 
 .allauth-form-inner-content h2 {
-    text-align: center;
+  text-align: center;
 }
 
 .allauth-form-inner-content button {
-    float: right;
-} 
-
-.allauth-form-inner-content label:not([for='id_remember']) {
-    display: none;
+  float: right;
 }
 
+.allauth-form-inner-content label:not([for="id_remember"]) {
+  display: none;
+}
 
 /* -------------------------------- Media Queries */
 
 /* mobile view */
 @media (max-width: 991px) {
-    .header-container {
-        margin-top: 7rem;
-    }
+  .header-container {
+    margin-top: 7rem;
+  }
 
-    .home-header-container {
-        margin-top: 4.5rem;
-    }
+  .home-header-container {
+    margin-top: 4.5rem;
+  }
 
-    .navbar {
-    padding: .25rem .1rem .3rem .15rem;
+  .navbar {
+    padding: 0.25rem 0.1rem 0.3rem 0.15rem;
     height: 4.5rem;
-    }
-
-   
-
+  }
 }
 
 @media (max-width: 410px) {
- .nav-link {
-        padding: 0.15rem;
-    }
+  .nav-link {
+    padding: 0.15rem;
+  }
 
-    .nav-link i.fa-lg {
-        font-size: 1rem;
-    }
+  .nav-link i.fa-lg {
+    font-size: 1rem;
+  }
 
-    .nav-link p {
-        font-size: 1rem;
-    }
+  .nav-link p {
+    font-size: 1rem;
+  }
 
-    .home-page-plans-card {
+  .home-page-plans-card {
     margin-top: 9rem;
-
-}
-    .btn.mt-5.btn-light,
-    .btn.text-uppercase.mt-5 {
-        padding: 0.4rem;
-        font-size: 1rem;
-    }
+  }
+  .btn.mt-5.btn-light,
+  .btn.text-uppercase.mt-5 {
+    padding: 0.4rem;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 319px) {
-    .btn.mt-5.btn-light,
-    .btn.text-uppercase.mt-5 {
-        padding: 0.25rem;
-        font-size: 0.9rem;
-    }
-
+  .btn.mt-5.btn-light,
+  .btn.text-uppercase.mt-5 {
+    padding: 0.25rem;
+    font-size: 0.9rem;
+  }
 }

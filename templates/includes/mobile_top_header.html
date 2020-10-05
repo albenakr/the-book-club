@@ -15,7 +15,8 @@
     <div class="text-center">
       <div><i class="fas fa-shopping-basket fa-lg"></i></div>
       <p class="my-0">
-        {% if price_total %} €{{ price_total|floatformat:2 }} {% else %} €0.00 {% endif %}
+        {% if price_total %} €{{ price_total|floatformat:2 }} {% else %} €0.00
+        {% endif %}
       </p>
     </div>
   </a>
