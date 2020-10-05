@@ -18,5 +18,3 @@ class UserProfileForm(forms.ModelForm):
         self.fields['default_street_address1'].label = 'Street Address 1'
         self.fields['default_street_address2'].label = 'Street Address 2'
         self.fields['default_county'].label = 'County, State or Locality'
-
-
