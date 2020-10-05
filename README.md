@@ -1,22 +1,37 @@
 
+            self.fields[field].widget.attrs['class'] = 'rounded-0'
+
+
+placeholders = {
+            'default_phone_number': 'Phone Number',
+            'default_postcode': 'Postal Code',
+            'default_town_or_city': 'Town or City',
+            'default_street_address1': 'Street Address 1',
+            'default_street_address2': 'Street Address 2',
+            'default_county': 'County, State or Locality',
+        }
+
+        self.fields['full_name'].widget.attrs['autofocus'] = True
+        for field in self.fields:
+            if field != 'default_country':
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+                self.fields[field].widget.attrs['class'] = 'stripe-style-input'
 
 
 
-
-Plan image:
-<span>Photo by <a href="https://unsplash.com/@sincerelymedia?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Sincerely Media</a> on <a href="https://unsplash.com/s/photos/books?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-Photo by Sincerely Media on Unsplash
+Custom Break Points for Navbar and Bag pages
 
 
 ****************************to fix**************
 
 ***********styling**************
 
-to review allauth formatting from Code Institute in base.css(the main one)
 
 update styling in stripe_elements.js
-
-update KEEP SHOPPING BUTTON TO BE A DIFFERENT COLOR on bag [age]
 
 FIX links on top of profile page
 
@@ -24,14 +39,8 @@ FIX links on top of profile page
 
 >> fix admin for order
 
->> when people are clicking on 'See book' or the photo for 'book email' from custom plan - add button on book_detail page to point to custom_plan instead of 'Keep shopping'
-
->> Back to Top Button for Community/Reviews page
-
->> Add books at less than 10 EUR to test the savings rendering in the template
 
 >> zadig is twice in books
->> plan image in success toast appears when you add a book, but not when you add a plan!?
 
 > Depending on navbar check reviews section on book_datail
 

@@ -17,26 +17,35 @@
     float: right;
 }
 
+.form-group label {
+    margin-bottom: 0rem !important;
+}
 
-/* From Code Institute Styling*/
-.order-history {
-    max-height: 416px; /* height of profile form + submit button */
+
+.order-history-large {
+    max-height: 30rem; 
     overflow-y: auto;
-}
-
-#profile-update-form .form-control {
-    color: #000;
-}
-
-#profile-update-form input::placeholder {
-    color: #aab7c4;
 }
 
 #id_default_country,
 #id_default_country option:not(:first-child) {
-    color: #000;
+    color: #302f2f;
 }
 
 #id_default_country option:first-child {
     color: #aab7c4;
 }
+
+/* @media (min-width: 451px) {
+    .order-history-small{
+        display: none;
+    }
+    
+}
+@media (max-width: 450px) {
+    .order-history-large{
+        display: none;
+    }
+    
+} */
+

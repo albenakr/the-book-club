@@ -7,7 +7,9 @@
 
 {% block content %}
 <div class="container header-container">
-  <div class="row">
+   <button onclick="topFunction()" id="backToTopBtn" title="Back to top">Top</button>
+
+  <div class="row align-center margin-botton-5  mb-sm-2">
     <div class="col">
       <h4>
         Shopping Bag
@@ -15,14 +17,63 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row margin-botton-5">
     <div class="col">
       {% if bag_items %}
-      <div class="table-responsive-xm">
+
+      <!-- Grid view for small to medium screens -->
+      <div class="d-block d-md-none">
+        <div class="row">
+          <div class="col mb-1">
+            <h6>
+              <strong
+                >Bag Total ({{product_count}} items): €{{ price_total|floatformat:2 }}</strong
+              >
+            </h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mb-1">
+             {% include "bag/bag_action_buttons.html" %}
+         </div>
+        </div>
+         <div class="row">
+          <div class="col align-center mb-2 margin-top-3">
+            <h4>
+              <strong
+                >Bag Content</strong
+              >
+            </h4>
+          </div>
+        </div>   
+        {% for item in bag_items %}
+        <div class="row">
+        
+          <div class="col-12 col-sm-6 mb-2">
+                       {% include "bag/product_image.html" %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 mb-2">
+             {% include "bag/product_details.html" %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 mb-2"></div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 mb-2"></div>
+        </div>
+      </div>
+      {% endfor %}
+
+
+      <!-- Table for medium screens and above -->
+      <div class="table-responsive-xm d-none d-md-block">
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Book</th>
+              <th scope="col">Book/Plan</th>
               <th scope="col"></th>
               <th scope="col">Price</th>
               <th scope="col">Qty</th>
@@ -36,8 +87,9 @@
 
             <tr>
               <th scope="row">
+                       {% include "bag/product_image.html" %}
 
-                {% if item.book != None %}
+               <!--  {% if item.book != None %}
                 
                  {% if item.book.image %}
                   <a href="{% url 'book_detail' item.book.id %}">   <img class="w-100" src="{{ item.book.image.url }}" alt="{{ book.title }}"> </a>
@@ -54,7 +106,7 @@
                   alt="Plan image"
                 />
              </a>
-                {% endif %}
+                {% endif %} -->
                 
               </th>
               <td class="w-25">
@@ -209,9 +261,34 @@
 {% endblock %} {% block postloadjs %}
 
  {{ block.super }} {% include 'products/includes/quantity_input_script.html' %}
- <script
-   type="text/javascript"
-   src="{% static 'bag/js/update_quantity.js' %}"
-   ></script>
+<script>
+  /* As this code relies on the csrf token, it stops working when exported into a separate file */
+  // Update quantity on click
+  $(".update-link").click(function (e) {
+    var form = $(this).prev(".update-form");
+    form.submit();
+  });
+  // Remove item and reload on click - books
+  $(".remove-item-book").click(function (e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr("id").split("remove_")[1];
+    var url = `/bag/remove/${itemId}/`;
+    var data = { csrfmiddlewaretoken: csrfToken };
+    $.post(url, data).done(function () {
+      location.reload();
+    });
+  });
+  // Remove item and reload on click - plans
+  $(".remove-item-plan").click(function (e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr("id").split("remove_plan_")[1];
+    var url = `/bag/remove_plan/${itemId}/`;
+    var data = { csrfmiddlewaretoken: csrfToken };
+    $.post(url, data).done(function () {
+      location.reload();
+    });
+  });
+</script>
+
 
 {% endblock %}

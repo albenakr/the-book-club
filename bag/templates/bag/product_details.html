@@ -1,0 +1,11 @@
+{% if item.book != None %}
+<a href="{% url 'book_detail' item.book.id %}">
+  <p><strong>{{ item.book.title }}</strong></p>
+</a>
+<p>{{ item.book.author }}</p>
+{% else %}
+<a href="{% url 'view_custom_plan_details' item.plan.id %}">
+  <p><strong>{{ item.plan.name }}</strong></p></a
+>
+<p>Plan duration: {{ item.plan.plan_duration }} months</p>
+{% endif %}

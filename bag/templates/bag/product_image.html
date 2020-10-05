@@ -1,0 +1,20 @@
+{% if item.book != None %} 
+{% if item.book.image %}
+<a href="{% url 'book_detail' item.book.id %}">
+  <img class="w-100" src="{{ item.book.image.url }}" alt="{{ book.title }}" />
+</a>
+{% else %}
+<a href="{% url 'book_detail' item.book.id %}">
+  <img class="w-100" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ book.title }}" />
+</a>
+{% endif %} 
+{% else %}
+
+<a href="{% url 'view_custom_plan_details' item.plan.id %}">
+  <img
+    class="img-fluid rounded"
+    src="{{ MEDIA_URL }}plan_image.jpg"
+    alt="Plan image"
+  />
+</a>
+{% endif %}
