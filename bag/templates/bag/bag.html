@@ -136,15 +136,17 @@
           </tbody>
         </table>
       </div>
+      
       {% else %}
-
-      <p>Your bag is empty.</p>
-      <a href="{% url 'books' %}" class="btn btn-lg btn-light">
+<div class="row align-center"><div class="col">
+<p>Your bag is empty.</p>
+      <a href="{% url 'books' %}" class="btn btn-light">
         <span class="icon">
           <i class="fas fa-chevron-left"></i>
         </span>
         <span class="text-uppercase">Keep Shopping</span>
       </a>
+</div></div>      
       {% endif %}
     </div>
   </div>
