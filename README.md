@@ -1,135 +1,3 @@
-
-<div class="row">
-   <div class="col">
-      <div class="table-responsive-md">
-         <table class="table">
-            <thead>
-               <tr class="orange-background">
-                  <th>Order Number</th>
-                  <th>Date</th>
-                  <th>Items</th>
-                  <th>Order Total</th>
-               </tr>
-            </thead>
-            <tbody>
-               {% for order in orders %}
-               <tr>
-                  <td>
-                     <a
-                        href="{% url 'order_history' order.order_number %}"
-                        title="{{ order.order_number }}"
-                        >
-                     {{ order.order_number|truncatechars:6 }}
-                     </a>
-                  </td>
-                  <td>{{ order.date }}</td>
-                  <td>
-                     <ul class="list-unstyled">
-                        {% for item in order.lineitems.all %}
-                        <li class="small">
-                           {% if item.book != None %}
-                           <p >
-                              <strong>"{{ item.book.title }}"</strong> (book)
-                              <br>
-                              <a
-                                 class="p-1 mt-1 border"
-                                 href="{% url 'write_review' item.book.id %}"
-                                 >Review Book</a
-                                 >
-                           </p>
-                              {% else %}
-                           <p>
-                              <strong> "{{ item.plan.name }}"</strong> (plan)
-                                                            <br>
-
-                              <a
-                                 class="p-1 mt-2 border"
-                                 data-toggle="collapse"
-                                 href="#collapsePlanBooks{{item.plan.id}}"
-                                 role="button"
-                                 aria-expanded="false"
-                                 aria-controls="collapsePlanBooks{{item.plan.id}}"
-                                 >
-                              Plan Details
-                              </a>
-                           </p>
-                           <!--  Collapsable to display the books in each plan-->
-                           <div
-                              class="collapse"
-                              id="collapsePlanBooks{{item.plan.id}}"
-                              >
-                              <div class="card card-body">
-                                 <ul class="list-unstyled">
-                                    {% for book in item.plan.books.all %}
-                                    <li>
-                                       <p>
-                                          <strong>{{ book.title }}</strong>
-                                          <a
-                                             class="p-1 mt-1 border"
-                                             href="{% url 'write_review' book.id %}"
-                                             >Review Book</a
-                                             >
-                                       </p>
-                                    </li>
-                                    {% endfor %}
-                                 </ul>
-                              </div>
-                           </div>
-                           {% endif %}
-                        </li>
-                        {% endfor %}
-                     </ul>
-                  </td>
-                  <td>€{{ order.order_total }}</td>
-               </tr>
-               {% endfor %}
-            </tbody>
-         </table>
-      </div>
-   </div>
-</div>
-
-
-TO DO:
-User Stories
-Wireframes
-tests
-Take out comms page
-Styling profile page
-Bug fixing
-
-
-
-
-
-
-****************************to fix**************
-
-***********styling**************
-
-
-update styling in stripe_elements.js
-
-FIX links on top of profile page
-
-********functionality to fix************
-
->> fix admin for order
-
-
->> zadig is twice in books
-
-> Depending on navbar check reviews section on book_datail
-
-SERIOUS ONES
-
-update small buttons with this throughout the app: p-2 mt-2 border
-
-
-
-
-
-
 # The Book Club E-Commerce
 
 The Book Club e-commerce was created for educational purposes as part of the Code Institute Fullstack Development course.
@@ -153,6 +21,51 @@ Another important aspect was to make sure there is a seemless flow of informatio
 
 ### User Stories
 
+### User Stories
+
+1. Viewing and Navigation
+    1. As a user, I want to be able to easily navigate between the products and services the Book Club offers, so that I can select what to purchase.
+    2. As a user, I want to be able to see the total of my bag at all times, to make sure I stay within my budget.
+    3. As a user, I want to be able to quickly search the book title, author or description, so that I can find if what I'm looking for is available.
+
+2. Browsing Products
+    1. As a user, I want to be able to see all the books the shop can offer, so that I can make a choice which one to buy.
+    2. As a user, I want to be able to simulataneously filter books based on the genres and languages I prefer, so that I can pick from the ones particularly interesting to me.
+    3. As a user, I want to be able to sort the books on offer, based on their price, so that I can choose the most economic option.
+    4. As a user, I want to be able to sort the books on offer, based on alphabetical order of the author or title, so that I can understand better what's on offer and choose a book.
+    5. As a user, I want to be able to see the details of a book, including author, publication year, rating if available, price, and overview, so that I can choose whether to buy it. 
+
+3. Building Plans
+    1. As a user I want to understand how plans work, so that I can choose whether this is a good option for me.
+    2. As a user, I want to be able to fill in my preferences when it comes to languagues, genres and plan duration, so that I get a plan customized to what I want. 
+    3. As a user, I want an overview of the plan created for me, including the books I'll be receiving and the price plan, so that I can choose if I want to buy the plan.
+    4. As a user, I want to see how much money I would save by buying the plan instead of the individual books, so that I can see if it's a good investment.
+    5. As a user, I want to be able to re-do the survey, so that I can get a different plan if I don't like the selection presented to me.
+    
+4. Registration, Authentication & Profiles
+    1. As a user, I want to be able to easily register for an account, so that I can make purchases, review my profile and leave reviews.
+    2. As a registered user, I want to be able to easily login and logout, so that I can access my account. 
+    3. As a registered user, I want to be able to recover my password in case I forget it, so that I can re-gain access to my account.
+    4. As a user, I want to receive an email after I register, so that I can be sure the registration was successful.
+    5. As a registered user, I want to have a personalized user profile with my order history, delivery information and reviews I've written, so that I can keep track of my interactions with the site.
+    
+5. Bag
+    1. As a user, I want to be able to easily add books and plans to my bag, so that I can purchase them.
+    2. As a user, I want to be able to see an overview of my bag, including all the items I've added, their quantities, the subtotal cost and the total cost, so that I can make a decision on whether to purchase.
+    3. As a user, I want to be able to remove items from my bag, so that I don't have to buy them if I change my mind.
+    4. As a user, I want to be able to update the quantity of a book I'm purchasing from my bag, so that I can make sure I buy the right amount.
+
+6. Chechout and purchasing
+    1. As a registered user, I want to be able to save my delivery address information, so that it's available and pre-filled for me for my next purchase.
+    2. As a registered user, I want to see an overview of my order at checkout stage, so that I can make sure I'm buying the things I want.
+    3. As a registered user, I want to be able to quickly and easlily buy what's in my bag with a credit card, so I don't have to spend too much time going through checkout payment steps. 
+    3. As a registered user, I want to receive an email that my order (with order number and details) has been processed and confirmed, so I can make sure the process went smoothly.
+
+7. Writing Reviews
+    1. As a registered user, I want to be able to quicklu and easily leave reviews for books that I've read, so that I can share my experience with the Book Club community of readers.
+    2. As a registered user, I want to be able to rate a book on a scale, as well as share more detailed comments, so that I can express how much I liked or disliked a book.
+    3. As a registered user, I want to be able to see other users' reviews for the books I'm considering buying, so that I can form an opinion on whether to buy a book.
+    4. As a user, I want to be able to see the average rating for a book, based on the users reviews, so that I can form an opinion on whether to buy a book.
 
 ## Features
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
@@ -173,8 +86,7 @@ In this section, you should go over the different parts of your project, and des
 
 With more time, the possibilities to expand this project are endless. Those are some of the features I would like to implement next:
 - Filtering functionality, based on reviews ratings. This was considered for this first version of the project, but since the reviews are user-generated, rather than pre-uploaded, there isn't enough data to make it viable at this stage.
-- More dynamic filtering of books on the Shop Books page through Ajax
-- Expand the community page to allow for more interactivity - allow comment threads on individual reviews, functionality to like and upvote comments, possibility to ask questions and post comments outside of reviews alone.
+- More dynamic filtering of books on the Shop Books page through Ajax.
 - Re-design the bag functionality, so that the bag contents are saved if a user is registered and logged in. 
 - Automated testing.
 
@@ -207,22 +119,13 @@ With more time, the possibilities to expand this project are endless. Those are 
         Stripe is used as payments processor.
 
 ## Testing
-<!-- In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+The app has been tested for responsiveness across all sizes available throught the Dev Tools, including: Desktop, Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, iphone %/SE, 6, 7, 8, iPhone 6/7/8 +, iPhone X, iPad, iPad Pro, Surface Duo, Galaxy Fold.
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+The entire application was tested continuously throughout the development, as well as extensively after deployment in the final stages of this project.
 
-Contact form:
-Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+Tests were predominantly manual and a more detailed write-up of the tests conducted can be found in the file 'tests.txt' inside the folder 'tests' within this project. 
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here. -->
 
 ## Deployment
 
