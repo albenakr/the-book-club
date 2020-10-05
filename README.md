@@ -1,3 +1,6 @@
+![Home Page Web](https://github.com/albenakr/the-book-club/blob/master/media/home_page.png ) 
+
+
 # The Book Club E-Commerce
 
 The Book Club e-commerce was created for educational purposes as part of the Code Institute Fullstack Development course.
@@ -69,15 +72,25 @@ Another important aspect was to make sure there is a seemless flow of informatio
 
 ### Existing Features
 
-![Home Page Web](https://github.com/albenakr/the-book-club/blob/master/media/home_page.png ) 
+
+
+
+
+
 
 1. Browsing, searching and filtering books 
 
 This functionality is mostly contained within the 'products' app. It allows a user to view all books currently available, filter through them by Genre and Language, as well as alphabetical order, price etc. Additionally, a user can see all details of a book displayed (book_details.html)
 
+![Shop Books Web](https://github.com/albenakr/the-book-club/blob/master/media/shop_books_web.png) 
+![Shop Books Mobile](https://github.com/albenakr/the-book-club/blob/master/media/shop_books_mobile.png) 
+
 2.  Building Custom Plans
 
 Functionality is within the 'plans' app. This feature automatically generates a list of books (plan) and price, based on the criteria a user has picked. The criteria a user can pick are genres, languages and the plan duration (considering they receive 1 book per month, depending on the plan duration, they are signing up for 3, 6 or 12 months/books). The custom_plans view builds a plan for them, based on a randomized set of books matching their criteria. In case the database doesn't contain enough books matching their criteria, the plan is automatically adjusted to the number of books available, so that a user is not overcharged. The price is calculated at 10 EUR per book in a plan, and the plan overview a user sees also displays how much they're saving by going for the plan, instead of individual books. 
+
+![Custom Plan Web](https://github.com/albenakr/the-book-club/blob/master/media/custom_plan_web.png) 
+![Custom Plan Mobile](https://github.com/albenakr/the-book-club/blob/master/media/custom_plan_mobile.png) 
 
 3.  Writing Reviews
 
