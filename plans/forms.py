@@ -14,4 +14,3 @@ class CustomPlanForm(forms.Form):
     languages = forms.ModelMultipleChoiceField(
         widget=forms.CheckboxSelectMultiple, queryset=Language.objects.all())
     plan_duration = forms.ChoiceField(choices=CHOICES)
-

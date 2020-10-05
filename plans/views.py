@@ -1,6 +1,5 @@
-from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
-from django.db.models import Sum
 from .forms import CustomPlanForm
 from products.models import Book, Genre, Language
 from .models import Plan
@@ -29,11 +28,12 @@ def custom_plans(request):
             languages = list(form.cleaned_data['languages'])
             plan_duration = int(form.cleaned_data['plan_duration'])
 
-            # Filter books by genre and language
+            """Filter books by genre and language"""
             books = books.filter(genre__name__in=genres).filter(
                 language__name__in=languages)
 
-            # create a fallback in case there aren't enough books in the categories they want
+            """create a fallback in case there aren't enough books
+            in the categories they want"""
             if len(books) == 0:
                 messages.info(
                     request, 'No results found for your search. Please try again')
@@ -48,7 +48,8 @@ def custom_plans(request):
                 messages.info(
                     request, f'{plan_duration} books found for your search. Your plan has been adjusted to {plan_duration} months')
 
-            # Shuffle Books and limit the result to the number of months in plan_duration
+            """Shuffle Books and limit the result
+            to the number of months in plan_duration"""
             shuffled_books = list(random.sample(list(books), plan_duration))
 
             # calculate price plan - each book in the plan cost a flat 10EUR
