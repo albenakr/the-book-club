@@ -9,7 +9,7 @@
 <div class="container header-container">
    <button onclick="topFunction()" id="backToTopBtn" title="Back to top">Top</button>
 
-  <div class="row align-center margin-botton-5  mb-sm-2">
+  <div class="row align-center mb-5">
     <div class="col">
       <h4>
         Shopping Bag
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="row margin-botton-5">
+  <div class="row mb-5">
     <div class="col">
       {% if bag_items %}
 
@@ -41,35 +41,34 @@
           <div class="col align-center mb-2 margin-top-3">
             <h4>
               <strong
-                >Bag Content</strong
+                >Your Bag Items</strong
               >
             </h4>
           </div>
         </div>   
         {% for item in bag_items %}
-        <div class="row">
-        
+        <div class="row justify-content-center">        
           <div class="col-12 col-sm-6 mb-2">
                        {% include "bag/product_image.html" %}
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-sm-6 mb-2">
+          <div class="col-12 col-sm-6 my-2">
              {% include "bag/product_details.html" %}
           </div>
         </div>
         <div class="row">
+        </div>
+        <div class="row ">
           <div class="col-12 col-sm-6 mb-2"></div>
         </div>
         <div class="row">
           <div class="col-12 col-sm-6 mb-2"></div>
         </div>
-      </div>
       {% endfor %}
+      </div>
 
 
       <!-- Table for medium screens and above -->
-      <div class="table-responsive-xm d-none d-md-block">
+      <div class="table-responsive-sm d-none d-md-block">
         <table class="table">
           <thead>
             <tr>
