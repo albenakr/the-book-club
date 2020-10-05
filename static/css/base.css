@@ -76,8 +76,12 @@ hr {
 
 .margin-botton-5 {
     margin-bottom: 5rem;
-
 }
+
+.wrap {
+    overflow-wrap: break-word;
+}
+
 
 .dropdown-menu {
     background-color: #F1FAEE;

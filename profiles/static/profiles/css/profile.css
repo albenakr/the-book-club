@@ -22,8 +22,8 @@
 }
 
 
-.order-history-large {
-    max-height: 30rem; 
+.order-history {
+    max-height: 70rem; 
     overflow-y: auto;
 }
 
@@ -36,16 +36,13 @@
     color: #aab7c4;
 }
 
-/* @media (min-width: 451px) {
-    .order-history-small{
-        display: none;
-    }
-    
+
+@media (min-width: 540px) {
+.card-header-order {
+    display: flex;
+    justify-content: space-around;
 }
-@media (max-width: 450px) {
-    .order-history-large{
-        display: none;
-    }
-    
-} */
+
+
+}
 

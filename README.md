@@ -1,29 +1,106 @@
 
-            self.fields[field].widget.attrs['class'] = 'rounded-0'
+<div class="row">
+   <div class="col">
+      <div class="table-responsive-md">
+         <table class="table">
+            <thead>
+               <tr class="orange-background">
+                  <th>Order Number</th>
+                  <th>Date</th>
+                  <th>Items</th>
+                  <th>Order Total</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for order in orders %}
+               <tr>
+                  <td>
+                     <a
+                        href="{% url 'order_history' order.order_number %}"
+                        title="{{ order.order_number }}"
+                        >
+                     {{ order.order_number|truncatechars:6 }}
+                     </a>
+                  </td>
+                  <td>{{ order.date }}</td>
+                  <td>
+                     <ul class="list-unstyled">
+                        {% for item in order.lineitems.all %}
+                        <li class="small">
+                           {% if item.book != None %}
+                           <p >
+                              <strong>"{{ item.book.title }}"</strong> (book)
+                              <br>
+                              <a
+                                 class="p-1 mt-1 border"
+                                 href="{% url 'write_review' item.book.id %}"
+                                 >Review Book</a
+                                 >
+                           </p>
+                              {% else %}
+                           <p>
+                              <strong> "{{ item.plan.name }}"</strong> (plan)
+                                                            <br>
+
+                              <a
+                                 class="p-1 mt-2 border"
+                                 data-toggle="collapse"
+                                 href="#collapsePlanBooks{{item.plan.id}}"
+                                 role="button"
+                                 aria-expanded="false"
+                                 aria-controls="collapsePlanBooks{{item.plan.id}}"
+                                 >
+                              Plan Details
+                              </a>
+                           </p>
+                           <!--  Collapsable to display the books in each plan-->
+                           <div
+                              class="collapse"
+                              id="collapsePlanBooks{{item.plan.id}}"
+                              >
+                              <div class="card card-body">
+                                 <ul class="list-unstyled">
+                                    {% for book in item.plan.books.all %}
+                                    <li>
+                                       <p>
+                                          <strong>{{ book.title }}</strong>
+                                          <a
+                                             class="p-1 mt-1 border"
+                                             href="{% url 'write_review' book.id %}"
+                                             >Review Book</a
+                                             >
+                                       </p>
+                                    </li>
+                                    {% endfor %}
+                                 </ul>
+                              </div>
+                           </div>
+                           {% endif %}
+                        </li>
+                        {% endfor %}
+                     </ul>
+                  </td>
+                  <td>€{{ order.order_total }}</td>
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
 
 
-placeholders = {
-            'default_phone_number': 'Phone Number',
-            'default_postcode': 'Postal Code',
-            'default_town_or_city': 'Town or City',
-            'default_street_address1': 'Street Address 1',
-            'default_street_address2': 'Street Address 2',
-            'default_county': 'County, State or Locality',
-        }
-
-        self.fields['full_name'].widget.attrs['autofocus'] = True
-        for field in self.fields:
-            if field != 'default_country':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-                self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+TO DO:
+User Stories
+Wireframes
+tests
+Take out comms page
+Styling profile page
+Bug fixing
 
 
 
-Custom Break Points for Navbar and Bag pages
+
 
 
 ****************************to fix**************
