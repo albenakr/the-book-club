@@ -1,13 +1,10 @@
-{% extends "base.html" %} {% load static %} {% load bag_tools %} 
-
-{% block extra_css %}
+{% extends "base.html" %} {% load static %} {% load bag_tools %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'bag/css/bag.css' %}" />
-{% endblock %} 
-
-
-{% block content %}
+{% endblock %} {% block content %}
 <div class="container header-container">
-   <button onclick="topFunction()" id="backToTopBtn" title="Back to top">Top</button>
+  <button onclick="topFunction()" id="backToTopBtn" title="Back to top">
+    Top
+  </button>
 
   <div class="row align-center mb-5">
     <div class="col">
@@ -34,38 +31,37 @@
         </div>
         <div class="row">
           <div class="col mb-1">
-             {% include "bag/bag_action_buttons.html" %}
-         </div>
+            {% include "bag/bag_action_buttons.html" %}
+          </div>
         </div>
-         <div class="row">
+        <div class="row">
           <div class="col align-center mb-2 margin-top-3">
             <h4>
-              <strong
-                >Your Bag Items</strong
-              >
+              <strong>Your Bag Items</strong>
             </h4>
           </div>
-        </div>   
+        </div>
         {% for item in bag_items %}
-        <div class="row justify-content-center">        
+        <div class="row justify-content-center">
           <div class="col-12 col-sm-6 mb-2">
-                       {% include "bag/product_image.html" %}
+            {% include "bag/product_image.html" %}
           </div>
           <div class="col-12 col-sm-6 my-2">
-             {% include "bag/product_details.html" %}
+            {% include "bag/product_details.html" %} {% if item.book != None %}
+
+            <p>€{{ item.book.price }}</p>
+            {% else %}
+            <p>€{{ item.plan.price }}</p>
+            {% endif %} {% include "bag/quantity_update.html" %} {% if item.book != None %}
+            <p>€{{ item.book.price | calc_subtotal:item.quantity }}</p>
+            {% else %}
+            <p>€{{ item.plan.price }}</p>
+            {% endif %} {% include "bag/remove_button.html" %}
           </div>
         </div>
-        <div class="row">
-        </div>
-        <div class="row ">
-          <div class="col-12 col-sm-6 mb-2"></div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-sm-6 mb-2"></div>
-        </div>
-      {% endfor %}
+     <hr>        
+        {% endfor %}
       </div>
-
 
       <!-- Table for medium screens and above -->
       <div class="table-responsive-sm d-none d-md-block">
@@ -86,39 +82,13 @@
 
             <tr>
               <th scope="row">
-                       {% include "bag/product_image.html" %}
-
-               <!--  {% if item.book != None %}
-                
-                 {% if item.book.image %}
-                  <a href="{% url 'book_detail' item.book.id %}">   <img class="w-100" src="{{ item.book.image.url }}" alt="{{ book.title }}"> </a>
-                {% else %}
-                  <a href="{% url 'book_detail' item.book.id %}">   <img class="w-100" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ book.title }}"> </a>
-                {% endif %}
-               
-                {% else %}
-             
-             <a href="{% url 'view_custom_plan_details' item.plan.id %}">
-               <img
-                  class="img-fluid rounded"
-                  src="{{ MEDIA_URL }}plan_image.jpg"
-                  alt="Plan image"
-                />
-             </a>
-                {% endif %} -->
-                
+                {% include "bag/product_image.html" %}
               </th>
               <td class="w-25">
-                {% if item.book != None %}
-               <a href="{% url 'book_detail' item.book.id %}">   <p><strong>{{ item.book.title }}</strong></p> </a>
-                <p>{{ item.book.author }}</p>
-                {% else %}
-                 <a href="{% url 'view_custom_plan_details' item.plan.id %}">
-                <p><strong>{{ item.plan.name }}</strong></p></a>
-                <p>Plan duration: {{ item.plan.plan_duration }} months</p>
-                 
-                {% endif %}
+                {% include "bag/product_details.html" %}
               </td>
+
+              <!-- Book Price -->
 
               <td class="w-25">
                 {% if item.book != None %}
@@ -127,92 +97,26 @@
                 <p>€{{ item.plan.price }}</p>
                 {% endif %}
               </td>
+
+              <!-- Update Quantity inside the bag form -->
               <td class="w-25">
-
-              {% if item.book != None %}
-                  <!-- Update Quantity inside the bag form -->
-                <form
-                  class="form update-form"
-                  method="POST"
-                  action="{% url 'adjust_bag' item.item_id %}"
-                >
-                  {% csrf_token %}
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <button
-                          class="decrement-qty btn btn-sm"
-                          data-item_id="{{ item.item_id }}"
-                          id="decrement-qty_{{ item.item_id }}"
-                        >
-                          <span>
-                            <i class="fas fa-minus fa-sm"></i>
-                          </span>
-                        </button>
-                      </div>
-                      <input
-                        class="form-control form-control-sm qty_input"
-                        type="number"
-                        name="quantity"
-                        value="{{ item.quantity }}"
-                        min="1"
-                        max="99"
-                        data-item_id="{{ item.item_id }}"
-                        id="id_qty_{{ item.item_id }}"
-                      />
-                      <div class="input-group-append">
-                        <button
-                          class="increment-qty btn btn-sm"
-                          data-item_id="{{ item.item_id }}"
-                          id="increment-qty_{{ item.item_id }}"
-                        >
-                          <span>
-                            <i class="fas fa-plus fa-sm"></i>
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-                <a class="update-link text-info"><small>Update</small></a>
-
-
-
-         <!-- Plan Quantity is always 1 -->
-
-                {% else %}
-                <p><strong>1</strong></p>
-                {% endif %}
+                {% include "bag/quantity_update.html" %}
               </td>
 
-         <!-- Subtotals -->
+              <!-- Subtotals -->
 
               <td class="w-25">
-              {% if item.book != None %}
+                {% if item.book != None %}
                 <p>€{{ item.book.price | calc_subtotal:item.quantity }}</p>
                 {% else %}
                 <p>€{{ item.plan.price }}</p>
                 {% endif %}
               </td>
 
-
-         <!-- Remove buttons -->
-
+              <!-- Remove buttons -->
 
               <td class="w-25">
-                {% if item.book != None %}
-                <a
-                  class="remove-item-book text-danger float-right"
-                  id="remove_{{ item.item_id }}"
-                  ><small>Remove</small></a
-                >
-                {% else %}
-                <a
-                  class="remove-item-plan text-danger float-right"
-                  id="remove_plan_{{ item.item_id }}"
-                  ><small>Remove</small></a
-                >
-                {% endif %}
+                {% include "bag/remove_button.html" %}
               </td>
             </tr>
             {% endfor %}
@@ -226,25 +130,14 @@
             </tr>
             <tr>
               <td colspan="5" class="text-right">
-                <a href="{% url 'books' %}" class="btn btn-light mobile-button">
-                  <span class="icon">
-                    <i class="fas fa-chevron-left"></i>
-                  </span>
-                  <span class="text-uppercase">Keep Shopping</span>
-                </a>
-                <a href="{% url 'checkout' %}" class="btn mobile-button">
-                  <span class="text-uppercase">Checkout</span>
-                  <span class="icon">
-                    <i class="fas fa-lock"></i>
-                  </span>
-                </a>
+                {% include "bag/bag_action_buttons.html" %}
               </td>
             </tr>
           </tbody>
         </table>
       </div>
       {% else %}
-      
+
       <p>Your bag is empty.</p>
       <a href="{% url 'books' %}" class="btn btn-lg btn-light">
         <span class="icon">
@@ -257,9 +150,9 @@
   </div>
 </div>
 
-{% endblock %} {% block postloadjs %}
+{% endblock %} 
 
- {{ block.super }} {% include 'products/includes/quantity_input_script.html' %}
+{% block postloadjs %} {{ block.super }} {% include 'products/includes/quantity_input_script.html' %}
 <script>
   /* As this code relies on the csrf token, it stops working when exported into a separate file */
   // Update quantity on click
@@ -288,6 +181,5 @@
     });
   });
 </script>
-
 
 {% endblock %}
