@@ -21,8 +21,6 @@ Another important aspect was to make sure there is a seemless flow of informatio
 
 ### User Stories
 
-### User Stories
-
 1. Viewing and Navigation
     1. As a user, I want to be able to easily navigate between the products and services the Book Club offers, so that I can select what to purchase.
     2. As a user, I want to be able to see the total of my bag at all times, to make sure I stay within my budget.
@@ -68,19 +66,30 @@ Another important aspect was to make sure there is a seemless flow of informatio
     4. As a user, I want to be able to see the average rating for a book, based on the users reviews, so that I can form an opinion on whether to buy a book.
 
 ## Features
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
 
 ### Existing Features
- Browsing, searching and filtering books 
-        This functionality is mostly contained within the 'products' app. It allows a user to view all books currently available, filter through them by Genre and Language, as well as alphabetical order, price etc. Additionally, a user can see all details of a book displayed (book_details.html)
+
+![Home Page Web](https://github.com/albenakr/the-book-club/blob/master/media/home_page.png ) 
+
+1. Browsing, searching and filtering books 
+
+This functionality is mostly contained within the 'products' app. It allows a user to view all books currently available, filter through them by Genre and Language, as well as alphabetical order, price etc. Additionally, a user can see all details of a book displayed (book_details.html)
+
 2.  Building Custom Plans
-        Functionality is within the 'plans' app. This feature automatically generates a list of books (plan) and price, based on the criteria a user has picked. The criteria a user can pick are genres, languages and the plan duration (considering they receive 1 book per month, depending on the plan duration, they are signing up for 3, 6 or 12 months/books). The custom_plans view builds a plan for them, based on a randomized set of books matching their criteria. In case the database doesn't contain enough books matching their criteria, the plan is automatically adjusted to the number of books available, so that a user is not overcharged. The price is calculated at 10 EUR per book in a plan, and the plan overview a user sees also displays how much they're saving by going for the plan, instead of individual books. 
+
+Functionality is within the 'plans' app. This feature automatically generates a list of books (plan) and price, based on the criteria a user has picked. The criteria a user can pick are genres, languages and the plan duration (considering they receive 1 book per month, depending on the plan duration, they are signing up for 3, 6 or 12 months/books). The custom_plans view builds a plan for them, based on a randomized set of books matching their criteria. In case the database doesn't contain enough books matching their criteria, the plan is automatically adjusted to the number of books available, so that a user is not overcharged. The price is calculated at 10 EUR per book in a plan, and the plan overview a user sees also displays how much they're saving by going for the plan, instead of individual books. 
+
 3.  Writing Reviews
-        Registered and logged in users have the possibility to write reviews for books('reviews' app). This includes a rating on a scale of 1 to 5 (average of which is displayed when rendering book details, if available), a overview title of the review and space for comments. On their profile page, a user can see all the reviews they've personally left and delete some.
+
+Registered and logged in users have the possibility to write reviews for books('reviews' app). This includes a rating on a scale of 1 to 5 (average of which is displayed when rendering book details, if available), a overview title of the review and space for comments. On their profile page, a user can see all the reviews they've personally left and delete some.
+
 4.  Checkout
-        Add to Bag ('bag' app) and Chechout ('checkout' app) functionality, allowing the user to buy individual books, plans or a combination of books and plans. The checkout functionality is fully integrated with Stripe (test version), allowing for users to pay quickly and efficiently. 
+
+Add to Bag ('bag' app) and Chechout ('checkout' app) functionality, allowing the user to buy individual books, plans or a combination of books and plans. The checkout functionality is fully integrated with Stripe (test version), allowing for users to pay quickly and efficiently. 
+
 5. User Profiles
-        User profiles functionality ('profiles' app), which renders a user's order history, delivery details and reviews left on books. It was desinged in a way that's enabling them to interact with their history with the website - whether it's to review orders, review books or go through past reviews.
+
+User profiles functionality ('profiles' app), which renders a user's order history, delivery details and reviews left on books. It was desinged in a way that's enabling them to interact with their history with the website - whether it's to review orders, review books or go through past reviews.
 
 ### Features Left to Implement
 
