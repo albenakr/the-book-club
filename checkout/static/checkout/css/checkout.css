@@ -7,9 +7,12 @@
     font-size: 0.8rem;
 }
 
+/* -------------------Stripe */
+
+
 .StripeElement,
 .stripe-style-input {
-  height: 40px;
+  height: auto;
   padding: 10px 12px;
 
   color: #32325d;
@@ -69,7 +72,7 @@ select option[value=""] {
     height: 100%;
 }
 
-/* Action Buttons on Mobile */
+/* -------------------Action Buttons on Mobile */
 
 @media (max-width: 410px) {
     .mobile-button {

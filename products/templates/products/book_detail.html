@@ -103,13 +103,12 @@
    </div>
 </div>
 </div>
-</div>
 
 <hr>
 
 {% if reviews %}
 <div class="container-fluid reviews-details-container" id="reviews">
-   <div class="row my-5">
+   <div class="row mb-3">
       <div class="col">
          <h3>Reviews</h3>
       </div>
@@ -117,8 +116,8 @@
          <p><a class="btn btn-small" href="{% url 'write_review' book.id %}">Review Book</a></p>
       </div>
    </div>
-   <div class="row">
-      <div class="col">
+   <div class="row justify-content-center">
+      <div class="col-12 col-sm-8">
          {% for review in reviews %}
          <div class="card reviews-card">
             <div class="card-title card-title-reviews">

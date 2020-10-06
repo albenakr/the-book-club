@@ -127,6 +127,7 @@
     <div class="col-12 col-sm-8">
       <h3>Your Reviews</h3>
     </div>
+  {% if reviews %}
     <div class="col-12 col-sm-4 align-center">
       <a
         class="btn"
@@ -140,7 +141,6 @@
       </a>
     </div>
   </div>
-  {% if reviews %}
   <div class="collapse" id="collapseReviews">
     <div class="row justify-content-center">
       <div class="col-12 col-sm-8">
@@ -165,11 +165,8 @@
       </div>
     </div>
     {% else %}
-    <div class="row">
-      <div class="col">
-        <h3>Reviews</h3>
+    <div class="col-12 col-sm-4 align-center">
         <p>You haven't reviewed any books yet.</p>
-      </div>
     </div>
   </div>
 </div>

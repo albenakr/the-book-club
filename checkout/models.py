@@ -65,7 +65,7 @@ class Order(models.Model):
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False,
-                              on_delete=models.CASCADE, 
+                              on_delete=models.CASCADE,
                               related_name='lineitems')
     book = models.ForeignKey(
         Book, null=True, blank=True, on_delete=models.CASCADE)
