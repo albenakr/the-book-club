@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse, get_object_or_404)
 from django.contrib import messages
 from products.models import Book
 from plans.models import Plan
 
-# Create your views here.
+""" Logic taken from Code Institute Boutique Ado example,
+functionality was expanded to include plans, in addition to books """
 
 
 def view_bag(request):
@@ -46,7 +48,6 @@ def add_plan_to_bag(request, item_id):
     request.session['bag'] = bag
 
     return redirect('view_custom_plan_details', plan_id=plan.id)
-
 
 
 def adjust_bag(request, item_id):

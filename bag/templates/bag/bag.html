@@ -49,17 +49,17 @@
           <div class="col-12 col-sm-6 my-2">
             {% include "bag/product_details.html" %} {% if item.book != None %}
 
-            <p>€{{ item.book.price }}</p>
+            <p>Price: €{{ item.book.price }}</p>
             {% else %}
-            <p>€{{ item.plan.price }}</p>
+            <p>Price: €{{ item.plan.price }}</p>
             {% endif %} {% include "bag/quantity_update.html" %} {% if item.book != None %}
-            <p>€{{ item.book.price | calc_subtotal:item.quantity }}</p>
+            <p>Subtotal: €{{ item.book.price | calc_subtotal:item.quantity }}</p>
             {% else %}
-            <p>€{{ item.plan.price }}</p>
+            <p>Subtotal: €{{ item.plan.price }}</p>
             {% endif %} {% include "bag/remove_button.html" %}
           </div>
         </div>
-     <hr>        
+        <hr />
         {% endfor %}
       </div>
 
@@ -136,32 +136,28 @@
           </tbody>
         </table>
       </div>
-      
+
       {% else %}
-<div class="row align-center"><div class="col">
-<p>Your bag is empty.</p>
-      <a href="{% url 'books' %}" class="btn btn-light">
-        <span class="icon">
-          <i class="fas fa-chevron-left"></i>
-        </span>
-        <span class="text-uppercase">Keep Shopping</span>
-      </a>
-</div></div>      
+      <div class="row align-center">
+        <div class="col">
+          <p>Your bag is empty.</p>
+          <a href="{% url 'books' %}" class="btn btn-light">
+            <span class="icon">
+              <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="text-uppercase">Keep Shopping</span>
+          </a>
+        </div>
+      </div>
       {% endif %}
     </div>
   </div>
 </div>
 
-{% endblock %} 
-
-{% block postloadjs %} {{ block.super }} {% include 'products/includes/quantity_input_script.html' %}
+{% endblock %} {% block postloadjs %} {{ block.super }}
 <script>
   /* As this code relies on the csrf token, it stops working when exported into a separate file */
-  // Update quantity on click
-  $(".update-link").click(function (e) {
-    var form = $(this).prev(".update-form");
-    form.submit();
-  });
+
   // Remove item and reload on click - books
   $(".remove-item-book").click(function (e) {
     var csrfToken = "{{ csrf_token }}";
