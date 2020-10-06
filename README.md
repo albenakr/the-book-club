@@ -68,14 +68,12 @@ Another important aspect was to make sure there is a seemless flow of informatio
     3. As a registered user, I want to be able to see other users' reviews for the books I'm considering buying, so that I can form an opinion on whether to buy a book.
     4. As a user, I want to be able to see the average rating for a book, based on the users reviews, so that I can form an opinion on whether to buy a book.
 
+
 ## Features
 
+The databse schema for this project is available ['here'](https://github.com/albenakr/the-book-club/tree/master/database_schema)
+
 ### Existing Features
-
-
-
-
-
 
 
 1. Browsing, searching and filtering books 
@@ -83,6 +81,7 @@ Another important aspect was to make sure there is a seemless flow of informatio
 This functionality is mostly contained within the 'products' app. It allows a user to view all books currently available, filter through them by Genre and Language, as well as alphabetical order, price etc. Additionally, a user can see all details of a book displayed (book_details.html)
 
 ![Shop Books Web](https://github.com/albenakr/the-book-club/blob/master/media/shop_books_web.png) 
+
 ![Shop Books Mobile](https://github.com/albenakr/the-book-club/blob/master/media/shop_books_mobile.png) 
 
 2.  Building Custom Plans
@@ -90,6 +89,7 @@ This functionality is mostly contained within the 'products' app. It allows a us
 Functionality is within the 'plans' app. This feature automatically generates a list of books (plan) and price, based on the criteria a user has picked. The criteria a user can pick are genres, languages and the plan duration (considering they receive 1 book per month, depending on the plan duration, they are signing up for 3, 6 or 12 months/books). The custom_plans view builds a plan for them, based on a randomized set of books matching their criteria. In case the database doesn't contain enough books matching their criteria, the plan is automatically adjusted to the number of books available, so that a user is not overcharged. The price is calculated at 10 EUR per book in a plan, and the plan overview a user sees also displays how much they're saving by going for the plan, instead of individual books. 
 
 ![Custom Plan Web](https://github.com/albenakr/the-book-club/blob/master/media/custom_plan_web.png) 
+
 ![Custom Plan Mobile](https://github.com/albenakr/the-book-club/blob/master/media/custom_plan_mobile.png) 
 
 3.  Writing Reviews
@@ -113,11 +113,11 @@ With more time, the possibilities to expand this project are endless. Those are 
 - Automated testing.
 
 ## Technologies Used
-*HTML
+* HTML
     Templates Structure
-*CSS
+* CSS
     Template Styling
-*JQuery
+* JQuery
     The project uses JQuery to simplify DOM access and manipulation.
 * Bootstrap
         Bootstrap was used for many of the main elements including navigation manus, buttons, cards etc, and the grid system was used for responsiveness.
@@ -140,13 +140,14 @@ With more time, the possibilities to expand this project are endless. Those are 
 * Stripe
         Stripe is used as payments processor.
 
+
 ## Testing
 
 The app has been tested for responsiveness across all sizes available throught the Dev Tools, including: Desktop, Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, iphone %/SE, 6, 7, 8, iPhone 6/7/8 +, iPhone X, iPad, iPad Pro, Surface Duo, Galaxy Fold.
 
-The entire application was tested continuously throughout the development, as well as extensively after deployment in the final stages of this project.
+The entire application was tested continuously throughout the development, as well as extensively after deployment in the final stages of this project. 
 
-Tests were predominantly manual and a more detailed write-up of the tests conducted can be found in the file 'tests.txt' inside the folder 'tests' within this project. 
+Tests were predominantly manual and a more detailed write-up of the tests conducted can be found in the folder ['tests'](https://github.com/albenakr/the-book-club/tree/master/tests) within this project. 
 
 
 ## Deployment
@@ -208,16 +209,16 @@ To run the project locally:
 `Pip3 install boto3`
 `pip3 install django-storages`
 12. Set up Configuration variables in Heroku:
-SECRET_KEY: {your django secret key}
-AWS_ACCESS_KEY_ID: {You can get it from Amazon}
-AWS_SECRET_ACCESS_KEY: {You can get it from Amazon}
-DATABASE_URL: {from Postgres Add-on in Heroku}
-EMAIL_HOST_PASS: {from email provider}
-EMAIL_HOST_USER: {email you're using}
-STRIPE_PUBLIC_KEY: {from Stripe}
-STRIPE_SECRET_KEY: {from Stripe}
-STRIPE_SECRET_KEY: {from Stripe}
-USE_AWS: True
+    * SECRET_KEY: {your django secret key}
+    * AWS_ACCESS_KEY_ID: {You can get it from Amazon}
+    * AWS_SECRET_ACCESS_KEY: {You can get it from Amazon}
+    * DATABASE_URL: {from Postgres Add-on in Heroku}
+    * EMAIL_HOST_PASS: {from email provider}
+    * EMAIL_HOST_USER: {email you're using}
+    * STRIPE_PUBLIC_KEY: {from Stripe}
+    * STRIPE_SECRET_KEY: {from Stripe}
+    * STRIPE_SECRET_KEY: {from Stripe}
+    * USE_AWS: True
 
 You can see the live app here: https://book-club-ecommerce.herokuapp.com/
 

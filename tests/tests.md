@@ -1,5 +1,11 @@
 #Tests
 
+Below is an overview of the testing done on the app. 
+
+The most substantial error found was that the buttons, allowing the user to update quantity were not working as expected in the bag (while they still work well in the product_details page) - Point 4.2 from the tests below. 
+This functionality was taken from the Boutique Ado project, where (as also confirmed by the tutors) this error is also present in the completed project. 
+To address this issue, I've taken out the functionality for users to update the quantity directly from the bag - now if they want to update the quantity, they are redirected to the book_details page, where they can do so and add to bag with the updated quantity. While not an optimal solution, given the limited amount of time caused by the project deadline, this seems like the best solution to make sure the functionality is reachable without an error. 
+
 1. Home Page and Navigation
     1. Clicked through all buttons on the navigation menu - both large screen and mobile versions to make sure all buttons lead where they're supposed to.
     2. Clicked on the 'Build Your Plan Button' on the Home page to make sure it works.
@@ -35,7 +41,7 @@
         * Added Book to bag.
         * Added a different quantity of the same book to ensure the quantity was updated.
         * Added plan to bag.
-    2. Tried to update the quantity to 104 and -4. ERROR - to be fixed.
+    2. Tried to update the quantity to 104 and -4. ERROR found - the quantity buttons not working properly as they allow for values over 100 and below 1 to be submitted. To bypass this error, the functionality was deleted and instead the quantity buttons redirect to the book_details page, where the user can update the quantity without errors.
     3. Removed a plan and a book from the bag to make sure both functions work.
     4. Verified totals and subtotals are calculated correctly.
 
